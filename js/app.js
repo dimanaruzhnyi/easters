@@ -34971,6 +34971,10 @@ __webpack_require__(148);
 __webpack_require__(149);
 __webpack_require__(150);
 __webpack_require__(151);
+__webpack_require__(153);
+__webpack_require__(154);
+__webpack_require__(155);
+__webpack_require__(156);
 document.addEventListener("DOMContentLoaded", function () {
 
   var root = document.querySelector('.areas-map');
@@ -38166,6 +38170,424 @@ var Select = function () {
 }();
 
 exports.default = Select;
+
+/***/ }),
+/* 153 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// Інтерактивне коло категорій: SVG-донат з 5 секторів, при наведенні сектор
+// висувається назовні + підсвічується, у центрі — фото + назва + опис категорії.
+// Самоініціалізація (не залежить від раннього return в головному обробнику index.js).
+
+function initWheel() {
+  var wheel = document.querySelector('.wheel');
+  if (!wheel || wheel.getAttribute('data-inited')) return;
+  var svg = wheel.querySelector('.wheel__svg');
+  var hub = wheel.querySelector('.wheel__hub');
+  var hubMedia = wheel.querySelector('.wheel__hub-media');
+  var hubName = wheel.querySelector('.wheel__hub-name');
+  var hubDesc = wheel.querySelector('.wheel__hub-desc');
+  if (!svg || !hub) return;
+
+  var defName = hubName.textContent,
+      defDesc = hubDesc.textContent;
+  var cats = [].slice.call(wheel.querySelectorAll('.wheel__data > span')).map(function (el) {
+    return {
+      name: el.getAttribute('data-name'),
+      desc: el.getAttribute('data-desc'),
+      img: el.getAttribute('data-img'),
+      color: el.getAttribute('data-color')
+    };
+  });
+  if (!cats.length) return;
+
+  var NS = 'http://www.w3.org/2000/svg';
+  var cx = 220,
+      cy = 220,
+      R = 178,
+      r = 104,
+      N = cats.length,
+      pad = 1.5;
+
+  function pol(rr, a) {
+    var t = (a - 90) * Math.PI / 180;return [cx + rr * Math.cos(t), cy + rr * Math.sin(t)];
+  }
+  function segPath(a0, a1) {
+    var p0 = pol(R, a0),
+        p1 = pol(R, a1),
+        p2 = pol(r, a1),
+        p3 = pol(r, a0);
+    return 'M' + p0[0] + ' ' + p0[1] + 'A' + R + ' ' + R + ' 0 0 1 ' + p1[0] + ' ' + p1[1] + 'L' + p2[0] + ' ' + p2[1] + 'A' + r + ' ' + r + ' 0 0 0 ' + p3[0] + ' ' + p3[1] + 'Z';
+  }
+
+  // прелоад фото
+  cats.forEach(function (c) {
+    if (c.img) {
+      var im = new Image();im.src = c.img;
+    }
+  });
+
+  var segs = [];
+  cats.forEach(function (cat, i) {
+    var a0 = i * (360 / N) + pad,
+        a1 = (i + 1) * (360 / N) - pad,
+        mid = (a0 + a1) / 2;
+    var rad = (mid - 90) * Math.PI / 180;
+    var g = document.createElementNS(NS, 'g');
+    g.setAttribute('class', 'wheel__seg');
+    g.style.setProperty('--tx', Math.cos(rad) * 15 + 'px');
+    g.style.setProperty('--ty', Math.sin(rad) * 15 + 'px');
+
+    var path = document.createElementNS(NS, 'path');
+    path.setAttribute('d', segPath(a0, a1));
+    path.setAttribute('fill', cat.color);
+    g.appendChild(path);
+
+    var lp = pol((R + r) / 2, mid);
+    var t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', lp[0]);t.setAttribute('y', lp[1] + 4);
+    t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('font-size', '13.5'); // user-units → масштабується разом з viewBox
+    t.setAttribute('class', 'wheel__seg-label');
+    t.textContent = (cat.name || '').split(' ')[0];
+    g.appendChild(t);
+
+    g.addEventListener('mouseenter', function () {
+      activate(i);
+    });
+    g.addEventListener('click', function () {
+      activate(i);
+    });
+    svg.appendChild(g);
+    segs.push(g);
+  });
+
+  function activate(i) {
+    var cat = cats[i];
+    for (var k = 0; k < segs.length; k++) {
+      segs[k].classList.toggle('is-active', k === i);
+      segs[k].classList.toggle('is-dim', k !== i);
+    }
+    hubName.textContent = cat.name;
+    hubDesc.textContent = cat.desc;
+    if (cat.img) hubMedia.style.backgroundImage = 'url("' + cat.img + '")';
+    hub.classList.add('is-active');
+  }
+  function reset() {
+    for (var k = 0; k < segs.length; k++) {
+      segs[k].classList.remove('is-active', 'is-dim');
+    }hubName.textContent = defName;
+    hubDesc.textContent = defDesc;
+    hub.classList.remove('is-active');
+  }
+
+  wheel.addEventListener('mouseleave', reset);
+  wheel.setAttribute('data-inited', '1');
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initWheel);
+} else {
+  initWheel();
+}
+
+/***/ }),
+/* 154 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * eco.js — счётчики «Наші цифри» + аккордеон FAQ.
+ * Самоинициализирующийся модуль: главный DOMContentLoaded в index.js
+ * делает ранний return на страницах без .areas-map, поэтому вешаемся сами.
+ * На страницах без соответствующей разметки — тихо ничего не делает.
+ */
+(function () {
+  'use strict';
+
+  var reduceMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+
+  /* ---------------- счётчики ----------------
+     Намеренно БЕЗ IntersectionObserver: проверка по getBoundingClientRect
+     на scroll/resize + стартовая проверка. IO в headless-превью не стреляет,
+     а тут поведение предсказуемо в любом окружении. */
+  function initCounters() {
+    var pending = [].slice.call(document.querySelectorAll('[data-count]'));
+    if (!pending.length) return;
+
+    // data-sep=" " — разделитель разрядов для крупных чисел (18 400 000)
+    function format(value, sep) {
+      var s = String(value);
+      if (!sep) return s;
+      return s.replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+    }
+
+    pending.forEach(function (el) {
+      el.textContent = '0' + (el.getAttribute('data-suffix') || '');
+    });
+
+    function run(el) {
+      var target = parseFloat(el.getAttribute('data-count')) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      var sep = el.getAttribute('data-sep') || '';
+
+      if (reduceMotion) {
+        el.textContent = format(target, sep) + suffix;
+        return;
+      }
+
+      var duration = 1500;
+      var start = null;
+
+      function step(now) {
+        if (start === null) start = now;
+        var p = Math.min(1, (now - start) / duration);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = format(Math.round(target * eased), sep) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    function inView(el) {
+      var r = el.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      return r.top < vh * 0.9 && r.bottom > 0;
+    }
+
+    var ticking = false;
+
+    function check() {
+      ticking = false;
+      pending = pending.filter(function (el) {
+        if (!inView(el)) return true;
+        run(el);
+        return false;
+      });
+      if (!pending.length) detach();
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(check);
+    }
+
+    function detach() {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    check();
+  }
+
+  /* ---------------- FAQ ----------------
+     Хуки — на data-атрибутах, а не на классах: одна и та же логика
+     обслуживает и .eco-faq, и .mix-faq с разной версткой. */
+  function initFaq() {
+    var lists = [].slice.call(document.querySelectorAll('.js-faq'));
+    if (!lists.length) return;
+
+    function panelOf(item) {
+      return item.querySelector('[data-faq-panel]');
+    }
+
+    // высота всегда выставляется в px, поэтому закрытие — просто '0px',
+    // никаких rAF-трюков (иначе отложенный сброс затирает соседнее открытие)
+    function close(item) {
+      if (!item.classList.contains('is-open')) return;
+      var panel = panelOf(item);
+      if (panel) panel.style.height = '0px';
+      item.classList.remove('is-open');
+      var btn = item.querySelector('[data-faq-btn]');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+
+    function open(item) {
+      var panel = panelOf(item);
+      if (!panel) return;
+      var inner = panel.firstElementChild;
+      panel.style.height = (inner ? inner.offsetHeight : panel.scrollHeight) + 'px';
+      item.classList.add('is-open');
+      var btn = item.querySelector('[data-faq-btn]');
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+    }
+
+    lists.forEach(function (list) {
+      var items = [].slice.call(list.querySelectorAll('[data-faq-item]'));
+
+      items.forEach(function (item) {
+        var btn = item.querySelector('[data-faq-btn]');
+        if (!btn) return;
+
+        btn.addEventListener('click', function () {
+          var wasOpen = item.classList.contains('is-open');
+          items.forEach(close); // аккордеон: одновременно открыт один пункт
+          if (!wasOpen) open(item);
+        });
+      });
+    });
+
+    // после ресайза высота открытого пункта могла поехать
+    var raf;
+    window.addEventListener('resize', function () {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function () {
+        [].slice.call(document.querySelectorAll('[data-faq-item].is-open')).forEach(function (item) {
+          var panel = panelOf(item);
+          var inner = panel && panel.firstElementChild;
+          if (panel && inner) panel.style.height = inner.offsetHeight + 'px';
+        });
+      });
+    });
+  }
+
+  function init() {
+    initCounters();
+    initFaq();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+/***/ }),
+/* 155 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * nova.js — перемикач «Обране» (табы товаров) на tulpani-nova.html.
+ * Самоинициализирующийся модуль: главный DOMContentLoaded в index.js
+ * делает ранний return на страницах без .areas-map, поэтому вешаемся сами.
+ * Без разметки .js-nova-tabs — тихо ничего не делает.
+ */
+(function () {
+  'use strict';
+
+  function init() {
+    var boxes = [].slice.call(document.querySelectorAll('.js-nova-tabs'));
+    if (!boxes.length) return;
+
+    boxes.forEach(function (box) {
+      var tabs = [].slice.call(box.querySelectorAll('[data-nova-tab]'));
+      var panes = [].slice.call(box.querySelectorAll('[data-nova-pane]'));
+      if (!tabs.length || !panes.length) return;
+
+      function activate(key) {
+        tabs.forEach(function (tab) {
+          tab.classList.toggle('is-active', tab.getAttribute('data-nova-tab') === key);
+        });
+        panes.forEach(function (pane) {
+          pane.classList.toggle('is-active', pane.getAttribute('data-nova-pane') === key);
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activate(tab.getAttribute('data-nova-tab'));
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+/***/ }),
+/* 156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * mix.js — скролл-эффекты сводной страницы tulpani-mix.html:
+ *  1) липкий хедер, который сжимается после прокрутки (.is-stuck);
+ *  2) полоса прогресса прокрутки (.mix-progress > i);
+ *  3) параллакс для [data-parallax] (фон тёмной секции).
+ * Всё считается в одном rAF-тике на scroll/resize.
+ * Самоинициализация: главный DOMContentLoaded в index.js делает ранний
+ * return на страницах без .areas-map. Без разметки .page--mix — no-op.
+ */
+(function () {
+  'use strict';
+
+  function init() {
+    var page = document.querySelector('.page--mix');
+    if (!page) return;
+
+    var reduceMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+
+    var header = page.querySelector('.header');
+    var bar = page.querySelector('.mix-progress i');
+    var parallax = [].slice.call(page.querySelectorAll('[data-parallax]'));
+    var ticking = false;
+
+    function frame() {
+      ticking = false;
+
+      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+      if (header) {
+        if (y > 40) header.classList.add('is-stuck');else header.classList.remove('is-stuck');
+      }
+
+      if (bar) {
+        var doc = document.documentElement;
+        var max = (document.body.scrollHeight || doc.scrollHeight) - window.innerHeight;
+        var p = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+        bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+      }
+
+      if (!reduceMotion) {
+        var vh = window.innerHeight;
+        parallax.forEach(function (el) {
+          var host = el.parentElement || el;
+          var rect = host.getBoundingClientRect();
+          if (rect.bottom < 0 || rect.top > vh) return; // вне экрана — не считаем
+          var speed = parseFloat(el.getAttribute('data-parallax')) || 0.18;
+          // 0 в центре экрана, ± по мере ухода секции вверх/вниз
+          var shift = (rect.top + rect.height / 2 - vh / 2) * speed;
+          el.style.transform = 'translate3d(0,' + shift.toFixed(1) + 'px,0)';
+        });
+      }
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(frame);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    frame();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
 
 /***/ })
 /******/ ]);
