@@ -13,7 +13,7 @@
 <body>
   <div class="page">
 
-    
+
     <header class="header">
       <div class="header__inner">
         <a class="header__logo" href="/">
@@ -136,6 +136,48 @@
       </div>
     </div>
 
+    <!-- ============ РІШЕННЯ ТА СЕРВІСИ ============ -->
+    <div class="nova-solutions">
+      <div class="nova-solutions__inner">
+        <div class="nova-solutions__head" data-reveal>
+          <h2 class="nova-solutions__title">Рішення та сервіси</h2>
+          <p class="nova-solutions__lead">Ми відповідаємо на потреби кожного клієнта: цільові рішення для харчової промисловості, для професійних кондитерів та для роздрібних мереж.</p>
+        </div>
+
+        <div class="nova-solutions__list" data-reveal-stagger>
+          <a class="nova-tile" href="/promyslovosti">
+            <img class="nova-tile__img" src="data/about-2.jpg" alt="Харчова промисловість">
+            <div class="nova-tile__overlay"></div>
+            <div class="nova-tile__body">
+              <h3 class="nova-tile__name">Харчовій промисловості</h3>
+              <p class="nova-tile__text">Форми зі стабільною геометрією для автоматичних ліній, великі обсяги, стабільна якість партії.</p>
+              <span class="nova-btn nova-btn--ghost">Дізнатись більше</span>
+            </div>
+          </a>
+
+          <a class="nova-tile" href="/kondyteram">
+            <img class="nova-tile__img" src="data/cat-2.jpg" alt="Кондитерам">
+            <div class="nova-tile__overlay"></div>
+            <div class="nova-tile__body">
+              <h3 class="nova-tile__name">Професійним кондитерам</h3>
+              <p class="nova-tile__text">Форми під авторські десерти: тюльпани, тарталетки, мафіни, паски. Будь-який розмір і колір.</p>
+              <span class="nova-btn nova-btn--ghost">Дізнатись більше</span>
+            </div>
+          </a>
+
+          <a class="nova-tile" href="/merezham">
+            <img class="nova-tile__img" src="data/cat-4.jpg" alt="Роздрібним мережам">
+            <div class="nova-tile__overlay"></div>
+            <div class="nova-tile__body">
+              <h3 class="nova-tile__name">Роздрібним мережам</h3>
+              <p class="nova-tile__text">Фасовка під полицю, сезонні лінійки та готові промо-набори до свят.</p>
+              <span class="nova-btn nova-btn--ghost">Дізнатись більше</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <div class="super">
       <div class="super__inner">
         <span class="super__eyebrow">Асортимент</span>
@@ -154,6 +196,103 @@
             <div class="wheel__hub-text">
               <div class="wheel__hub-name">Асортимент</div>
               <div class="wheel__hub-desc">Наведіть на категорію</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ОБРАНЕ (перемикач товарів) ============ -->
+    <div class="nova-featured">
+      <div class="nova-featured__inner">
+        <div class="nova-featured__head" data-reveal>
+          <span class="nova-featured__eyebrow">Обране</span>
+          <a class="nova-featured__all" href="/produkciya">Вся продукція</a>
+        </div>
+
+        <div class="nova-featured__box js-nova-tabs" data-reveal>
+          <div class="nova-featured__nav">
+            <button class="nova-tab is-active" type="button" data-nova-tab="tulpany">
+              <span class="nova-tab__kicker">Форми для випікання</span>
+              <span class="nova-tab__name">Тюльпани</span>
+            </button>
+            <button class="nova-tab" type="button" data-nova-tab="tartaletki">
+              <span class="nova-tab__kicker">Форми для десертів</span>
+              <span class="nova-tab__name">Тарталетки</span>
+            </button>
+            <button class="nova-tab" type="button" data-nova-tab="maffiny">
+              <span class="nova-tab__kicker">Порційні форми</span>
+              <span class="nova-tab__name">Мафіни та капкейки</span>
+            </button>
+            <button class="nova-tab" type="button" data-nova-tab="pasky">
+              <span class="nova-tab__kicker">Сезонна лінійка</span>
+              <span class="nova-tab__name">Форми для пасок</span>
+            </button>
+          </div>
+
+          <div class="nova-featured__panes">
+            <div class="nova-pane is-active" data-nova-pane="tulpany">
+              <div class="nova-pane__media">
+                <img src="data/wheel-tulpani.jpg" alt="Тюльпани">
+              </div>
+              <div class="nova-pane__body">
+                <h3 class="nova-pane__name">Тюльпани</h3>
+                <p class="nova-pane__text">Форми з перфорованого пергаменту, стійкі до температури духової шафи до +220°C та до заморозки. Не потребують змащування й додаткових форм: тісто викладається просто у форму, а готовий виріб подається прямо в ній. Доступні в різних розмірах і кольорах.</p>
+                <div class="nova-pane__specs">
+                  <span class="nova-spec"><b>+220°C</b> випікання</span>
+                  <span class="nova-spec"><b>−18°C</b> заморозка</span>
+                  <span class="nova-spec"><b>12</b> розмірів</span>
+                </div>
+                <a class="nova-btn" href="/tyulpany">Перейти до товарів</a>
+              </div>
+            </div>
+
+            <div class="nova-pane" data-nova-pane="tartaletki">
+              <div class="nova-pane__media">
+                <img src="data/wheel-tartaletki.jpg" alt="Тарталетки">
+              </div>
+              <div class="nova-pane__body">
+                <h3 class="nova-pane__name">Тарталетки</h3>
+                <p class="nova-pane__text">Тримають форму під начинкою — ідеальні для десертів, канапе та холодних закусок. Виготовлені з чистої целюлози, стійкі до жирів, не розмокають і не деформуються під час подачі. Підходять і для випікання, і для готових холодних страв.</p>
+                <div class="nova-pane__specs">
+                  <span class="nova-spec"><b>+220°C</b> випікання</span>
+                  <span class="nova-spec"><b>Жиро-</b>стійкі</span>
+                  <span class="nova-spec"><b>8</b> розмірів</span>
+                </div>
+                <a class="nova-btn" href="/tartaletki">Перейти до товарів</a>
+              </div>
+            </div>
+
+            <div class="nova-pane" data-nova-pane="maffiny">
+              <div class="nova-pane__media">
+                <img src="data/wheel-maffiny.jpg" alt="Мафіни та капкейки">
+              </div>
+              <div class="nova-pane__body">
+                <h3 class="nova-pane__name">Мафіни та капкейки</h3>
+                <p class="nova-pane__text">Порційні форми у широкій палітрі кольорів — від нейтральних до святкових. Сумісні з автоматичними лініями розстікерування, тримають форму без металевого лотка й однаково добре працюють у конвекційній та подовій печі.</p>
+                <div class="nova-pane__specs">
+                  <span class="nova-spec"><b>+220°C</b> випікання</span>
+                  <span class="nova-spec"><b>20+</b> кольорів</span>
+                  <span class="nova-spec"><b>Авто</b>лінії</span>
+                </div>
+                <a class="nova-btn" href="/maffiny">Перейти до товарів</a>
+              </div>
+            </div>
+
+            <div class="nova-pane" data-nova-pane="pasky">
+              <div class="nova-pane__media">
+                <img src="data/wheel-paska.jpg" alt="Форми для пасок">
+              </div>
+              <div class="nova-pane__body">
+                <h3 class="nova-pane__name">Форми для пасок</h3>
+                <p class="nova-pane__text">Сезонна лінійка до Великодня: форми з посиленим дном і бортами, які тримають високе тісто й не розходяться під час росту. Готова паска подається прямо у формі — з друком або в лаконічному крафтовому виконанні.</p>
+                <div class="nova-pane__specs">
+                  <span class="nova-spec"><b>Посилене</b> дно</span>
+                  <span class="nova-spec"><b>Друк</b> на замовлення</span>
+                  <span class="nova-spec"><b>10</b> розмірів</span>
+                </div>
+                <a class="nova-btn" href="/bumazhnye-formy-dlya-pasok">Перейти до товарів</a>
+              </div>
             </div>
           </div>
         </div>
@@ -262,6 +401,70 @@
       </div>
     </div>
 
+    <!-- ============ ЦИФРИ ВИРОБНИЦТВА (темна фото-секція) ============ -->
+    <div class="nova-figures">
+      <div class="nova-figures__bg">
+        <img src="data/hero-tulpani.jpg" alt="">
+      </div>
+      <div class="nova-figures__inner">
+        <h2 class="nova-figures__title" data-reveal>Цифри нашого виробництва</h2>
+
+        <div class="nova-figures__list" data-reveal-stagger>
+          <div class="nova-figures__item">
+            <div class="nova-figures__val"><span data-count="50" data-suffix="+">50+</span></div>
+            <span class="nova-figures__label">працівників</span>
+          </div>
+          <div class="nova-figures__item">
+            <div class="nova-figures__val"><span data-count="12" data-suffix="">12</span></div>
+            <span class="nova-figures__label">країн експорту</span>
+          </div>
+          <div class="nova-figures__item">
+            <div class="nova-figures__val"><span data-count="2" data-suffix="">2</span></div>
+            <span class="nova-figures__label">виробничі майданчики</span>
+          </div>
+          <div class="nova-figures__item">
+            <div class="nova-figures__val"><span data-count="20" data-suffix="">20</span></div>
+            <span class="nova-figures__label">років на ринку</span>
+          </div>
+        </div>
+
+        <div class="nova-figures__prod" data-reveal-stagger>
+          <div class="nova-figures__prod-item">
+            <span class="nova-figures__prod-name">Форми для випікання</span>
+            <span class="nova-figures__prod-val" data-count="18400000" data-sep=" ">18 400 000</span>
+          </div>
+          <div class="nova-figures__prod-item">
+            <span class="nova-figures__prod-name">Порційні форми</span>
+            <span class="nova-figures__prod-val" data-count="42750000" data-sep=" ">42 750 000</span>
+          </div>
+          <div class="nova-figures__prod-item">
+            <span class="nova-figures__prod-name">Інша продукція</span>
+            <span class="nova-figures__prod-val" data-count="6120000" data-sep=" ">6 120 000</span>
+          </div>
+        </div>
+
+        <p class="nova-figures__note" data-reveal>Кількість виробів за рік. Дані станом на 01.01.2026.</p>
+
+        <div class="nova-figures__geo" data-reveal>
+          <span class="nova-figures__geo-title">Ми постачаємо в:</span>
+          <div class="nova-figures__geo-list">
+            <span class="nova-chip">Україна</span>
+            <span class="nova-chip">Польща</span>
+            <span class="nova-chip">Молдова</span>
+            <span class="nova-chip">Румунія</span>
+            <span class="nova-chip">Литва</span>
+            <span class="nova-chip">Латвія</span>
+            <span class="nova-chip">Естонія</span>
+            <span class="nova-chip">Словаччина</span>
+            <span class="nova-chip">Угорщина</span>
+            <span class="nova-chip">Чехія</span>
+            <span class="nova-chip">Німеччина</span>
+            <span class="nova-chip">Ізраїль</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="about">
       <div class="about__inner" data-reveal-stagger>
         <div class="about__row">
@@ -290,6 +493,142 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- ============ ІННОВАЦІЇ / СЕРТИФІКАТИ / ЕКОЛОГІЯ ============ -->
+    <div class="nova-tri" data-reveal-stagger>
+      <a class="nova-tri__item" href="/innovacii">
+        <img class="nova-tri__img" src="data/cat-1.jpg" alt="Інновації">
+        <div class="nova-tri__overlay"></div>
+        <div class="nova-tri__body">
+          <h3 class="nova-tri__name">Інновації</h3>
+          <p class="nova-tri__text">Пошук нових матеріалів і форм, які роблять роботу кондитера простішою, — постійна частина нашої роботи.</p>
+          <span class="nova-btn nova-btn--ghost">Дізнатись більше</span>
+        </div>
+      </a>
+      <a class="nova-tri__item" href="/sertyfikaty">
+        <img class="nova-tri__img" src="data/easterProd.jpg" alt="Сертифікати">
+        <div class="nova-tri__overlay"></div>
+        <div class="nova-tri__body">
+          <h3 class="nova-tri__name">Сертифікати</h3>
+          <p class="nova-tri__text">Матеріали мають документи щодо якості, безпечності та придатності для контакту з харчовими продуктами.</p>
+          <span class="nova-btn nova-btn--ghost">Дізнатись більше</span>
+        </div>
+      </a>
+      <a class="nova-tri__item" href="/ekologichnist">
+        <img class="nova-tri__img" src="data/wheel-mikrogofra.jpg" alt="Екологічність">
+        <div class="nova-tri__overlay"></div>
+        <div class="nova-tri__body">
+          <h3 class="nova-tri__name">Екологічність</h3>
+          <p class="nova-tri__text">Папір і целюлоза замість пластику: наші форми переробляються та не залишаються на звалищі назавжди.</p>
+          <span class="nova-btn nova-btn--ghost">Дізнатись більше</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- ============ ВИСТАВКИ ============ -->
+    <div class="nova-expo">
+      <div class="nova-expo__inner">
+        <div class="nova-expo__head" data-reveal>
+          <span class="nova-expo__eyebrow">Виставки</span>
+          <h2 class="nova-expo__title">Де нас можна зустріти</h2>
+          <p class="nova-expo__lead">Ми віримо у важливість живого спілкування з клієнтами. Ось найближчі виставки, у яких ми беремо участь.</p>
+        </div>
+
+        <div class="nova-expo__list" data-reveal-stagger>
+          <div class="nova-expo__row">
+            <div class="nova-expo__date">
+              <span class="nova-expo__day">18–20</span>
+              <span class="nova-expo__month">вересня 2026</span>
+            </div>
+            <div class="nova-expo__body">
+              <h3 class="nova-expo__name">Bakery &amp; Confectionery Expo</h3>
+              <span class="nova-expo__place">Київ, МВЦ</span>
+            </div>
+            <span class="nova-expo__stand">Стенд B-14</span>
+          </div>
+
+          <div class="nova-expo__row">
+            <div class="nova-expo__date">
+              <span class="nova-expo__day">07–09</span>
+              <span class="nova-expo__month">жовтня 2026</span>
+            </div>
+            <div class="nova-expo__body">
+              <h3 class="nova-expo__name">Food Technologies</h3>
+              <span class="nova-expo__place">Львів, Expo Center</span>
+            </div>
+            <span class="nova-expo__stand">Стенд C-3</span>
+          </div>
+
+          <div class="nova-expo__row">
+            <div class="nova-expo__date">
+              <span class="nova-expo__day">12–14</span>
+              <span class="nova-expo__month">листопада 2026</span>
+            </div>
+            <div class="nova-expo__body">
+              <h3 class="nova-expo__name">Packaging Ukraine</h3>
+              <span class="nova-expo__place">Харків, ККЗ «Україна»</span>
+            </div>
+            <span class="nova-expo__stand">Стенд A-21</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ЗАПИТ (форма) ============ -->
+    <div class="nova-request">
+      <div class="nova-request__inner">
+        <div class="nova-request__aside" data-reveal>
+          <span class="nova-request__eyebrow">Зв’язок</span>
+          <h2 class="nova-request__title">Запит для бізнесу</h2>
+          <p class="nova-request__text">Розкажіть про вашу задачу — підберемо форму, порахуємо ціну під ваш обсяг і терміни відвантаження.</p>
+          <a class="nova-request__phone" href="tel:+380960000350">+380 (96) 0000 350</a>
+          <a class="nova-request__mail" href="mailto:easters.form@gmail.com">easters.form@gmail.com</a>
+        </div>
+
+        <form class="nova-request__form" action="index.php?route=information/contact" method="post" data-reveal>
+          <div class="nova-field">
+            <label class="nova-field__label" for="req-type">Тип запиту *</label>
+            <select class="nova-field__select" id="req-type" name="request_type" required>
+              <option value="">Оберіть тип запиту</option>
+              <option value="product">Інформація про продукцію</option>
+              <option value="price">Прорахунок ціни</option>
+              <option value="custom">Індивідуальний друк</option>
+              <option value="distribution">Дистрибуція</option>
+            </select>
+          </div>
+
+          <div class="nova-field nova-field--half">
+            <label class="nova-field__label" for="req-name">Ім’я *</label>
+            <input class="nova-field__input" id="req-name" type="text" name="name" required>
+          </div>
+
+          <div class="nova-field nova-field--half">
+            <label class="nova-field__label" for="req-company">Компанія</label>
+            <input class="nova-field__input" id="req-company" type="text" name="company">
+          </div>
+
+          <div class="nova-field nova-field--half">
+            <label class="nova-field__label" for="req-email">E-mail *</label>
+            <input class="nova-field__input" id="req-email" type="email" name="email" required>
+          </div>
+
+          <div class="nova-field nova-field--half">
+            <label class="nova-field__label" for="req-phone">Телефон</label>
+            <input class="nova-field__input" id="req-phone" type="tel" name="telephone">
+          </div>
+
+          <div class="nova-field">
+            <label class="nova-field__label" for="req-msg">Повідомлення *</label>
+            <textarea class="nova-field__area" id="req-msg" name="enquiry" rows="4" required></textarea>
+          </div>
+
+          <div class="nova-request__foot">
+            <button class="nova-btn nova-btn--solid" type="submit">Надіслати запит</button>
+            <span class="nova-request__hint">* Обов’язкові поля</span>
+          </div>
+        </form>
       </div>
     </div>
 

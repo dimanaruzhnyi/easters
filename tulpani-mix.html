@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page page--mix">
+
+    <div class="mix-progress" aria-hidden="true"><i></i></div>
+
+    <header class="header">
+      <div class="header__inner">
+        <a class="header__logo" href="/">
+          <img class="header__logo-img" src="data/logo-tulip.png" alt="Тюльпани">
+        </a>
+
+        <nav class="header__nav">
+          <ul class="header__menu">
+            <li><a href="/perevagy">Переваги</a></li>
+            <li><a href="/produkciya">Продукція</a></li>
+            <li><a href="/galereya">Галерея</a></li>
+            <li><a href="/pro-nas">Про нас</a></li>
+            <li><a href="/kontakty">Контакти</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__tools">
+          <div class="header__account">
+            <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-5.5 7-5.5s7 1.9 7 5.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span class="header__account-links"><a href="/login">вхід</a> <i>|</i> <a href="/register">реєстрація</a></span>
+          </div>
+
+          <div class="header__lang">
+            <a href="/ru">RU</a>
+            <i class="header__lang-sep">|</i>
+            <a class="is-active" href="/ua">UA</a>
+          </div>
+
+          <button class="header__search" type="button" aria-label="Пошук">
+            <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+
+          <a class="header__cart" href="/cart" aria-label="Кошик">
+            <svg class="header__cart-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l-1.2 10.2a1 1 0 0 1-1 .8H8.2a1 1 0 0 1-1-.8L6 8z" fill="currentColor"/><path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+            <span class="header__cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="hero-slider">
+        <div class="hero-slide">
+          <div class="hero__inner">
+            <div class="hero__panel">
+              <svg class="hero__leaf" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M4 36C4 20 20 4 36 4c0 16-16 32-32 32z" fill="#E8E0D3"/><path d="M11 29c4-7 10-12 17-14" stroke="#B4552D" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span class="hero__label">Паперові форми</span>
+              <div class="hero__title">Тюльпани</div>
+              <p class="hero__text">Дуже корисний та функціональний винахід, що дозволяє полегшити працю кондитерам та просто любителям поекспериментувати на кухні.</p>
+              <a class="btn btn--green hero__btn" href="/tyulpany">Переглянути продукцію</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-slide">
+          <div class="hero__inner">
+            <div class="hero__panel">
+              <svg class="hero__leaf" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M4 36C4 20 20 4 36 4c0 16-16 32-32 32z" fill="#E8E0D3"/><path d="M11 29c4-7 10-12 17-14" stroke="#B4552D" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span class="hero__label">Паперові форми</span>
+              <div class="hero__title">Тарталетки</div>
+              <p class="hero__text">Ідеальні для десертів, канапе та закусок — тримають форму, не потребують змащування та додаткових форм.</p>
+              <a class="btn btn--green hero__btn" href="/tartaletki">Переглянути продукцію</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-slide">
+          <div class="hero__inner">
+            <div class="hero__panel">
+              <svg class="hero__leaf" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M4 36C4 20 20 4 36 4c0 16-16 32-32 32z" fill="#E8E0D3"/><path d="M11 29c4-7 10-12 17-14" stroke="#B4552D" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span class="hero__label">Паперові форми</span>
+              <div class="hero__title">Мафіни</div>
+              <p class="hero__text">Яскраві форми для кексів і мафінів у широкій палітрі кольорів — для будь-яких свят та щоденної випічки.</p>
+              <a class="btn btn--green hero__btn" href="/maffiny">Переглянути продукцію</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="features features--overlap">
+      <div class="features__inner" data-reveal-stagger data-anim="rise">
+        <div class="feature">
+  <span class="feature__icon feature__icon--green" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M4 20c0-9 7-16 16-16 0 9-7 16-16 16z" fill="currentColor"/><path d="M8 16c2.5-4 6-6.5 9-7.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+  </span>
+  <div class="feature__body">
+    <h3 class="feature__title">Екологічні матеріали</h3>
+    <p class="feature__text">Безпечні для здоров’я та навколишнього середовища</p>
+  </div>
+</div>
+<div class="feature">
+  <span class="feature__icon feature__icon--pink" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M14 14.8V6a2 2 0 1 0-4 0v8.8a4 4 0 1 0 4 0z" fill="currentColor"/><circle cx="12" cy="17" r="1.6" fill="#fff"/></svg>
+  </span>
+  <div class="feature__body">
+    <h3 class="feature__title">Термостійкі</h3>
+    <p class="feature__text">Витримують високу температуру без деформації</p>
+  </div>
+</div>
+<div class="feature">
+  <span class="feature__icon feature__icon--green" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M5 9h14l-1.4 10.2a1 1 0 0 1-1 .8H7.4a1 1 0 0 1-1-.8L5 9z" fill="currentColor"/><path d="M7 9a5 5 0 0 1 10 0" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+  </span>
+  <div class="feature__body">
+    <h3 class="feature__title">Зручні у використанні</h3>
+    <p class="feature__text">Не потребують додаткових форм та змащування</p>
+  </div>
+</div>
+<div class="feature">
+  <span class="feature__icon feature__icon--pink" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 1 0 1 17.9c1-.1 1.2-1.3.5-2-.6-.7-.1-1.9.9-1.9H17a4 4 0 0 0 4-4c0-5-4-9-9-9z" fill="currentColor"/><circle cx="8.5" cy="10.5" r="1.1" fill="#fff"/><circle cx="12" cy="8" r="1.1" fill="#fff"/><circle cx="15.5" cy="10.5" r="1.1" fill="#fff"/></svg>
+  </span>
+  <div class="feature__body">
+    <h3 class="feature__title">Яскраві дизайни</h3>
+    <p class="feature__text">Широка палітра кольорів для будь-яких свят</p>
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <!-- ============ ТЕХ. ХАРАКТЕРИСТИКИ (темна смуга) ============ -->
+    <div class="mix-specs">
+      <div class="mix-specs__inner" data-reveal-stagger data-anim="rise">
+        <div class="mix-specs__item">
+          <span class="mix-specs__val">+220°C</span>
+          <span class="mix-specs__label">Витримують духову шафу без деформації</span>
+        </div>
+        <div class="mix-specs__item">
+          <span class="mix-specs__val">−18°C</span>
+          <span class="mix-specs__label">Придатні для заморозки готових виробів</span>
+        </div>
+        <div class="mix-specs__item">
+          <span class="mix-specs__val">800+</span>
+          <span class="mix-specs__label">Позицій: форми, кольори, розміри, друк</span>
+        </div>
+        <div class="mix-specs__item">
+          <span class="mix-specs__val">FOOD</span>
+          <span class="mix-specs__label">Матеріали сертифіковані для контакту з їжею</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ РІШЕННЯ ДЛЯ КОЖНОГО КАНАЛУ ============ -->
+    <div class="mix-channels">
+      <div class="mix-channels__inner">
+        <div class="mix-channels__head" data-reveal>
+          <div class="mix-channels__titlebox">
+            <span class="mix-channels__eyebrow">Кому ми потрібні</span>
+            <h2 class="mix-channels__title mix-h2">Рішення для кожного каналу</h2>
+          </div>
+          <p class="mix-channels__lead">Ми розробляємо рішення під кожен канал збуту: форми для промислових ліній випічки, готові партії для дистрибуції та роздрібну фасовку, яка продає продукт із полиці.</p>
+        </div>
+
+        <div class="mix-channels__list" data-reveal-stagger data-anim="rise">
+          <a class="mix-tile" href="/vyrobnykam">
+            <img class="mix-tile__img" src="data/about-1.jpg" alt="Виробництву">
+            <div class="mix-tile__overlay"></div>
+            <div class="mix-tile__body">
+              <span class="mix-tile__num">01</span>
+              <h3 class="mix-tile__name">Виробництву</h3>
+              <p class="mix-tile__text">Стабільна геометрія форми, сумісність з автоматичними лініями та розстікерування без збоїв. Обсяги від палети.</p>
+              <span class="mx-btn mx-btn--ghost">Детальніше</span>
+            </div>
+          </a>
+
+          <a class="mix-tile" href="/dystrybutoram">
+            <img class="mix-tile__img" src="data/cat-4.jpg" alt="Дистриб’юторам">
+            <div class="mix-tile__overlay"></div>
+            <div class="mix-tile__body">
+              <span class="mix-tile__num">02</span>
+              <h3 class="mix-tile__name">Дистриб’юторам</h3>
+              <p class="mix-tile__text">Понад 800 позицій зі складу, гнучкі об’єми відвантаження та підтримка сезонних піків — Великдень, свята, новий рік.</p>
+              <span class="mx-btn mx-btn--ghost">Детальніше</span>
+            </div>
+          </a>
+
+          <a class="mix-tile" href="/rozdribu">
+            <img class="mix-tile__img" src="data/cat-2.jpg" alt="Роздрібу">
+            <div class="mix-tile__overlay"></div>
+            <div class="mix-tile__body">
+              <span class="mix-tile__num">03</span>
+              <h3 class="mix-tile__name">Роздрібу</h3>
+              <p class="mix-tile__text">Фасовка під полицю, яскраві кольори та друк, зрозуміла інформація на упаковці. Власний бренд — за запитом.</p>
+              <span class="mx-btn mx-btn--ghost">Детальніше</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="super">
+      <div class="super__inner">
+        <span class="super__eyebrow">Асортимент</span>
+        <h2 class="super__title">Форма під будь-яку випічку</h2>
+        <div class="wheel" data-reveal data-anim="scale">
+          <div class="wheel__data" hidden>
+            <span data-name="Тюльпани" data-desc="Форми для випікання тюльпанів — корисний та функціональний винахід для будь-якої випічки." data-img="data/wheel-tulpani.jpg" data-color="#B4552D"></span>
+            <span data-name="Тарталетки" data-desc="Ідеальні для десертів, канапе та закусок — тримають форму й не потребують змащування." data-img="data/wheel-tartaletki.jpg" data-color="#C98A4B"></span>
+            <span data-name="Маффіни" data-desc="Яскраві форми для кексів і мафінів у широкій палітрі кольорів." data-img="data/wheel-maffiny.jpg" data-color="#8C6A3F"></span>
+            <span data-name="Мікрогофра" data-desc="Волого- та жиростійкий пергамент, посилена конструкція дна та бортів." data-img="data/wheel-mikrogofra.jpg" data-color="#6E6A64"></span>
+            <span data-name="Великодні форми" data-desc="Паперові форми для випічки пасок та куличів до Великодня." data-img="data/wheel-paska.jpg" data-color="#7A4A2E"></span>
+          </div>
+          <svg class="wheel__svg" viewBox="0 0 440 440" aria-hidden="true"></svg>
+          <div class="wheel__hub">
+            <div class="wheel__hub-media"></div>
+            <div class="wheel__hub-text">
+              <div class="wheel__hub-name">Асортимент</div>
+              <div class="wheel__hub-desc">Наведіть на категорію</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ОБРАНЕ (перемикач товарів) ============ -->
+    <div class="mix-featured">
+      <div class="mix-featured__inner">
+        <div class="mix-featured__head" data-reveal>
+          <div class="mix-featured__titlebox">
+            <span class="mix-featured__eyebrow">Обране</span>
+            <h2 class="mix-featured__title mix-h2">Що беруть найчастіше</h2>
+          </div>
+          <a class="mix-featured__all" href="/produkciya">Вся продукція</a>
+        </div>
+
+        <div class="mix-featured__box js-nova-tabs" data-reveal data-anim="rise">
+          <div class="mix-featured__nav">
+            <button class="mix-tab is-active" type="button" data-nova-tab="tulpany">
+              <span class="mix-tab__kicker">Форми для випікання</span>
+              <span class="mix-tab__name">Тюльпани</span>
+            </button>
+            <button class="mix-tab" type="button" data-nova-tab="tartaletki">
+              <span class="mix-tab__kicker">Форми для десертів</span>
+              <span class="mix-tab__name">Тарталетки</span>
+            </button>
+            <button class="mix-tab" type="button" data-nova-tab="maffiny">
+              <span class="mix-tab__kicker">Порційні форми</span>
+              <span class="mix-tab__name">Мафіни та капкейки</span>
+            </button>
+            <button class="mix-tab" type="button" data-nova-tab="pasky">
+              <span class="mix-tab__kicker">Сезонна лінійка</span>
+              <span class="mix-tab__name">Форми для пасок</span>
+            </button>
+          </div>
+
+          <div class="mix-featured__panes">
+            <div class="mix-pane is-active" data-nova-pane="tulpany">
+              <div class="mix-pane__media">
+                <img src="data/wheel-tulpani.jpg" alt="Тюльпани">
+              </div>
+              <div class="mix-pane__body">
+                <h3 class="mix-pane__name">Тюльпани</h3>
+                <p class="mix-pane__text">Форми з перфорованого пергаменту, стійкі до температури духової шафи до +220°C та до заморозки. Не потребують змащування й додаткових форм: тісто викладається просто у форму, а готовий виріб подається прямо в ній. Доступні в різних розмірах і кольорах.</p>
+                <div class="mix-pane__specs">
+                  <span class="mix-spec"><b>+220°C</b> випікання</span>
+                  <span class="mix-spec"><b>−18°C</b> заморозка</span>
+                  <span class="mix-spec"><b>12</b> розмірів</span>
+                </div>
+                <a class="mx-btn" href="/tyulpany">Перейти до товарів</a>
+              </div>
+            </div>
+
+            <div class="mix-pane" data-nova-pane="tartaletki">
+              <div class="mix-pane__media">
+                <img src="data/wheel-tartaletki.jpg" alt="Тарталетки">
+              </div>
+              <div class="mix-pane__body">
+                <h3 class="mix-pane__name">Тарталетки</h3>
+                <p class="mix-pane__text">Тримають форму під начинкою — ідеальні для десертів, канапе та холодних закусок. Виготовлені з чистої целюлози, стійкі до жирів, не розмокають і не деформуються під час подачі. Підходять і для випікання, і для готових холодних страв.</p>
+                <div class="mix-pane__specs">
+                  <span class="mix-spec"><b>+220°C</b> випікання</span>
+                  <span class="mix-spec"><b>Жиро-</b>стійкі</span>
+                  <span class="mix-spec"><b>8</b> розмірів</span>
+                </div>
+                <a class="mx-btn" href="/tartaletki">Перейти до товарів</a>
+              </div>
+            </div>
+
+            <div class="mix-pane" data-nova-pane="maffiny">
+              <div class="mix-pane__media">
+                <img src="data/wheel-maffiny.jpg" alt="Мафіни та капкейки">
+              </div>
+              <div class="mix-pane__body">
+                <h3 class="mix-pane__name">Мафіни та капкейки</h3>
+                <p class="mix-pane__text">Порційні форми у широкій палітрі кольорів — від нейтральних до святкових. Сумісні з автоматичними лініями розстікерування, тримають форму без металевого лотка й однаково добре працюють у конвекційній та подовій печі.</p>
+                <div class="mix-pane__specs">
+                  <span class="mix-spec"><b>+220°C</b> випікання</span>
+                  <span class="mix-spec"><b>20+</b> кольорів</span>
+                  <span class="mix-spec"><b>Авто</b>лінії</span>
+                </div>
+                <a class="mx-btn" href="/maffiny">Перейти до товарів</a>
+              </div>
+            </div>
+
+            <div class="mix-pane" data-nova-pane="pasky">
+              <div class="mix-pane__media">
+                <img src="data/wheel-paska.jpg" alt="Форми для пасок">
+              </div>
+              <div class="mix-pane__body">
+                <h3 class="mix-pane__name">Форми для пасок</h3>
+                <p class="mix-pane__text">Сезонна лінійка до Великодня: форми з посиленим дном і бортами, які тримають високе тісто й не розходяться під час росту. Готова паска подається прямо у формі — з друком або в лаконічному крафтовому виконанні.</p>
+                <div class="mix-pane__specs">
+                  <span class="mix-spec"><b>Посилене</b> дно</span>
+                  <span class="mix-spec"><b>Друк</b> на замовлення</span>
+                  <span class="mix-spec"><b>10</b> розмірів</span>
+                </div>
+                <a class="mx-btn" href="/bumazhnye-formy-dlya-pasok">Перейти до товарів</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category" data-reveal-stagger data-anim="rise">
+      <div class="category__list">
+        <div class="category__col">
+          <a href="/tyulpany">
+            <div class="category__info">
+              <div class="category__top-box">
+                <div class="category__name">
+                  Тюльпани
+                </div>
+                <div class="category__descr">
+                  Паперові форми для випікання — зручно, екологічно та без змащування
+                </div>
+              </div>
+              <span class="brands__all">
+                Дивитися всі форми
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z"></path>
+                </svg>
+              </span>
+            </div>
+            <img src="data/cat-1.jpg" alt="Тюльпани">
+          </a>
+        </div>
+        <div class="category__col">
+          <a href="/tartaletki">
+            <div class="category__info">
+              <div class="category__top-box">
+                <div class="category__name">
+                  Тарталетки
+                </div>
+                <div class="category__descr">
+                  Тримають форму — ідеальні для десертів, канапе та закусок
+                </div>
+              </div>
+              <span class="brands__all">
+                Детальніше
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z"></path>
+                </svg>
+              </span>
+            </div>
+            <img src="data/cat-2.jpg" alt="Тарталетки">
+          </a>
+        </div>
+        <div class="category__col">
+          <a href="/pashalnyy-tovar">
+            <div class="category__info">
+              <div class="category__top-box">
+                <div class="category__name">
+                  Великодня продукція
+                </div>
+                <div class="category__descr">
+                  Форми для пасок, прикраси та все необхідне для Великодня
+                </div>
+              </div>
+              <span class="brands__all">
+                Детальніше
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z"></path>
+                </svg>
+              </span>
+            </div>
+            <img src="data/cat-3.jpg" alt="Великодня продукція">
+          </a>
+        </div>
+        <div class="category__col">
+          <a href="/mikrogofra">
+            <div class="category__info">
+              <div class="category__top-box">
+                <div class="category__name">
+                  Мікрогофра
+                </div>
+              </div>
+              <span class="brands__all">
+                Детальніше
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z"></path>
+                </svg>
+              </span>
+            </div>
+            <img src="data/cat-4.jpg" alt="Мікрогофра">
+          </a>
+          <a href="/bumazhnye-formy-dlya-pasok">
+            <div class="category__info">
+              <div class="category__top-box">
+                <div class="category__name">
+                  Форми для паски
+                </div>
+              </div>
+              <span class="brands__all">
+                Детальніше
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z"></path>
+                </svg>
+              </span>
+            </div>
+            <img src="data/cat-5.jpg" alt="Форми для паски">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ЦИФРИ ВИРОБНИЦТВА (темна секція + паралакс) ============ -->
+    <div class="mix-figures">
+      <div class="mix-figures__bg" data-parallax="0.12">
+        <img src="data/hero-tulpani.jpg" alt="">
+      </div>
+      <div class="mix-figures__inner">
+        <div data-reveal data-anim="left">
+          <span class="mix-figures__eyebrow">Виробництво</span>
+          <h2 class="mix-figures__title">Цифри, за якими стоїть робота</h2>
+        </div>
+
+        <div class="mix-figures__list" data-reveal-stagger data-anim="rise">
+          <div class="mix-figures__item">
+            <div class="mix-figures__val"><span data-count="50" data-suffix="+">50+</span></div>
+            <span class="mix-figures__label">працівників</span>
+          </div>
+          <div class="mix-figures__item">
+            <div class="mix-figures__val"><span data-count="12" data-suffix="">12</span></div>
+            <span class="mix-figures__label">країн експорту</span>
+          </div>
+          <div class="mix-figures__item">
+            <div class="mix-figures__val"><span data-count="2" data-suffix="">2</span></div>
+            <span class="mix-figures__label">виробничі майданчики</span>
+          </div>
+          <div class="mix-figures__item">
+            <div class="mix-figures__val"><span data-count="20" data-suffix="">20</span></div>
+            <span class="mix-figures__label">років на ринку</span>
+          </div>
+        </div>
+
+        <div class="mix-figures__prod" data-reveal-stagger data-anim="rise">
+          <div class="mix-figures__prod-item">
+            <span class="mix-figures__prod-name">Форми для випікання</span>
+            <span class="mix-figures__prod-val" data-count="18400000" data-sep=" ">18 400 000</span>
+          </div>
+          <div class="mix-figures__prod-item">
+            <span class="mix-figures__prod-name">Порційні форми</span>
+            <span class="mix-figures__prod-val" data-count="42750000" data-sep=" ">42 750 000</span>
+          </div>
+          <div class="mix-figures__prod-item">
+            <span class="mix-figures__prod-name">Інша продукція</span>
+            <span class="mix-figures__prod-val" data-count="6120000" data-sep=" ">6 120 000</span>
+          </div>
+        </div>
+
+        <p class="mix-figures__note" data-reveal>Кількість виробів за рік. Дані станом на 01.01.2026.</p>
+
+        <div class="mix-figures__geo" data-reveal>
+          <span class="mix-figures__geo-title">Ми постачаємо в:</span>
+          <div class="mix-figures__geo-list">
+            <span class="mix-chip">Україна</span>
+            <span class="mix-chip">Польща</span>
+            <span class="mix-chip">Молдова</span>
+            <span class="mix-chip">Румунія</span>
+            <span class="mix-chip">Литва</span>
+            <span class="mix-chip">Латвія</span>
+            <span class="mix-chip">Естонія</span>
+            <span class="mix-chip">Словаччина</span>
+            <span class="mix-chip">Угорщина</span>
+            <span class="mix-chip">Чехія</span>
+            <span class="mix-chip">Німеччина</span>
+            <span class="mix-chip">Ізраїль</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="about__inner">
+        <div class="about__row">
+          <div class="about__media" data-reveal data-anim="mask">
+            <img src="data/about-1.jpg" alt="Мікрогофра">
+          </div>
+          <div class="about__body" data-reveal data-anim="right">
+            <span class="about__eyebrow">Матеріал</span>
+            <h2 class="about__title">Мікрогофра</h2>
+            <p class="about__text">Волого- та жиростійкий пергамент, екологічно чисте антипригарне покриття, посилена конструкція дна та бортів, що запобігає деформації виробу — все це дозволить домогтися та в подальшому зберегти естетичний вигляд готового блюда!</p>
+            <a class="about__link" href="/mikrogofra">Детальніше
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z" fill="currentColor"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="about__row about__row--reverse">
+          <div class="about__media" data-reveal data-anim="mask">
+            <img src="data/about-2.jpg" alt="Високотехнологічний пергамент">
+          </div>
+          <div class="about__body" data-reveal data-anim="left">
+            <span class="about__eyebrow">Технологія</span>
+            <h2 class="about__title">Екологічно чистий високотехнологічний пергамент</h2>
+            <p class="about__text">Стінки форм виконані з екологічно чистого волого-, жиро- та термостійкого високоякісного перфорованого пергаменту виробництва Італії та Фінляндії. Високотехнологічний пергамент завдяки перфорації сприяє зменшенню часу на випічку та швидкому охолодженню готового виробу.</p>
+            <a class="about__link" href="/pergament">Детальніше
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z" fill="currentColor"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ІННОВАЦІЇ / СЕРТИФІКАТИ / ЕКОЛОГІЯ ============ -->
+    <div class="mix-tri" data-reveal-stagger data-anim="rise">
+      <a class="mix-tri__item" href="/innovacii">
+        <img class="mix-tri__img" src="data/cat-1.jpg" alt="Інновації">
+        <div class="mix-tri__overlay"></div>
+        <div class="mix-tri__body">
+          <h3 class="mix-tri__name">Інновації</h3>
+          <p class="mix-tri__text">Пошук нових матеріалів і форм, які роблять роботу кондитера простішою, — постійна частина нашої роботи.</p>
+          <span class="mx-btn mx-btn--ghost">Дізнатись більше</span>
+        </div>
+      </a>
+      <a class="mix-tri__item" href="/sertyfikaty">
+        <img class="mix-tri__img" src="data/easterProd.jpg" alt="Сертифікати">
+        <div class="mix-tri__overlay"></div>
+        <div class="mix-tri__body">
+          <h3 class="mix-tri__name">Сертифікати</h3>
+          <p class="mix-tri__text">Матеріали мають документи щодо якості, безпечності та придатності для контакту з харчовими продуктами.</p>
+          <span class="mx-btn mx-btn--ghost">Дізнатись більше</span>
+        </div>
+      </a>
+      <a class="mix-tri__item" href="/ekologichnist">
+        <img class="mix-tri__img" src="data/wheel-mikrogofra.jpg" alt="Екологічність">
+        <div class="mix-tri__overlay"></div>
+        <div class="mix-tri__body">
+          <h3 class="mix-tri__name">Екологічність</h3>
+          <p class="mix-tri__text">Папір і целюлоза замість пластику: наші форми переробляються та не залишаються на звалищі назавжди.</p>
+          <span class="mx-btn mx-btn--ghost">Дізнатись більше</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- ============ НОВИНИ ============ -->
+    <div class="mix-news">
+      <div class="mix-news__inner">
+        <div class="mix-news__head" data-reveal>
+          <h2 class="mix-news__title mix-h2">Новини</h2>
+          <a class="mix-news__all" href="/novyny">Усі новини
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z" fill="currentColor"></path></svg>
+          </a>
+        </div>
+        <div class="mix-news__list" data-reveal-stagger data-anim="rise">
+          <a class="mix-post" href="/novyny/pergament">
+            <div class="mix-post__media">
+              <img src="data/news5.jpg" alt="Новина">
+            </div>
+            <div class="mix-post__body">
+              <span class="mix-post__date">6 серпня 2026</span>
+              <h3 class="mix-post__name">Чому перфорований пергамент пече швидше</h3>
+              <p class="mix-post__text">Маленькі отвори у стінці форми — не декор. Розповідаємо, як перфорація змінює теплообмін і скорочує час випічки.</p>
+            </div>
+          </a>
+          <a class="mix-post" href="/novyny/velykden">
+            <div class="mix-post__media">
+              <img src="data/news6.jpg" alt="Новина">
+            </div>
+            <div class="mix-post__body">
+              <span class="mix-post__date">28 липня 2026</span>
+              <h3 class="mix-post__name">Готуємось до Великодня заздалегідь</h3>
+              <p class="mix-post__text">Як спланувати замовлення форм для пасок, щоб не потрапити в сезонний дефіцит у березні.</p>
+            </div>
+          </a>
+          <a class="mix-post" href="/novyny/asortyment">
+            <div class="mix-post__media">
+              <img src="data/news7.jpg" alt="Новина">
+            </div>
+            <div class="mix-post__body">
+              <span class="mix-post__date">21 липня 2026</span>
+              <h3 class="mix-post__name">Асортимент росте: нові кольори тюльпанів</h3>
+              <p class="mix-post__text">Додали нові відтінки та розміри у лінійці форм «Тюльпани» — тепер під будь-яку вітрину.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ВИСТАВКИ ============ -->
+    <div class="mix-expo">
+      <div class="mix-expo__inner">
+        <div class="mix-expo__head" data-reveal data-anim="left">
+          <span class="mix-expo__eyebrow">Виставки</span>
+          <h2 class="mix-expo__title mix-h2">Де нас можна зустріти</h2>
+          <p class="mix-expo__lead">Ми віримо у важливість живого спілкування з клієнтами. Ось найближчі виставки, у яких ми беремо участь.</p>
+        </div>
+
+        <div class="mix-expo__list" data-reveal-stagger data-anim="rise">
+          <div class="mix-expo__row">
+            <div class="mix-expo__date">
+              <span class="mix-expo__day">18–20</span>
+              <span class="mix-expo__month">вересня 2026</span>
+            </div>
+            <div class="mix-expo__body">
+              <h3 class="mix-expo__name">Bakery &amp; Confectionery Expo</h3>
+              <span class="mix-expo__place">Київ, МВЦ</span>
+            </div>
+            <span class="mix-expo__stand">Стенд B-14</span>
+          </div>
+
+          <div class="mix-expo__row">
+            <div class="mix-expo__date">
+              <span class="mix-expo__day">07–09</span>
+              <span class="mix-expo__month">жовтня 2026</span>
+            </div>
+            <div class="mix-expo__body">
+              <h3 class="mix-expo__name">Food Technologies</h3>
+              <span class="mix-expo__place">Львів, Expo Center</span>
+            </div>
+            <span class="mix-expo__stand">Стенд C-3</span>
+          </div>
+
+          <div class="mix-expo__row">
+            <div class="mix-expo__date">
+              <span class="mix-expo__day">12–14</span>
+              <span class="mix-expo__month">листопада 2026</span>
+            </div>
+            <div class="mix-expo__body">
+              <h3 class="mix-expo__name">Packaging Ukraine</h3>
+              <span class="mix-expo__place">Харків, ККЗ «Україна»</span>
+            </div>
+            <span class="mix-expo__stand">Стенд A-21</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ FAQ + ФОРМА ЗАПИТУ ============ -->
+    <div class="mix-support">
+      <div class="mix-support__inner">
+        <div class="mix-support__faq" data-reveal data-anim="left">
+          <span class="mix-support__eyebrow">Питання та відповіді</span>
+          <h2 class="mix-support__title mix-h2">Коротко про головне</h2>
+
+          <div class="mix-faq__list js-faq">
+            <div class="mix-faq__item" data-faq-item>
+              <button class="mix-faq__q" type="button" aria-expanded="false" data-faq-btn>
+                <span class="mix-faq__q-text">Яку температуру витримують форми?</span>
+                <i class="mix-faq__sign" aria-hidden="true"></i>
+              </button>
+              <div class="mix-faq__a" data-faq-panel>
+                <div class="mix-faq__a-in">
+                  <p>Форми розраховані на випікання до +220°C і не деформуються при стандартних режимах. Готові вироби у формі можна заморожувати до −18°C.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mix-faq__item" data-faq-item>
+              <button class="mix-faq__q" type="button" aria-expanded="false" data-faq-btn>
+                <span class="mix-faq__q-text">Чи потрібно змащувати форму?</span>
+                <i class="mix-faq__sign" aria-hidden="true"></i>
+              </button>
+              <div class="mix-faq__a" data-faq-panel>
+                <div class="mix-faq__a-in">
+                  <p>Ні. Пергамент має антипригарні властивості — виріб легко відходить від стінок, додаткові форми чи змащування не потрібні.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mix-faq__item" data-faq-item>
+              <button class="mix-faq__q" type="button" aria-expanded="false" data-faq-btn>
+                <span class="mix-faq__q-text">Яка мінімальна партія замовлення?</span>
+                <i class="mix-faq__sign" aria-hidden="true"></i>
+              </button>
+              <div class="mix-faq__a" data-faq-panel>
+                <div class="mix-faq__a-in">
+                  <p>Для роздробу — від упаковки, для виробництв і дистриб’юторів — від палети. Точні умови залежать від позиції, менеджер порахує під ваш обсяг.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mix-faq__item" data-faq-item>
+              <button class="mix-faq__q" type="button" aria-expanded="false" data-faq-btn>
+                <span class="mix-faq__q-text">Чи можна зробити форму з нашим друком?</span>
+                <i class="mix-faq__sign" aria-hidden="true"></i>
+              </button>
+              <div class="mix-faq__a" data-faq-panel>
+                <div class="mix-faq__a-in">
+                  <p>Так, індивідуальний друк і власні кольори доступні від погодженого тиражу. Надішліть макет — ми підкажемо, як він ляже на форму.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mix-faq__item" data-faq-item>
+              <button class="mix-faq__q" type="button" aria-expanded="false" data-faq-btn>
+                <span class="mix-faq__q-text">Як швидко відвантажуєте?</span>
+                <i class="mix-faq__sign" aria-hidden="true"></i>
+              </button>
+              <div class="mix-faq__a" data-faq-panel>
+                <div class="mix-faq__a-in">
+                  <p>Складські позиції — 1–2 робочі дні. Сезонні (великодні) позиції радимо бронювати заздалегідь, у пік попиту черга відвантаження довша.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="mix-support__form" action="index.php?route=information/contact" method="post" data-reveal data-anim="right">
+          <h3 class="mix-form__title">Запит для бізнесу</h3>
+          <p class="mix-form__text">Розкажіть про вашу задачу — підберемо форму, порахуємо ціну під ваш обсяг і терміни відвантаження.</p>
+
+          <div class="mix-field">
+            <label class="mix-field__label" for="mix-type">Тип запиту *</label>
+            <select class="mix-field__select" id="mix-type" name="request_type" required>
+              <option value="">Оберіть тип запиту</option>
+              <option value="product">Інформація про продукцію</option>
+              <option value="price">Прорахунок ціни</option>
+              <option value="custom">Індивідуальний друк</option>
+              <option value="distribution">Дистрибуція</option>
+            </select>
+          </div>
+
+          <div class="mix-field mix-field--half">
+            <label class="mix-field__label" for="mix-name">Ім’я *</label>
+            <input class="mix-field__input" id="mix-name" type="text" name="name" required>
+          </div>
+
+          <div class="mix-field mix-field--half">
+            <label class="mix-field__label" for="mix-company">Компанія</label>
+            <input class="mix-field__input" id="mix-company" type="text" name="company">
+          </div>
+
+          <div class="mix-field mix-field--half">
+            <label class="mix-field__label" for="mix-email">E-mail *</label>
+            <input class="mix-field__input" id="mix-email" type="email" name="email" required>
+          </div>
+
+          <div class="mix-field mix-field--half">
+            <label class="mix-field__label" for="mix-phone">Телефон</label>
+            <input class="mix-field__input" id="mix-phone" type="tel" name="telephone">
+          </div>
+
+          <div class="mix-field">
+            <label class="mix-field__label" for="mix-msg">Повідомлення *</label>
+            <textarea class="mix-field__area" id="mix-msg" name="enquiry" rows="4" required></textarea>
+          </div>
+
+          <div class="mix-form__foot">
+            <button class="mx-btn" type="submit">Надіслати запит</button>
+            <span class="mix-form__hint">* Обов’язкові поля</span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="contacts">
+      <div class="contacts__map">
+        <iframe class="contacts__frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2578.9314901033067!2d35.61437531519907!3d49.83805043358336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDUwJzE3LjAiTiAzNcKwMzYnNTkuNiJF!5e0!3m2!1sru!2s!4v1455544674604" title="Карта: м. Валки, вул. Харківська, 8" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="contacts__card" data-reveal data-anim="right">
+          <h2 class="contacts__title">Контакти</h2>
+          <div class="contact-row">
+            <span class="contact-row__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6.8 10.8a15 15 0 0 0 6.4 6.4l2-2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.5.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.57 3.5a1 1 0 0 1-.25 1l-2 2z" fill="currentColor"/></svg>
+            </span>
+            <div class="contact-row__body">
+              <span class="contact-row__label">Телефон</span>
+              <a class="contact-row__val" href="tel:+380960000350">+380 (96) 0000 350</a>
+              <a class="contact-row__val" href="tel:+380660000350">+380 (66) 0000 350</a>
+              <a class="contact-row__val" href="tel:+380730000350">+380 (73) 0000 350</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 7.5l8 5 8-5" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <div class="contact-row__body">
+              <span class="contact-row__label">Пошта</span>
+              <a class="contact-row__val" href="mailto:easters.form@gmail.com">easters.form@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-row__ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <div class="contact-row__body">
+              <span class="contact-row__label">Адреса</span>
+              <span class="contact-row__val">Україна, Харківська обл., Валківський р-н, м. Валки, вул. Харківська, 8</span>
+            </div>
+          </div>
+          <a class="btn btn--green contacts__btn" href="https://www.google.com/maps?q=49.83805,35.61438" target="_blank" rel="noopener">Прокласти маршрут</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <img class="site-footer__logo" src="data/logo-tulip.png" alt="Тюльпани">
+          </div>
+          <nav class="site-footer__nav" aria-label="Продукція">
+            <ul>
+              <li><a href="https://easters.com.ua/pashalnye-tovary/">Великодні товари</a></li>
+              <li><a href="https://easters.com.ua/pidlozhki/">Підложка для торту</a></li>
+              <li><a href="https://easters.com.ua/bumazhnye-formy-dlya-pasok/">Паперові форми для паски</a></li>
+              <li><a href="https://easters.com.ua/maffiny/">Форма для маффінів, капкейків</a></li>
+              <li><a href="https://easters.com.ua/mikrogofra/">Паперова форма Мікрогофра</a></li>
+              <li><a href="https://easters.com.ua/tyulpany/">Паперова форма Тюльпани</a></li>
+              <li><a href="https://easters.com.ua/tartaletki/">Тарталетки паперові</a></li>
+              <li><a href="https://easters.com.ua/plumpi/">Форма для випікання Плумпі</a></li>
+              <li><a href="/contact-us">Зворотній зв’язок</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="site-footer__bottom">
+          <div class="site-footer__copy">© 2026 EASTERS. All rights reserved. <span>Powered by Morkva</span></div>
+          <div class="site-footer__social">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.4c0-.8.2-1.3 1.4-1.3H16V5.6c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5v1.9H8.2V14h2.4v7z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//easters.com.ua&amp;title=Easters%20Forms" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8A1.5 1.5 0 1 0 6.5 5a1.5 1.5 0 0 0 0 3zM5 9.5h3V19H5zm5 0h2.8v1.3h.05c.4-.75 1.4-1.5 2.8-1.5 3 0 3.55 1.95 3.55 4.5V19h-3v-4.2c0-1 0-2.3-1.4-2.3s-1.65 1.1-1.65 2.25V19H10z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Google">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.9v2.9h4.05c-.2 1.1-1.35 3.15-4.05 3.15A4.55 4.55 0 1 1 12 7.35c1.3 0 2.2.55 2.7 1.05l1.9-1.85A7.05 7.05 0 1 0 12 19.05c4.05 0 6.75-2.85 6.75-6.85 0-.45-.05-.8-.12-1.15z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
