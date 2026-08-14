@@ -639,6 +639,742 @@ a:hover {
 a:focus {
   outline: none; }
 
+/* ============================================================
+   ECO-блоки (страница tulpani-eco.html)
+   Взято из логики ecopack.com: спец-строка, каналы сбыта,
+   экологичность, цифры-счётчики, новости, FAQ + CTA.
+   Правила проекта: без <section>/<article>, только flex (не grid),
+   отступы на margin (без flex-gap), ширины через width: calc(),
+   а НЕ через flex-шорткат с calc (autoprefixer его ломает).
+   Файл самодостаточный: свои переменные, ничего не тянет из tulpani.scss.
+   ============================================================ */
+.eco-specs .eco-specs__inner, .eco-channels .eco-channels__inner, .eco-green .eco-green__inner, .eco-numbers .eco-numbers__inner, .eco-news .eco-news__inner, .eco-faq .eco-faq__inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px; }
+
+.eco-channels .eco-channels__title, .eco-green .eco-green__title, .eco-numbers .eco-numbers__title, .eco-news .eco-news__title, .eco-faq .eco-faq__title {
+  font: 400 42px/1.18 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: .2px;
+  color: #141617;
+  margin: 0; }
+
+.eco-channels .eco-channels__eyebrow, .eco-green .eco-green__eyebrow, .eco-faq .eco-faq__eyebrow {
+  display: block;
+  font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #85aa12; }
+
+.eco-channel .eco-channel__more, .eco-news .eco-news__all {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 700 13px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: #85aa12;
+  -webkit-transition: color .2s;
+  transition: color .2s; }
+  .eco-channel .eco-channel__more svg, .eco-news .eco-news__all svg {
+    margin-left: 8px;
+    -webkit-transition: -webkit-transform .25s;
+    transition: -webkit-transform .25s;
+    transition: transform .25s;
+    transition: transform .25s, -webkit-transform .25s; }
+  .eco-channel .eco-channel__more:hover, .eco-news .eco-news__all:hover {
+    color: #6f9309; }
+  .eco-channel .eco-channel__more:hover svg, .eco-news .eco-news__all:hover svg {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px); }
+
+/* ============ 1. ТЕХ. ХАРАКТЕРИСТИКИ (смуга) ============ */
+.eco-specs {
+  background: #fff;
+  border-top: 1px solid #e4e6e9;
+  border-bottom: 1px solid #e4e6e9; }
+  .eco-specs .eco-specs__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    padding-top: 34px;
+    padding-bottom: 34px; }
+  .eco-specs .eco-specs__item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 4px 26px;
+    border-left: 1px solid #e4e6e9; }
+    .eco-specs .eco-specs__item:first-child {
+      border-left: 0;
+      padding-left: 0; }
+  .eco-specs .eco-specs__val {
+    display: block;
+    font: 400 34px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .4px;
+    color: #85aa12;
+    margin-bottom: 10px; }
+  .eco-specs .eco-specs__label {
+    display: block;
+    font: 400 14px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83; }
+
+@media (max-width: 1023px) {
+  .eco-specs .eco-specs__item {
+    width: 50%;
+    margin-bottom: 22px; }
+    .eco-specs .eco-specs__item:nth-child(odd) {
+      border-left: 0;
+      padding-left: 0; }
+  .eco-specs .eco-specs__inner {
+    padding-bottom: 12px; } }
+
+@media (max-width: 767px) {
+  .eco-specs .eco-specs__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .eco-specs .eco-specs__val {
+    font-size: 28px; } }
+
+/* ============ 2. РІШЕННЯ ДЛЯ КОЖНОГО КАНАЛУ ============ */
+.eco-channels {
+  background: #f2f3f5;
+  padding: 96px 0 100px; }
+  .eco-channels .eco-channels__head {
+    max-width: 720px;
+    margin: 0 auto 52px;
+    text-align: center; }
+  .eco-channels .eco-channels__eyebrow {
+    margin-bottom: 14px; }
+  .eco-channels .eco-channels__title {
+    margin-bottom: 18px; }
+  .eco-channels .eco-channels__lead {
+    font: 400 17px/1.65 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0; }
+  .eco-channels .eco-channels__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-left: -15px;
+    margin-right: -15px; }
+
+.eco-channel {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(33.333% - 30px);
+  margin: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 10px rgba(20, 22, 23, 0.05);
+  box-shadow: 0 2px 10px rgba(20, 22, 23, 0.05);
+  -webkit-transition: -webkit-box-shadow .3s, -webkit-transform .3s;
+  transition: -webkit-box-shadow .3s, -webkit-transform .3s;
+  transition: box-shadow .3s, transform .3s;
+  transition: box-shadow .3s, transform .3s, -webkit-box-shadow .3s, -webkit-transform .3s; }
+  .eco-channel:hover {
+    -webkit-box-shadow: 0 18px 40px rgba(20, 22, 23, 0.12);
+    box-shadow: 0 18px 40px rgba(20, 22, 23, 0.12);
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px); }
+  .eco-channel .eco-channel__media {
+    position: relative;
+    height: 230px;
+    overflow: hidden; }
+    .eco-channel .eco-channel__media img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      display: block;
+      will-change: transform;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  .eco-channel:hover .eco-channel__media img {
+    -webkit-transform: scale(1.07);
+    transform: scale(1.07); }
+  .eco-channel .eco-channel__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding: 26px 28px 28px; }
+  .eco-channel .eco-channel__num {
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.4px;
+    color: #85aa12;
+    margin-bottom: 12px; }
+  .eco-channel .eco-channel__name {
+    font: 400 24px/1.25 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0 0 12px; }
+  .eco-channel .eco-channel__text {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font: 400 15px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 20px; }
+
+@media (max-width: 1023px) {
+  .eco-channels {
+    padding: 70px 0 74px; }
+  .eco-channels .eco-channels__title {
+    font-size: 34px; }
+  .eco-channel {
+    width: calc(50% - 30px);
+    margin-bottom: 30px; } }
+
+@media (max-width: 767px) {
+  .eco-channels {
+    padding: 54px 0 30px; }
+  .eco-channels .eco-channels__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .eco-channels .eco-channels__title {
+    font-size: 28px; }
+  .eco-channels .eco-channels__head {
+    margin-bottom: 32px;
+    text-align: left; }
+  .eco-channel {
+    width: calc(100% - 30px); } }
+
+/* ============ 3. ЕКОЛОГІЧНІСТЬ ============ */
+.eco-green {
+  background: #33420a; }
+  .eco-green .eco-green__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0; }
+  .eco-green .eco-green__body {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(50% - 40px);
+    margin-right: 40px;
+    padding: 96px 0; }
+  .eco-green .eco-green__eyebrow {
+    color: #cfe08a;
+    margin-bottom: 16px; }
+  .eco-green .eco-green__title {
+    color: #fff;
+    margin-bottom: 20px; }
+  .eco-green .eco-green__text {
+    font: 400 16px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 26px; }
+  .eco-green .eco-green__marks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 30px; }
+  .eco-green .eco-green__btn {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font: 700 13px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #fff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+    padding-bottom: 7px;
+    -webkit-transition: border-color .25s, color .25s;
+    transition: border-color .25s, color .25s; }
+    .eco-green .eco-green__btn svg {
+      margin-left: 8px;
+      -webkit-transition: -webkit-transform .25s;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s; }
+    .eco-green .eco-green__btn:hover {
+      border-color: #cfe08a;
+      color: #cfe08a; }
+    .eco-green .eco-green__btn:hover svg {
+      -webkit-transform: translateX(4px);
+      transform: translateX(4px); }
+  .eco-green .eco-green__media {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 50%;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    position: relative;
+    min-height: 420px;
+    overflow: hidden; }
+    .eco-green .eco-green__media img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      display: block; }
+
+.eco-mark {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100px;
+  padding: 9px 16px;
+  margin: 0 10px 10px 0; }
+
+@media (max-width: 1023px) {
+  .eco-green .eco-green__body {
+    padding: 64px 0; }
+  .eco-green .eco-green__title {
+    font-size: 32px; }
+  .eco-green .eco-green__media {
+    min-height: 340px; } }
+
+@media (max-width: 767px) {
+  .eco-green .eco-green__inner {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px; }
+  .eco-green .eco-green__body {
+    width: 100%;
+    margin-right: 0;
+    padding: 48px 0 40px;
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2; }
+  .eco-green .eco-green__media {
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+    min-height: 220px;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1; }
+  .eco-green .eco-green__title {
+    font-size: 26px; } }
+
+/* ============ 4. НАШІ ЦИФРИ ============ */
+.eco-numbers {
+  background: #fff;
+  padding: 88px 0 92px; }
+  .eco-numbers .eco-numbers__title {
+    text-align: center;
+    margin-bottom: 48px; }
+  .eco-numbers .eco-numbers__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .eco-numbers .eco-numbers__item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    border-left: 1px solid #e4e6e9; }
+    .eco-numbers .eco-numbers__item:first-child {
+      border-left: 0; }
+  .eco-numbers .eco-numbers__val {
+    font: 400 64px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -1px;
+    color: #85aa12;
+    margin-bottom: 12px; }
+  .eco-numbers .eco-numbers__label {
+    font: 400 15px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83; }
+
+@media (max-width: 1023px) {
+  .eco-numbers {
+    padding: 62px 0 40px; }
+  .eco-numbers .eco-numbers__title {
+    font-size: 32px;
+    margin-bottom: 34px; }
+  .eco-numbers .eco-numbers__item {
+    width: 50%;
+    margin-bottom: 34px; }
+    .eco-numbers .eco-numbers__item:nth-child(odd) {
+      border-left: 0; }
+  .eco-numbers .eco-numbers__val {
+    font-size: 48px; } }
+
+@media (max-width: 767px) {
+  .eco-numbers .eco-numbers__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .eco-numbers .eco-numbers__title {
+    font-size: 26px; }
+  .eco-numbers .eco-numbers__val {
+    font-size: 40px; } }
+
+/* ============ 5. НОВИНИ ============ */
+.eco-news {
+  background: #f2f3f5;
+  padding: 92px 0 96px; }
+  .eco-news .eco-news__head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 40px; }
+  .eco-news .eco-news__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-left: -15px;
+    margin-right: -15px; }
+
+.eco-post {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(33.333% - 30px);
+  margin: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  -webkit-transition: -webkit-box-shadow .3s, -webkit-transform .3s;
+  transition: -webkit-box-shadow .3s, -webkit-transform .3s;
+  transition: box-shadow .3s, transform .3s;
+  transition: box-shadow .3s, transform .3s, -webkit-box-shadow .3s, -webkit-transform .3s; }
+  .eco-post:hover {
+    -webkit-box-shadow: 0 18px 40px rgba(20, 22, 23, 0.12);
+    box-shadow: 0 18px 40px rgba(20, 22, 23, 0.12);
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px); }
+  .eco-post .eco-post__media {
+    height: 200px;
+    overflow: hidden; }
+    .eco-post .eco-post__media img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      display: block;
+      will-change: transform;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  .eco-post:hover .eco-post__media img {
+    -webkit-transform: scale(1.07);
+    transform: scale(1.07); }
+  .eco-post .eco-post__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 22px 26px 28px; }
+  .eco-post .eco-post__date {
+    font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #85aa12;
+    margin-bottom: 12px; }
+  .eco-post .eco-post__name {
+    font: 400 20px/1.35 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0 0 10px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+  .eco-post:hover .eco-post__name {
+    color: #6f9309; }
+  .eco-post .eco-post__text {
+    font: 400 15px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0; }
+
+@media (max-width: 1023px) {
+  .eco-news {
+    padding: 66px 0 40px; }
+  .eco-news .eco-news__title {
+    font-size: 32px; }
+  .eco-post {
+    width: calc(50% - 30px);
+    margin-bottom: 30px; } }
+
+@media (max-width: 767px) {
+  .eco-news {
+    padding: 54px 0 26px; }
+  .eco-news .eco-news__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .eco-news .eco-news__title {
+    font-size: 26px; }
+  .eco-news .eco-news__head {
+    display: block; }
+  .eco-news .eco-news__all {
+    margin-top: 14px; }
+  .eco-post {
+    width: calc(100% - 30px); } }
+
+/* ============ 6. FAQ + CTA ============ */
+.eco-faq {
+  background: #fff;
+  padding: 92px 0 96px; }
+  .eco-faq .eco-faq__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .eco-faq .eco-faq__col {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: calc(64% - 40px);
+    margin-right: 40px; }
+  .eco-faq .eco-faq__eyebrow {
+    margin-bottom: 14px; }
+  .eco-faq .eco-faq__title {
+    margin-bottom: 30px; }
+  .eco-faq .eco-faq__item {
+    border-bottom: 1px solid #e4e6e9; }
+  .eco-faq .eco-faq__q {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 22px 0;
+    font: 400 18px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .eco-faq .eco-faq__q:hover {
+      color: #85aa12; }
+  .eco-faq .eco-faq__q-text {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-right: 20px; }
+  .eco-faq .eco-faq__sign {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: block; }
+    .eco-faq .eco-faq__sign::before, .eco-faq .eco-faq__sign::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 16px;
+      height: 2px;
+      margin-top: -1px;
+      background: #85aa12;
+      -webkit-transition: opacity .3s, -webkit-transform .3s;
+      transition: opacity .3s, -webkit-transform .3s;
+      transition: transform .3s, opacity .3s;
+      transition: transform .3s, opacity .3s, -webkit-transform .3s; }
+    .eco-faq .eco-faq__sign::after {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg); }
+  .eco-faq .eco-faq__item.is-open .eco-faq__sign::after {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    opacity: 0; }
+  .eco-faq .eco-faq__item.is-open .eco-faq__q {
+    color: #85aa12; }
+  .eco-faq .eco-faq__a {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  .eco-faq .eco-faq__a-in {
+    padding: 0 60px 24px 0; }
+    .eco-faq .eco-faq__a-in p {
+      font: 400 15px/1.7 "AvenirNextCyr", Arial, sans-serif;
+      color: #7b7f83;
+      margin: 0; }
+  .eco-faq .eco-faq__cta {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 36%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    background: #f2f3f5;
+    border-radius: 14px;
+    padding: 36px 34px 38px; }
+  .eco-faq .eco-faq__cta-title {
+    font: 400 26px/1.3 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0 0 14px; }
+  .eco-faq .eco-faq__cta-text {
+    font: 400 15px/1.65 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 24px; }
+  .eco-faq .eco-faq__cta-btn {
+    margin-bottom: 22px; }
+  .eco-faq .eco-faq__cta-phone {
+    font: 700 20px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin-bottom: 10px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .eco-faq .eco-faq__cta-phone:hover {
+      color: #85aa12; }
+  .eco-faq .eco-faq__cta-mail {
+    font: 400 15px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .eco-faq .eco-faq__cta-mail:hover {
+      color: #85aa12; }
+
+@media (max-width: 1023px) {
+  .eco-faq {
+    padding: 66px 0 70px; }
+  .eco-faq .eco-faq__inner {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .eco-faq .eco-faq__title {
+    font-size: 32px; }
+  .eco-faq .eco-faq__col {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 36px; }
+  .eco-faq .eco-faq__cta {
+    width: 100%; } }
+
+@media (max-width: 767px) {
+  .eco-faq {
+    padding: 54px 0 58px; }
+  .eco-faq .eco-faq__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .eco-faq .eco-faq__title {
+    font-size: 26px; }
+  .eco-faq .eco-faq__q {
+    font-size: 16px; }
+  .eco-faq .eco-faq__a-in {
+    padding-right: 20px; }
+  .eco-faq .eco-faq__cta {
+    padding: 28px 22px 30px; } }
+
 .catalog__drop {
   display: none;
   position: absolute;
@@ -792,6 +1528,2398 @@ a:focus {
     background: #E4E3E3;
     width: 1px;
     height: 26px; }
+
+/* ============================================================
+   MIX — сводная версия (страница tulpani-mix.html)
+   Лучшее из ecopack (воздух, характеристики, FAQ, новости)
+   и novacart (тёмные секции, цифры, переключатель товаров, форма).
+   Палитра «серьёзная»: графит + крафт + терракота, БЕЗ зелёного.
+   Легаси-зелень гасится оверрайдами, ЗАСКОУПЛЕННЫМИ на .page--mix,
+   поэтому остальные страницы (tulpani/eco/nova) не затрагиваются.
+   Важно: mix.scss в glob-импорте идёт РАНЬШЕ tulpani.scss, поэтому
+   все оверрайды обязаны иметь специфичность выше легаси (+ .page--mix).
+   Правила проекта: без <section>/<article>, только flex (не grid),
+   отступы на margin, ширины через width: calc().
+   ============================================================ */
+.mix-specs .mix-specs__inner, .mix-channels .mix-channels__inner, .mix-featured .mix-featured__inner, .mix-figures .mix-figures__inner, .mix-news .mix-news__inner, .mix-expo .mix-expo__inner, .mix-support .mix-support__inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px; }
+
+.mix-channels .mix-channels__title, .mix-featured .mix-featured__title, .mix-news .mix-news__title, .mix-expo .mix-expo__title, .mix-support .mix-support__title {
+  position: relative;
+  font: 500 42px/1.18 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: -.4px;
+  color: #1A1A1A;
+  margin: 0;
+  padding-bottom: 18px; }
+  .mix-channels .mix-channels__title::after, .mix-featured .mix-featured__title::after, .mix-news .mix-news__title::after, .mix-expo .mix-expo__title::after, .mix-support .mix-support__title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 68px;
+    height: 2px;
+    background: #B4552D;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+    -webkit-transition: -webkit-transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    transition: -webkit-transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, -webkit-transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s; }
+
+.mix-channels .mix-channels__eyebrow, .mix-featured .mix-featured__eyebrow, .mix-figures .mix-figures__eyebrow, .mix-expo .mix-expo__eyebrow, .mix-support .mix-support__eyebrow {
+  display: block;
+  font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #B4552D; }
+
+/* ---------------- кнопки ---------------- */
+.mx-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 100px;
+  background: #B4552D;
+  color: #fff;
+  font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: background .25s, color .25s, border-color .25s, -webkit-transform .25s;
+  transition: background .25s, color .25s, border-color .25s, -webkit-transform .25s;
+  transition: background .25s, color .25s, border-color .25s, transform .25s;
+  transition: background .25s, color .25s, border-color .25s, transform .25s, -webkit-transform .25s; }
+  .mx-btn:hover {
+    background: #96421F;
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px); }
+
+.mx-btn--ghost {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #fff; }
+  .mx-btn--ghost:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #1A1A1A; }
+
+.mx-btn--dark {
+  background: #1F2124; }
+  .mx-btn--dark:hover {
+    background: #000; }
+
+/* ============================================================
+   1. ПЕРЕКРАСКА ЛЕГАСІ-БЛОКІВ (только на .page--mix)
+   ============================================================ */
+.page.page--mix {
+  background: #F4F1EA; }
+
+.page--mix {
+  /* --- хедер: графит + прилипание со сжатием --- */
+  /* --- кнопки --- */
+  /* --- герой --- */
+  /* --- преимущества --- */
+  /* --- вітрина-колесо та «про матеріал» --- */
+  /* --- контакти --- */
+  /* --- футер --- */ }
+  .page--mix .header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: #1F2124;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    -webkit-transition: -webkit-box-shadow .3s;
+    transition: -webkit-box-shadow .3s;
+    transition: box-shadow .3s;
+    transition: box-shadow .3s, -webkit-box-shadow .3s; }
+  .page--mix .header__inner {
+    -webkit-transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  .page--mix .header__logo-img {
+    -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: -webkit-transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  .page--mix .header.is-stuck {
+    -webkit-box-shadow: 0 10px 34px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.22); }
+  .page--mix .header.is-stuck .header__inner {
+    height: 58px; }
+  .page--mix .header.is-stuck .header__logo-img {
+    -webkit-transform: scale(0.84);
+    transform: scale(0.84); }
+  .page--mix .header__cart-count {
+    background: #B4552D; }
+  .page--mix .btn {
+    border-radius: 100px;
+    letter-spacing: .8px; }
+  .page--mix .btn--green {
+    background: #B4552D;
+    color: #fff; }
+    .page--mix .btn--green:hover {
+      background: #96421F; }
+  .page--mix .hero__panel {
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 2px; }
+  .page--mix .hero__label {
+    color: #B4552D; }
+  .page--mix .hero__title {
+    color: #1A1A1A;
+    letter-spacing: -1px; }
+  .page--mix .hero-arrow:hover {
+    background: #B4552D;
+    color: #fff; }
+  .page--mix .hero-slider .slick-dots li.slick-active button {
+    background: #B4552D; }
+  .page--mix .features {
+    background: transparent; }
+  .page--mix .features__inner {
+    border-radius: 2px;
+    -webkit-box-shadow: 0 20px 50px rgba(31, 33, 36, 0.08);
+    box-shadow: 0 20px 50px rgba(31, 33, 36, 0.08); }
+  .page--mix .feature__icon--green {
+    color: #B4552D;
+    background: #F6E7DF; }
+  .page--mix .feature__icon--pink {
+    color: #1F2124;
+    background: #E8E0D3; }
+  .page--mix .super {
+    background: transparent; }
+  .page--mix .super__eyebrow {
+    color: #B4552D; }
+  .page--mix .super__title {
+    letter-spacing: -.4px; }
+  .page--mix .about {
+    background: transparent; }
+  .page--mix .about__eyebrow {
+    color: #B4552D; }
+  .page--mix .about__title {
+    letter-spacing: -.4px; }
+  .page--mix .about__media {
+    border-radius: 2px; }
+  .page--mix .about__link {
+    color: #B4552D; }
+    .page--mix .about__link:hover {
+      color: #96421F; }
+  .page--mix .contacts__card {
+    border-radius: 2px; }
+  .page--mix .contact-row__ico {
+    background: #F6E7DF;
+    color: #B4552D; }
+  .page--mix a.contact-row__val:hover {
+    color: #B4552D; }
+  .page--mix .site-footer {
+    background: #1F2124; }
+  .page--mix .site-footer__nav ul a:hover {
+    color: #B4552D; }
+  .page--mix .site-footer__social a:hover {
+    background: #B4552D;
+    border-color: #B4552D;
+    color: #fff; }
+
+/* ============================================================
+   2. АНІМАЦІЇ ПРИ СКРОЛІ
+   Базовый слой (opacity + translateY) уже есть в tulpani.scss и
+   гейтится классом .reveal-ready — здесь только варианты направления
+   и «дорогие» эффекты. Специфичность выше базовой (+ .page--mix).
+   ============================================================ */
+.page--mix.reveal-ready [data-reveal],
+.page--mix.reveal-ready [data-reveal-stagger] > * {
+  transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), -webkit-clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1), clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+
+.page--mix.reveal-ready [data-anim="left"] {
+  opacity: 0;
+  -webkit-transform: translateX(-46px);
+  transform: translateX(-46px); }
+
+.page--mix.reveal-ready [data-anim="right"] {
+  opacity: 0;
+  -webkit-transform: translateX(46px);
+  transform: translateX(46px); }
+
+.page--mix.reveal-ready [data-anim="scale"] {
+  opacity: 0;
+  -webkit-transform: scale(0.93);
+  transform: scale(0.93); }
+
+.page--mix.reveal-ready [data-anim="rise"] {
+  opacity: 0;
+  -webkit-transform: translateY(52px);
+  transform: translateY(52px); }
+
+.page--mix.reveal-ready [data-anim="mask"] {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-clip-path: inset(0 100% 0 0);
+  clip-path: inset(0 100% 0 0); }
+
+.page--mix.reveal-ready [data-reveal-stagger][data-anim="left"] > * {
+  opacity: 0;
+  -webkit-transform: translateX(-46px);
+  transform: translateX(-46px); }
+
+.page--mix.reveal-ready [data-reveal-stagger][data-anim="right"] > * {
+  opacity: 0;
+  -webkit-transform: translateX(46px);
+  transform: translateX(46px); }
+
+.page--mix.reveal-ready [data-reveal-stagger][data-anim="scale"] > * {
+  opacity: 0;
+  -webkit-transform: scale(0.93);
+  transform: scale(0.93); }
+
+.page--mix.reveal-ready [data-reveal-stagger][data-anim="rise"] > * {
+  opacity: 0;
+  -webkit-transform: translateY(52px);
+  transform: translateY(52px); }
+
+.page--mix.reveal-ready [data-reveal-stagger][data-anim="mask"] > * {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-clip-path: inset(0 100% 0 0);
+  clip-path: inset(0 100% 0 0); }
+
+.page--mix.reveal-ready [data-anim].in,
+.page--mix.reveal-ready [data-reveal].in,
+.page--mix.reveal-ready [data-reveal-stagger].in > * {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0); }
+
+.page--mix.reveal-ready .in .mix-h2::after,
+.page--mix.reveal-ready .in.mix-h2::after {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .page--mix.reveal-ready [data-anim] {
+    opacity: 1 !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+    -webkit-transition: none !important;
+    transition: none !important; }
+  .page--mix .mix-h2::after {
+    -webkit-transform: scaleX(1) !important;
+    transform: scaleX(1) !important;
+    -webkit-transition: none !important;
+    transition: none !important; } }
+
+/* --- полоса прогресса прокрутки под хедером --- */
+.mix-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 70;
+  pointer-events: none; }
+  .mix-progress i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #B4552D;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: left center;
+    transform-origin: left center; }
+
+/* ============ 3. ТЕХ. ХАРАКТЕРИСТИКИ (смуга) ============ */
+.mix-specs {
+  background: #1F2124; }
+  .mix-specs .mix-specs__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-top: 38px;
+    padding-bottom: 38px; }
+  .mix-specs .mix-specs__item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 4px 28px;
+    border-left: 1px solid rgba(255, 255, 255, 0.14); }
+    .mix-specs .mix-specs__item:first-child {
+      border-left: 0;
+      padding-left: 0; }
+  .mix-specs .mix-specs__val {
+    display: block;
+    font: 500 34px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.6px;
+    color: #B4552D;
+    margin-bottom: 10px; }
+  .mix-specs .mix-specs__label {
+    display: block;
+    font: 400 14px/1.55 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.66); }
+
+@media (max-width: 1023px) {
+  .mix-specs .mix-specs__item {
+    width: 50%;
+    margin-bottom: 24px; }
+    .mix-specs .mix-specs__item:nth-child(odd) {
+      border-left: 0;
+      padding-left: 0; }
+  .mix-specs .mix-specs__inner {
+    padding-bottom: 14px; } }
+
+@media (max-width: 767px) {
+  .mix-specs .mix-specs__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .mix-specs .mix-specs__val {
+    font-size: 27px; } }
+
+/* ============ 4. РІШЕННЯ ДЛЯ КОЖНОГО КАНАЛУ ============ */
+.mix-channels {
+  padding: 100px 0 104px; }
+  .mix-channels .mix-channels__head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 48px; }
+  .mix-channels .mix-channels__titlebox {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(46% - 40px);
+    margin-right: 40px; }
+  .mix-channels .mix-channels__eyebrow {
+    margin-bottom: 16px; }
+  .mix-channels .mix-channels__lead {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 54%;
+    font: 400 16px/1.75 "AvenirNextCyr", Arial, sans-serif;
+    color: #6E6A64;
+    margin: 0; }
+  .mix-channels .mix-channels__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px; }
+
+.mix-tile {
+  position: relative;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(33.333% - 20px);
+  margin: 0 10px;
+  height: 460px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  overflow: hidden; }
+  .mix-tile .mix-tile__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-filter: grayscale(100%) contrast(1.06);
+    filter: grayscale(100%) contrast(1.06);
+    -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.6s ease;
+    transition: -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.6s ease;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease, -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.6s ease; }
+  .mix-tile .mix-tile__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(31, 33, 36, 0.25)), to(rgba(31, 33, 36, 0.86)));
+    background: linear-gradient(180deg, rgba(31, 33, 36, 0.25) 0%, rgba(31, 33, 36, 0.86) 100%);
+    -webkit-transition: background .35s;
+    transition: background .35s; }
+  .mix-tile:hover .mix-tile__img {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06);
+    -webkit-filter: grayscale(0%) contrast(1);
+    filter: grayscale(0%) contrast(1); }
+  .mix-tile:hover .mix-tile__overlay {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(31, 33, 36, 0.1)), to(rgba(31, 33, 36, 0.78)));
+    background: linear-gradient(180deg, rgba(31, 33, 36, 0.1) 0%, rgba(31, 33, 36, 0.78) 100%); }
+  .mix-tile .mix-tile__body {
+    position: relative;
+    width: 100%;
+    padding: 34px 32px 36px; }
+  .mix-tile .mix-tile__num {
+    display: block;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.6px;
+    color: #B4552D;
+    margin-bottom: 14px; }
+  .mix-tile .mix-tile__name {
+    font: 500 27px/1.22 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.3px;
+    color: #fff;
+    margin: 0 0 12px; }
+  .mix-tile .mix-tile__text {
+    font: 400 15px/1.65 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0 0 24px; }
+
+@media (max-width: 1023px) {
+  .mix-channels {
+    padding: 70px 0 44px; }
+  .mix-channels .mix-channels__head {
+    display: block; }
+  .mix-channels .mix-channels__titlebox {
+    width: 100%;
+    margin: 0 0 18px; }
+  .mix-channels .mix-channels__title {
+    font-size: 32px; }
+  .mix-channels .mix-channels__lead {
+    width: 100%; }
+  .mix-tile {
+    width: calc(50% - 20px);
+    height: 390px;
+    margin-bottom: 20px; } }
+
+@media (max-width: 767px) {
+  .mix-channels {
+    padding: 54px 0 32px; }
+  .mix-channels .mix-channels__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .mix-channels .mix-channels__title {
+    font-size: 27px; }
+  .mix-tile {
+    width: calc(100% - 20px);
+    height: 340px; } }
+
+/* ============ 5. ОБРАНЕ (перемикач товарів) ============ */
+.mix-featured {
+  padding: 0 0 100px; }
+  .mix-featured .mix-featured__head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 34px; }
+  .mix-featured .mix-featured__titlebox {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto; }
+  .mix-featured .mix-featured__eyebrow {
+    margin-bottom: 16px; }
+  .mix-featured .mix-featured__all {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: #1A1A1A;
+    border-bottom: 2px solid #B4552D;
+    padding-bottom: 6px;
+    margin-left: 20px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .mix-featured .mix-featured__all:hover {
+      color: #B4552D; }
+  .mix-featured .mix-featured__box {
+    background: #fff; }
+  .mix-featured .mix-featured__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #DED7C9; }
+  .mix-featured .mix-tab {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 22px 26px;
+    border-right: 1px solid #DED7C9;
+    border-bottom: 3px solid transparent;
+    -webkit-transition: background .25s, border-color .25s;
+    transition: background .25s, border-color .25s; }
+    .mix-featured .mix-tab:last-child {
+      border-right: 0; }
+    .mix-featured .mix-tab:hover {
+      background: #F4F1EA; }
+  .mix-featured .mix-tab.is-active {
+    background: #F4F1EA;
+    border-bottom-color: #B4552D; }
+  .mix-featured .mix-tab__kicker {
+    display: block;
+    font: 400 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6E6A64;
+    margin-bottom: 9px; }
+  .mix-featured .mix-tab__name {
+    display: block;
+    font: 500 17px/1.25 "AvenirNextCyr", Arial, sans-serif;
+    color: #1A1A1A; }
+  .mix-featured .mix-tab.is-active .mix-tab__name {
+    color: #B4552D; }
+  .mix-featured .mix-pane {
+    display: none; }
+  .mix-featured .mix-pane.is-active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch; }
+  .mix-featured .mix-pane__media {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 52%;
+    position: relative;
+    min-height: 440px;
+    overflow: hidden; }
+    .mix-featured .mix-pane__media img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      display: block; }
+  .mix-featured .mix-pane__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 46px 50px; }
+  .mix-featured .mix-pane__name {
+    font: 500 30px/1.2 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.4px;
+    color: #1A1A1A;
+    margin: 0 0 16px; }
+  .mix-featured .mix-pane__text {
+    font: 400 16px/1.75 "AvenirNextCyr", Arial, sans-serif;
+    color: #6E6A64;
+    margin: 0 0 24px; }
+  .mix-featured .mix-pane__specs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 28px; }
+
+.mix-spec {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+  color: #1A1A1A;
+  background: #E8E0D3;
+  border-radius: 100px;
+  padding: 11px 17px;
+  margin: 0 8px 8px 0; }
+  .mix-spec b {
+    font-weight: 700;
+    color: #B4552D;
+    margin-right: 5px; }
+
+@media (max-width: 1023px) {
+  .mix-featured {
+    padding-bottom: 70px; }
+  .mix-featured .mix-featured__title {
+    font-size: 32px; }
+  .mix-featured .mix-tab {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 50%;
+    border-right: 0;
+    border-bottom: 1px solid #DED7C9; }
+  .mix-featured .mix-tab.is-active {
+    border-bottom-color: #B4552D; }
+  .mix-featured .mix-pane.is-active {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .mix-featured .mix-pane__media {
+    width: 100%;
+    min-height: 300px; }
+  .mix-featured .mix-pane__body {
+    padding: 34px 30px 38px; }
+  .mix-featured .mix-pane__name {
+    font-size: 26px; } }
+
+@media (max-width: 767px) {
+  .mix-featured {
+    padding-bottom: 54px; }
+  .mix-featured .mix-featured__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .mix-featured .mix-featured__head {
+    display: block; }
+  .mix-featured .mix-featured__title {
+    font-size: 27px; }
+  .mix-featured .mix-featured__all {
+    display: inline-block;
+    margin: 16px 0 0; }
+  .mix-featured .mix-tab {
+    width: 100%;
+    padding: 16px 20px; }
+  .mix-featured .mix-pane__media {
+    min-height: 230px; }
+  .mix-featured .mix-pane__body {
+    padding: 26px 20px 30px; }
+  .mix-featured .mix-pane__name {
+    font-size: 23px; } }
+
+/* ============ 6. ЦИФРИ ВИРОБНИЦТВА (темна секція + паралакс) ============ */
+.mix-figures {
+  position: relative;
+  background: #1F2124;
+  padding: 104px 0 100px;
+  overflow: hidden; }
+  .mix-figures .mix-figures__bg {
+    position: absolute;
+    top: -12%;
+    left: 0;
+    width: 100%;
+    height: 124%;
+    will-change: transform; }
+    .mix-figures .mix-figures__bg img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      display: block;
+      opacity: .22;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%); }
+  .mix-figures .mix-figures__inner {
+    position: relative; }
+  .mix-figures .mix-figures__eyebrow {
+    margin-bottom: 16px; }
+  .mix-figures .mix-figures__title {
+    font: 500 46px/1.15 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.8px;
+    color: #fff;
+    margin: 0 0 52px; }
+  .mix-figures .mix-figures__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 58px; }
+  .mix-figures .mix-figures__item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 25%;
+    padding-right: 20px; }
+  .mix-figures .mix-figures__val {
+    font: 500 62px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -2px;
+    color: #B4552D;
+    margin-bottom: 12px; }
+  .mix-figures .mix-figures__label {
+    display: block;
+    font: 400 15px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.68); }
+  .mix-figures .mix-figures__prod {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 36px; }
+  .mix-figures .mix-figures__prod-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 33.333%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-right: 20px; }
+  .mix-figures .mix-figures__prod-name {
+    font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 12px; }
+  .mix-figures .mix-figures__prod-val {
+    font: 500 38px/1.1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -1px;
+    color: #fff; }
+  .mix-figures .mix-figures__note {
+    font: 400 13px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.42);
+    margin: 24px 0 0; }
+  .mix-figures .mix-figures__geo {
+    margin-top: 46px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16); }
+  .mix-figures .mix-figures__geo-title {
+    display: block;
+    font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 20px; }
+  .mix-figures .mix-figures__geo-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+
+.mix-chip {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 100px;
+  padding: 11px 19px;
+  margin: 0 10px 10px 0;
+  -webkit-transition: background .25s, border-color .25s;
+  transition: background .25s, border-color .25s; }
+  .mix-chip:hover {
+    background: rgba(180, 85, 45, 0.3);
+    border-color: #B4552D; }
+
+@media (max-width: 1023px) {
+  .mix-figures {
+    padding: 72px 0 68px; }
+  .mix-figures .mix-figures__title {
+    font-size: 34px;
+    margin-bottom: 38px; }
+  .mix-figures .mix-figures__item {
+    width: 50%;
+    margin-bottom: 32px; }
+  .mix-figures .mix-figures__val {
+    font-size: 48px; }
+  .mix-figures .mix-figures__list {
+    margin-bottom: 26px; }
+  .mix-figures .mix-figures__prod-item {
+    width: 100%;
+    margin-bottom: 26px; } }
+
+@media (max-width: 767px) {
+  .mix-figures {
+    padding: 56px 0 56px; }
+  .mix-figures .mix-figures__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .mix-figures .mix-figures__title {
+    font-size: 28px; }
+  .mix-figures .mix-figures__val {
+    font-size: 40px; }
+  .mix-figures .mix-figures__prod-val {
+    font-size: 30px; } }
+
+/* ============ 7. ІННОВАЦІЇ / СЕРТИФІКАТИ / ЕКОЛОГІЯ ============ */
+.mix-tri {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .mix-tri .mix-tri__item {
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 33.333%;
+    height: 480px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    overflow: hidden; }
+  .mix-tri .mix-tri__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-filter: grayscale(100%) contrast(1.05);
+    filter: grayscale(100%) contrast(1.05);
+    -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.6s ease;
+    transition: -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.6s ease;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease, -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.6s ease; }
+  .mix-tri .mix-tri__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 33, 36, 0.68);
+    -webkit-transition: background .35s;
+    transition: background .35s; }
+  .mix-tri .mix-tri__item:hover .mix-tri__img {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06);
+    -webkit-filter: grayscale(0%) contrast(1);
+    filter: grayscale(0%) contrast(1); }
+  .mix-tri .mix-tri__item:hover .mix-tri__overlay {
+    background: rgba(31, 33, 36, 0.5); }
+  .mix-tri .mix-tri__body {
+    position: relative;
+    width: 100%;
+    padding: 38px 36px 42px; }
+  .mix-tri .mix-tri__name {
+    font: 500 32px/1.2 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.6px;
+    color: #fff;
+    margin: 0 0 14px; }
+  .mix-tri .mix-tri__text {
+    font: 400 15px/1.65 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 26px; }
+
+@media (max-width: 1023px) {
+  .mix-tri .mix-tri__item {
+    width: 50%;
+    height: 410px; }
+  .mix-tri .mix-tri__name {
+    font-size: 27px; } }
+
+@media (max-width: 767px) {
+  .mix-tri .mix-tri__item {
+    width: 100%;
+    height: 350px; }
+  .mix-tri .mix-tri__body {
+    padding: 28px 20px 32px; }
+  .mix-tri .mix-tri__name {
+    font-size: 25px; } }
+
+/* ============ 8. НОВИНИ ============ */
+.mix-news {
+  padding: 100px 0 104px; }
+  .mix-news .mix-news__head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 42px; }
+  .mix-news .mix-news__all {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: #B4552D;
+    margin-left: 20px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .mix-news .mix-news__all svg {
+      margin-left: 8px;
+      -webkit-transition: -webkit-transform .25s;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s; }
+    .mix-news .mix-news__all:hover {
+      color: #96421F; }
+    .mix-news .mix-news__all:hover svg {
+      -webkit-transform: translateX(4px);
+      transform: translateX(4px); }
+  .mix-news .mix-news__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-left: -10px;
+    margin-right: -10px; }
+
+.mix-post {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(33.333% - 20px);
+  margin: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  -webkit-transition: -webkit-box-shadow .35s, -webkit-transform .35s;
+  transition: -webkit-box-shadow .35s, -webkit-transform .35s;
+  transition: box-shadow .35s, transform .35s;
+  transition: box-shadow .35s, transform .35s, -webkit-box-shadow .35s, -webkit-transform .35s; }
+  .mix-post:hover {
+    -webkit-box-shadow: 0 22px 46px rgba(31, 33, 36, 0.14);
+    box-shadow: 0 22px 46px rgba(31, 33, 36, 0.14);
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px); }
+  .mix-post .mix-post__media {
+    height: 210px;
+    overflow: hidden; }
+    .mix-post .mix-post__media img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      display: block;
+      will-change: transform;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-filter: grayscale(100%) contrast(1.05);
+      filter: grayscale(100%) contrast(1.05);
+      -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.6s ease;
+      transition: -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.6s ease;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease, -webkit-transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), -webkit-filter 0.6s ease; }
+  .mix-post:hover .mix-post__media img {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06);
+    -webkit-filter: grayscale(0%) contrast(1);
+    filter: grayscale(0%) contrast(1); }
+  .mix-post .mix-post__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 24px 28px 30px; }
+  .mix-post .mix-post__date {
+    font: 700 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #B4552D;
+    margin-bottom: 14px; }
+  .mix-post .mix-post__name {
+    font: 500 20px/1.35 "AvenirNextCyr", Arial, sans-serif;
+    color: #1A1A1A;
+    margin: 0 0 10px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+  .mix-post:hover .mix-post__name {
+    color: #B4552D; }
+  .mix-post .mix-post__text {
+    font: 400 15px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: #6E6A64;
+    margin: 0; }
+
+@media (max-width: 1023px) {
+  .mix-news {
+    padding: 70px 0 44px; }
+  .mix-news .mix-news__title {
+    font-size: 32px; }
+  .mix-post {
+    width: calc(50% - 20px);
+    margin-bottom: 20px; } }
+
+@media (max-width: 767px) {
+  .mix-news {
+    padding: 54px 0 32px; }
+  .mix-news .mix-news__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .mix-news .mix-news__title {
+    font-size: 27px; }
+  .mix-news .mix-news__head {
+    display: block; }
+  .mix-news .mix-news__all {
+    margin: 16px 0 0; }
+  .mix-post {
+    width: calc(100% - 20px); } }
+
+/* ============ 9. ВИСТАВКИ ============ */
+.mix-expo {
+  background: #E8E0D3;
+  padding: 92px 0 96px; }
+  .mix-expo .mix-expo__head {
+    max-width: 700px;
+    margin-bottom: 44px; }
+  .mix-expo .mix-expo__eyebrow {
+    margin-bottom: 16px; }
+  .mix-expo .mix-expo__title {
+    margin-bottom: 18px; }
+  .mix-expo .mix-expo__lead {
+    font: 400 16px/1.75 "AvenirNextCyr", Arial, sans-serif;
+    color: #6E6A64;
+    margin: 0; }
+  .mix-expo .mix-expo__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top: 1px solid rgba(31, 33, 36, 0.14);
+    padding: 26px 0;
+    -webkit-transition: padding-left .3s, background .3s;
+    transition: padding-left .3s, background .3s; }
+    .mix-expo .mix-expo__row:last-child {
+      border-bottom: 1px solid rgba(31, 33, 36, 0.14); }
+    .mix-expo .mix-expo__row:hover {
+      background: rgba(255, 255, 255, 0.5);
+      padding-left: 14px; }
+  .mix-expo .mix-expo__date {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 210px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-right: 20px; }
+  .mix-expo .mix-expo__day {
+    font: 500 26px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.4px;
+    color: #B4552D;
+    margin-bottom: 7px; }
+  .mix-expo .mix-expo__month {
+    font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #6E6A64; }
+  .mix-expo .mix-expo__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-right: 20px; }
+  .mix-expo .mix-expo__name {
+    font: 500 20px/1.3 "AvenirNextCyr", Arial, sans-serif;
+    color: #1A1A1A;
+    margin: 0 0 6px; }
+  .mix-expo .mix-expo__place {
+    font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #6E6A64; }
+  .mix-expo .mix-expo__stand {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    font: 700 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #1A1A1A;
+    background: #fff;
+    border-radius: 100px;
+    padding: 12px 20px; }
+
+@media (max-width: 1023px) {
+  .mix-expo {
+    padding: 68px 0 72px; }
+  .mix-expo .mix-expo__title {
+    font-size: 32px; }
+  .mix-expo .mix-expo__date {
+    width: 160px; } }
+
+@media (max-width: 767px) {
+  .mix-expo {
+    padding: 54px 0 58px; }
+  .mix-expo .mix-expo__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .mix-expo .mix-expo__title {
+    font-size: 27px; }
+  .mix-expo .mix-expo__row {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .mix-expo .mix-expo__date {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    margin-bottom: 10px; }
+  .mix-expo .mix-expo__day {
+    font-size: 20px;
+    margin: 0 8px 0 0; }
+  .mix-expo .mix-expo__body {
+    width: 100%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin-bottom: 14px; } }
+
+/* ============ 10. FAQ + ФОРМА ЗАПИТУ ============ */
+.mix-support {
+  padding: 96px 0 100px;
+  /* ---- ліва колонка: FAQ ---- */
+  /* ---- права колонка: форма ---- */ }
+  .mix-support .mix-support__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .mix-support .mix-support__faq {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(52% - 40px);
+    margin-right: 40px; }
+  .mix-support .mix-support__eyebrow {
+    margin-bottom: 16px; }
+  .mix-support .mix-support__title {
+    margin-bottom: 26px; }
+  .mix-support .mix-faq__item {
+    border-bottom: 1px solid #DED7C9; }
+  .mix-support .mix-faq__q {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 22px 0;
+    font: 400 18px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #1A1A1A;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .mix-support .mix-faq__q:hover {
+      color: #B4552D; }
+  .mix-support .mix-faq__q-text {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-right: 20px; }
+  .mix-support .mix-faq__sign {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: block; }
+    .mix-support .mix-faq__sign::before, .mix-support .mix-faq__sign::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 16px;
+      height: 2px;
+      margin-top: -1px;
+      background: #B4552D;
+      -webkit-transition: opacity .3s, -webkit-transform .3s;
+      transition: opacity .3s, -webkit-transform .3s;
+      transition: transform .3s, opacity .3s;
+      transition: transform .3s, opacity .3s, -webkit-transform .3s; }
+    .mix-support .mix-faq__sign::after {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg); }
+  .mix-support .mix-faq__item.is-open .mix-faq__sign::after {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    opacity: 0; }
+  .mix-support .mix-faq__item.is-open .mix-faq__q {
+    color: #B4552D; }
+  .mix-support .mix-faq__a {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  .mix-support .mix-faq__a-in {
+    padding: 0 50px 24px 0; }
+    .mix-support .mix-faq__a-in p {
+      font: 400 15px/1.75 "AvenirNextCyr", Arial, sans-serif;
+      color: #6E6A64;
+      margin: 0; }
+  .mix-support .mix-support__form {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: #fff;
+    padding: 38px 36px 36px; }
+  .mix-support .mix-form__title {
+    width: 100%;
+    font: 500 24px/1.25 "AvenirNextCyr", Arial, sans-serif;
+    color: #1A1A1A;
+    margin: 0 0 8px; }
+  .mix-support .mix-form__text {
+    width: 100%;
+    font: 400 15px/1.65 "AvenirNextCyr", Arial, sans-serif;
+    color: #6E6A64;
+    margin: 0 0 26px; }
+  .mix-support .mix-field {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 18px; }
+  .mix-support .mix-field--half {
+    width: calc(50% - 9px); }
+  .mix-support .mix-field__label {
+    font: 400 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6E6A64;
+    margin-bottom: 9px; }
+  .mix-support .mix-field__input,
+  .mix-support .mix-field__select,
+  .mix-support .mix-field__area {
+    width: 100%;
+    font: 400 15px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #1A1A1A;
+    background: #F4F1EA;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    padding: 12px 14px;
+    -webkit-transition: border-color .2s, background .2s;
+    transition: border-color .2s, background .2s; }
+    .mix-support .mix-field__input:focus,
+    .mix-support .mix-field__select:focus,
+    .mix-support .mix-field__area:focus {
+      outline: none;
+      background: #fff;
+      border-color: #B4552D; }
+  .mix-support .mix-field__input,
+  .mix-support .mix-field__select {
+    height: 50px;
+    padding-top: 0;
+    padding-bottom: 0; }
+  .mix-support .mix-field__area {
+    resize: vertical;
+    min-height: 104px;
+    height: auto; }
+  .mix-support .mix-field__select {
+    padding-right: 34px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%236E6A64' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px 18px; }
+  .mix-support .mix-form__foot {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 4px; }
+  .mix-support .mix-form__hint {
+    font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #6E6A64;
+    margin-left: 18px; }
+
+@media (max-width: 1023px) {
+  .mix-support {
+    padding: 70px 0 74px; }
+  .mix-support .mix-support__inner {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .mix-support .mix-support__title {
+    font-size: 32px; }
+  .mix-support .mix-support__faq {
+    width: 100%;
+    margin: 0 0 40px; }
+  .mix-support .mix-support__form {
+    width: 100%; } }
+
+@media (max-width: 767px) {
+  .mix-support {
+    padding: 54px 0 58px; }
+  .mix-support .mix-support__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .mix-support .mix-support__title {
+    font-size: 27px; }
+  .mix-support .mix-faq__q {
+    font-size: 16px; }
+  .mix-support .mix-faq__a-in {
+    padding-right: 16px; }
+  .mix-support .mix-support__form {
+    padding: 26px 20px 24px; }
+  .mix-support .mix-field--half {
+    width: 100%; }
+  .mix-support .mix-form__foot {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .mix-support .mix-form__hint {
+    width: 100%;
+    margin: 14px 0 0; } }
+
+/* ============================================================
+   NOVA-блоки (страница tulpani-nova.html)
+   Визуальный язык novacart.com: тёмные фото-секции с затемнением,
+   крупные тонкие заголовки, зелёные кнопки-«пилюли», плитки с оверлеем.
+   Правила проекта: без <section>/<article>, только flex (не grid),
+   отступы на margin (без flex-gap), ширины через width: calc(),
+   а НЕ через flex-шорткат с calc (autoprefixer его ломает).
+   Файл самодостаточный: свои переменные, ничего не тянет из tulpani.scss.
+   ============================================================ */
+.nova-solutions .nova-solutions__inner, .nova-featured .nova-featured__inner, .nova-figures .nova-figures__inner, .nova-expo .nova-expo__inner, .nova-request .nova-request__inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px; }
+
+.nova-solutions .nova-solutions__title, .nova-expo .nova-expo__title, .nova-request .nova-request__title {
+  font: 500 35px/1.25 "AvenirNextCyr", Arial, sans-serif;
+  color: #282828;
+  margin: 0; }
+
+.nova-figures .nova-figures__title {
+  font: 300 55px/1.15 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: -1.1px;
+  color: #fff;
+  margin: 0; }
+
+.nova-featured .nova-featured__eyebrow, .nova-expo .nova-expo__eyebrow, .nova-request .nova-request__eyebrow {
+  display: block;
+  font: 700 15px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #85aa12; }
+
+/* ---------------- кнопка-«пилюля» ---------------- */
+.nova-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 45px;
+  padding: 0 26px;
+  border-radius: 100px;
+  background: #85aa12;
+  color: #fff;
+  font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: background .25s, color .25s, border-color .25s;
+  transition: background .25s, color .25s, border-color .25s; }
+  .nova-btn:hover {
+    background: #6f9309; }
+
+.nova-btn--ghost {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: #fff; }
+  .nova-btn--ghost:hover {
+    background: #85aa12;
+    border-color: #85aa12;
+    color: #fff; }
+
+/* ============ 1. РІШЕННЯ ТА СЕРВІСИ ============ */
+.nova-solutions {
+  background: #fff;
+  padding: 96px 0 100px; }
+  .nova-solutions .nova-solutions__head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 44px; }
+  .nova-solutions .nova-solutions__title {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(42% - 40px);
+    margin-right: 40px; }
+  .nova-solutions .nova-solutions__lead {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 58%;
+    font: 400 16px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #767676;
+    margin: 0; }
+  .nova-solutions .nova-solutions__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px; }
+
+/* плитка с фото и затемнением */
+.nova-tile {
+  position: relative;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(33.333% - 20px);
+  margin: 0 10px;
+  height: 440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  overflow: hidden; }
+  .nova-tile .nova-tile__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: -webkit-transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+  .nova-tile .nova-tile__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.15)), to(rgba(0, 0, 0, 0.72)));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.72) 100%);
+    -webkit-transition: background .3s;
+    transition: background .3s; }
+  .nova-tile:hover .nova-tile__img {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06); }
+  .nova-tile:hover .nova-tile__overlay {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.8)));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%); }
+  .nova-tile .nova-tile__body {
+    position: relative;
+    width: 100%;
+    padding: 32px 30px 34px; }
+  .nova-tile .nova-tile__name {
+    font: 500 26px/1.25 "AvenirNextCyr", Arial, sans-serif;
+    color: #fff;
+    margin: 0 0 12px; }
+  .nova-tile .nova-tile__text {
+    font: 400 15px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 22px; }
+
+@media (max-width: 1023px) {
+  .nova-solutions {
+    padding: 66px 0 40px; }
+  .nova-solutions .nova-solutions__head {
+    display: block; }
+  .nova-solutions .nova-solutions__title {
+    width: 100%;
+    margin: 0 0 16px;
+    font-size: 30px; }
+  .nova-solutions .nova-solutions__lead {
+    width: 100%; }
+  .nova-tile {
+    width: calc(50% - 20px);
+    height: 380px;
+    margin-bottom: 20px; } }
+
+@media (max-width: 767px) {
+  .nova-solutions {
+    padding: 52px 0 30px; }
+  .nova-solutions .nova-solutions__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .nova-solutions .nova-solutions__title {
+    font-size: 26px; }
+  .nova-tile {
+    width: calc(100% - 20px);
+    height: 340px; } }
+
+/* ============ 2. ОБРАНЕ (перемикач) ============ */
+.nova-featured {
+  background: #f5f5f5;
+  padding: 92px 0 96px; }
+  .nova-featured .nova-featured__head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 26px; }
+  .nova-featured .nova-featured__eyebrow {
+    font-size: 22px;
+    letter-spacing: .6px; }
+  .nova-featured .nova-featured__all {
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #282828;
+    border-bottom: 2px solid #85aa12;
+    padding-bottom: 6px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .nova-featured .nova-featured__all:hover {
+      color: #85aa12; }
+  .nova-featured .nova-featured__box {
+    background: #fff;
+    overflow: hidden; }
+  .nova-featured .nova-featured__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e3e3e3; }
+  .nova-featured .nova-tab {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 20px 24px;
+    border-right: 1px solid #e3e3e3;
+    border-bottom: 3px solid transparent;
+    -webkit-transition: background .25s, border-color .25s;
+    transition: background .25s, border-color .25s; }
+    .nova-featured .nova-tab:last-child {
+      border-right: 0; }
+    .nova-featured .nova-tab:hover {
+      background: rgba(133, 170, 18, 0.06); }
+  .nova-featured .nova-tab.is-active {
+    border-bottom-color: #85aa12;
+    background: rgba(133, 170, 18, 0.08); }
+  .nova-featured .nova-tab__kicker {
+    display: block;
+    font: 400 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    color: #767676;
+    margin-bottom: 8px; }
+  .nova-featured .nova-tab__name {
+    display: block;
+    font: 500 17px/1.25 "AvenirNextCyr", Arial, sans-serif;
+    color: #282828; }
+  .nova-featured .nova-tab.is-active .nova-tab__name {
+    color: #6f9309; }
+  .nova-featured .nova-pane {
+    display: none; }
+  .nova-featured .nova-pane.is-active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch; }
+  .nova-featured .nova-pane__media {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 52%;
+    position: relative;
+    min-height: 420px;
+    overflow: hidden; }
+    .nova-featured .nova-pane__media img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      display: block; }
+  .nova-featured .nova-pane__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 44px 48px; }
+  .nova-featured .nova-pane__name {
+    font: 500 30px/1.2 "AvenirNextCyr", Arial, sans-serif;
+    color: #282828;
+    margin: 0 0 16px; }
+  .nova-featured .nova-pane__text {
+    font: 400 16px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #767676;
+    margin: 0 0 22px; }
+  .nova-featured .nova-pane__specs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 26px; }
+
+.nova-spec {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+  color: #282828;
+  background: #f5f5f5;
+  border-radius: 100px;
+  padding: 10px 16px;
+  margin: 0 8px 8px 0; }
+  .nova-spec b {
+    font-weight: 700;
+    color: #6f9309;
+    margin-right: 5px; }
+
+@media (max-width: 1023px) {
+  .nova-featured {
+    padding: 66px 0 70px; }
+  .nova-featured .nova-featured__eyebrow {
+    font-size: 18px; }
+  .nova-featured .nova-tab {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 50%;
+    border-right: 0;
+    border-bottom: 1px solid #e3e3e3; }
+  .nova-featured .nova-tab.is-active {
+    border-bottom-color: #85aa12; }
+  .nova-featured .nova-pane.is-active {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .nova-featured .nova-pane__media {
+    width: 100%;
+    min-height: 280px; }
+  .nova-featured .nova-pane__body {
+    padding: 32px 28px 36px; }
+  .nova-featured .nova-pane__name {
+    font-size: 26px; } }
+
+@media (max-width: 767px) {
+  .nova-featured {
+    padding: 52px 0 56px; }
+  .nova-featured .nova-featured__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .nova-featured .nova-featured__head {
+    display: block; }
+  .nova-featured .nova-featured__all {
+    display: inline-block;
+    margin-top: 14px; }
+  .nova-featured .nova-tab {
+    width: 100%;
+    padding: 16px 20px; }
+  .nova-featured .nova-pane__media {
+    min-height: 220px; }
+  .nova-featured .nova-pane__body {
+    padding: 26px 20px 30px; }
+  .nova-featured .nova-pane__name {
+    font-size: 22px; } }
+
+/* ============ 3. ЦИФРИ ВИРОБНИЦТВА (темна фото-секція) ============ */
+.nova-figures {
+  position: relative;
+  background: #141414;
+  padding: 100px 0 96px;
+  overflow: hidden; }
+  .nova-figures .nova-figures__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+    .nova-figures .nova-figures__bg img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      display: block;
+      opacity: .32; }
+  .nova-figures .nova-figures__inner {
+    position: relative; }
+  .nova-figures .nova-figures__title {
+    margin-bottom: 50px; }
+  .nova-figures .nova-figures__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 56px; }
+  .nova-figures .nova-figures__item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 25%;
+    padding-right: 20px; }
+  .nova-figures .nova-figures__val {
+    font: 300 62px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -1.4px;
+    color: #85aa12;
+    margin-bottom: 10px; }
+  .nova-figures .nova-figures__label {
+    display: block;
+    font: 400 15px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.72); }
+  .nova-figures .nova-figures__prod {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding-top: 34px; }
+  .nova-figures .nova-figures__prod-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 33.333%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-right: 20px; }
+  .nova-figures .nova-figures__prod-name {
+    font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px; }
+  .nova-figures .nova-figures__prod-val {
+    font: 300 38px/1.1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.6px;
+    color: #fff; }
+  .nova-figures .nova-figures__note {
+    font: 400 13px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 22px 0 0; }
+  .nova-figures .nova-figures__geo {
+    margin-top: 44px;
+    padding-top: 34px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18); }
+  .nova-figures .nova-figures__geo-title {
+    display: block;
+    font: 400 15px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 18px; }
+  .nova-figures .nova-figures__geo-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+
+.nova-chip {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 100px;
+  padding: 10px 18px;
+  margin: 0 10px 10px 0; }
+
+@media (max-width: 1023px) {
+  .nova-figures {
+    padding: 70px 0 66px; }
+  .nova-figures .nova-figures__title {
+    font-size: 38px;
+    margin-bottom: 36px; }
+  .nova-figures .nova-figures__item {
+    width: 50%;
+    margin-bottom: 30px; }
+  .nova-figures .nova-figures__val {
+    font-size: 48px; }
+  .nova-figures .nova-figures__list {
+    margin-bottom: 26px; }
+  .nova-figures .nova-figures__prod-item {
+    width: 100%;
+    margin-bottom: 24px; } }
+
+@media (max-width: 767px) {
+  .nova-figures {
+    padding: 54px 0 54px; }
+  .nova-figures .nova-figures__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .nova-figures .nova-figures__title {
+    font-size: 30px; }
+  .nova-figures .nova-figures__val {
+    font-size: 40px; }
+  .nova-figures .nova-figures__prod-val {
+    font-size: 30px; } }
+
+/* ============ 4. ІННОВАЦІЇ / СЕРТИФІКАТИ / ЕКОЛОГІЯ ============ */
+.nova-tri {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .nova-tri .nova-tri__item {
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 33.333%;
+    height: 470px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    overflow: hidden; }
+  .nova-tri .nova-tri__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: -webkit-transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+  .nova-tri .nova-tri__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    -webkit-transition: background .3s;
+    transition: background .3s; }
+  .nova-tri .nova-tri__item:hover .nova-tri__img {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06); }
+  .nova-tri .nova-tri__item:hover .nova-tri__overlay {
+    background: rgba(0, 0, 0, 0.68); }
+  .nova-tri .nova-tri__body {
+    position: relative;
+    width: 100%;
+    padding: 36px 34px 40px; }
+  .nova-tri .nova-tri__name {
+    font: 300 34px/1.2 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.5px;
+    color: #fff;
+    margin: 0 0 12px; }
+  .nova-tri .nova-tri__text {
+    font: 400 15px/1.65 "AvenirNextCyr", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 24px; }
+
+@media (max-width: 1023px) {
+  .nova-tri .nova-tri__item {
+    width: 50%;
+    height: 400px; }
+  .nova-tri .nova-tri__name {
+    font-size: 28px; } }
+
+@media (max-width: 767px) {
+  .nova-tri .nova-tri__item {
+    width: 100%;
+    height: 340px; }
+  .nova-tri .nova-tri__body {
+    padding: 28px 20px 32px; }
+  .nova-tri .nova-tri__name {
+    font-size: 26px; } }
+
+/* ============ 5. ВИСТАВКИ ============ */
+.nova-expo {
+  background: #fff;
+  padding: 92px 0 96px; }
+  .nova-expo .nova-expo__head {
+    max-width: 680px;
+    margin-bottom: 42px; }
+  .nova-expo .nova-expo__eyebrow {
+    margin-bottom: 14px; }
+  .nova-expo .nova-expo__title {
+    margin-bottom: 16px; }
+  .nova-expo .nova-expo__lead {
+    font: 400 16px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #767676;
+    margin: 0; }
+  .nova-expo .nova-expo__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top: 1px solid #e3e3e3;
+    padding: 26px 0;
+    -webkit-transition: background .25s;
+    transition: background .25s; }
+    .nova-expo .nova-expo__row:last-child {
+      border-bottom: 1px solid #e3e3e3; }
+    .nova-expo .nova-expo__row:hover {
+      background: #f5f5f5; }
+  .nova-expo .nova-expo__date {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 210px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-right: 20px; }
+  .nova-expo .nova-expo__day {
+    font: 500 26px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #85aa12;
+    margin-bottom: 6px; }
+  .nova-expo .nova-expo__month {
+    font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #767676; }
+  .nova-expo .nova-expo__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-right: 20px; }
+  .nova-expo .nova-expo__name {
+    font: 500 20px/1.3 "AvenirNextCyr", Arial, sans-serif;
+    color: #282828;
+    margin: 0 0 6px; }
+  .nova-expo .nova-expo__place {
+    font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #767676; }
+  .nova-expo .nova-expo__stand {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #282828;
+    background: #f5f5f5;
+    border-radius: 100px;
+    padding: 12px 20px; }
+
+@media (max-width: 1023px) {
+  .nova-expo {
+    padding: 66px 0 70px; }
+  .nova-expo .nova-expo__title {
+    font-size: 30px; }
+  .nova-expo .nova-expo__date {
+    width: 160px; } }
+
+@media (max-width: 767px) {
+  .nova-expo {
+    padding: 52px 0 56px; }
+  .nova-expo .nova-expo__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .nova-expo .nova-expo__title {
+    font-size: 26px; }
+  .nova-expo .nova-expo__row {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .nova-expo .nova-expo__date {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    margin-bottom: 10px; }
+  .nova-expo .nova-expo__day {
+    font-size: 20px;
+    margin: 0 8px 0 0; }
+  .nova-expo .nova-expo__body {
+    width: 100%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin-bottom: 14px; }
+  .nova-expo .nova-expo__stand {
+    padding: 10px 16px; } }
+
+/* ============ 6. ЗАПИТ ДЛЯ БІЗНЕСУ (форма) ============ */
+.nova-request {
+  background: #f5f5f5;
+  padding: 92px 0 96px; }
+  .nova-request .nova-request__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .nova-request .nova-request__aside {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(38% - 40px);
+    margin-right: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .nova-request .nova-request__eyebrow {
+    margin-bottom: 14px; }
+  .nova-request .nova-request__title {
+    margin-bottom: 16px; }
+  .nova-request .nova-request__text {
+    font: 400 16px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #767676;
+    margin: 0 0 26px; }
+  .nova-request .nova-request__phone {
+    font: 700 22px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #282828;
+    margin-bottom: 10px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .nova-request .nova-request__phone:hover {
+      color: #85aa12; }
+  .nova-request .nova-request__mail {
+    font: 400 15px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #767676;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .nova-request .nova-request__mail:hover {
+      color: #85aa12; }
+  .nova-request .nova-request__form {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: #fff;
+    padding: 36px 34px 34px; }
+  .nova-request .nova-field {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 20px; }
+  .nova-request .nova-field--half {
+    width: calc(50% - 10px); }
+  .nova-request .nova-field__label {
+    font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .3px;
+    color: #767676;
+    margin-bottom: 8px; }
+  .nova-request .nova-field__input,
+  .nova-request .nova-field__select,
+  .nova-request .nova-field__area {
+    width: 100%;
+    font: 400 15px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #282828;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    padding: 12px 14px;
+    -webkit-transition: border-color .2s;
+    transition: border-color .2s; }
+    .nova-request .nova-field__input:focus,
+    .nova-request .nova-field__select:focus,
+    .nova-request .nova-field__area:focus {
+      outline: none;
+      border-color: #85aa12; }
+  .nova-request .nova-field__input,
+  .nova-request .nova-field__select {
+    height: 50px;
+    padding-top: 0;
+    padding-bottom: 0; }
+  .nova-request .nova-field__area {
+    resize: vertical;
+    min-height: 108px;
+    height: auto; }
+  .nova-request .nova-field__select {
+    padding-right: 34px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%23767676' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px 18px; }
+  .nova-request .nova-request__foot {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%; }
+  .nova-request .nova-request__hint {
+    font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #767676;
+    margin-left: 18px; }
+
+@media (max-width: 1023px) {
+  .nova-request {
+    padding: 66px 0 70px; }
+  .nova-request .nova-request__inner {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .nova-request .nova-request__title {
+    font-size: 30px; }
+  .nova-request .nova-request__aside {
+    width: 100%;
+    margin: 0 0 32px; }
+  .nova-request .nova-request__form {
+    width: 100%; } }
+
+@media (max-width: 767px) {
+  .nova-request {
+    padding: 52px 0 56px; }
+  .nova-request .nova-request__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .nova-request .nova-request__title {
+    font-size: 26px; }
+  .nova-request .nova-request__form {
+    padding: 26px 20px 24px; }
+  .nova-request .nova-field--half {
+    width: 100%; }
+  .nova-request .nova-request__foot {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .nova-request .nova-request__hint {
+    width: 100%;
+    margin: 14px 0 0; } }
 
 /*
 == malihu jquery custom scrollbar plugin ==
@@ -2258,7 +5386,7 @@ yx-axis
     -webkit-box-sizing: border-box;
     box-sizing: border-box; }
 
-.header__inner, .hero__inner, .features__inner, .section-head, .products__inner, .about__inner, .contacts, .site-footer__inner {
+.header__inner, .hero__inner, .features__inner, .section-head, .products__inner, .about__inner, .super__inner, .contacts, .site-footer__inner {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -3189,6 +6317,146 @@ select.js-pack-select {
     padding: 0; }
   .about__title {
     font-size: 26px; } }
+
+/* ============ SUPER (інфографіка-вітрина + scale-анімація) ============ */
+.super {
+  background: #fff;
+  padding: 30px 0 70px; }
+
+.super__inner {
+  text-align: center; }
+
+.super__eyebrow {
+  display: block;
+  font: 700 13px/1 "AvenirNextCyr", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #85aa12; }
+
+.super__title {
+  margin: 12px 0 34px;
+  font: 700 34px/1.2 "AvenirNextCyr", Arial, sans-serif;
+  color: #222222; }
+
+.wheel {
+  position: relative;
+  width: 704px;
+  max-width: 100%;
+  margin: 10px auto 0; }
+
+.wheel__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible; }
+
+.wheel__seg {
+  cursor: pointer;
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5s ease, -webkit-transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease, -webkit-transform 0.65s cubic-bezier(0.22, 1, 0.36, 1); }
+  .wheel__seg path {
+    -webkit-transition: -webkit-filter .5s ease;
+    transition: -webkit-filter .5s ease;
+    transition: filter .5s ease;
+    transition: filter .5s ease, -webkit-filter .5s ease; }
+  .wheel__seg.is-active {
+    -webkit-transform: translate(var(--tx), var(--ty));
+    transform: translate(var(--tx), var(--ty)); }
+  .wheel__seg.is-active path {
+    -webkit-filter: brightness(1.08) saturate(1.1);
+    filter: brightness(1.08) saturate(1.1); }
+  .wheel__seg.is-dim {
+    opacity: .4; }
+
+.wheel__seg-label {
+  fill: #fff;
+  font-family: "AvenirNextCyr", Arial, sans-serif;
+  font-weight: 500;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.wheel__hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 47.2%;
+  aspect-ratio: 1 / 1;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  background: #fff;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  pointer-events: none; }
+
+.wheel__hub-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  -webkit-transition: opacity .55s ease;
+  transition: opacity .55s ease; }
+  .wheel__hub-media::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45); }
+
+.wheel__hub.is-active .wheel__hub-media {
+  opacity: 1; }
+
+.wheel__hub-text {
+  position: relative;
+  z-index: 1;
+  padding: 0 46px; }
+
+.wheel__hub-name {
+  margin-bottom: 10px;
+  font: 700 25px/1.2 "AvenirNextCyr", Arial, sans-serif;
+  color: #222222;
+  -webkit-transition: color .4s;
+  transition: color .4s; }
+
+.wheel__hub-desc {
+  font: 400 15px/1.6 "AvenirNextCyr", Arial, sans-serif;
+  color: #8a8a8a;
+  -webkit-transition: color .4s;
+  transition: color .4s; }
+
+.wheel__hub.is-active .wheel__hub-name {
+  color: #fff; }
+
+.wheel__hub.is-active .wheel__hub-desc {
+  color: rgba(255, 255, 255, 0.9); }
+
+@media only screen and (max-width: 600px) {
+  .super__title {
+    font-size: 26px; }
+  .wheel__hub-desc {
+    font-size: 12px; } }
 
 /* ============ CONTACTS (карта + плашка) ============ */
 .contacts {
