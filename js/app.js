@@ -34975,6 +34975,7 @@ __webpack_require__(153);
 __webpack_require__(154);
 __webpack_require__(155);
 __webpack_require__(156);
+__webpack_require__(157);
 document.addEventListener("DOMContentLoaded", function () {
 
   var root = document.querySelector('.areas-map');
@@ -38580,6 +38581,264 @@ if (document.readyState === 'loading') {
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     frame();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+/***/ }),
+/* 157 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * product.js — картка товару (product-eco.html):
+ *  1) галерея: мініатюри перемикають велике фото;
+ *  2) опції (колір/розмір) — кастомні кнопки, які синхронять нативні
+ *     <select name="option[...]"> для OpenCart;
+ *  3) одиниця підбору (пак/ящик) — перемикає набір оптових рівнів;
+ *  4) степер кількості + автоматичний вибір оптового рівня і перерахунок суми;
+ *  5) таби опису.
+ * Самоініціалізація: головний DOMContentLoaded в index.js робить ранній
+ * return на сторінках без .areas-map. Без розмітки .js-product — no-op.
+ */
+(function () {
+  'use strict';
+
+  /* ---------- формат цін: 1 234,50 ---------- */
+
+  function money(value) {
+    var fixed = (Math.round(value * 100) / 100).toFixed(2);
+    var parts = fixed.split('.');
+    var int = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return int + ',' + parts[1];
+  }
+
+  /* ---------- 1. галерея ---------- */
+  function initGallery(root) {
+    var thumbs = root.querySelector('.js-gallery-thumbs');
+    var img = root.querySelector('.js-gallery-img');
+    if (!thumbs || !img) return;
+
+    var buttons = [].slice.call(thumbs.querySelectorAll('[data-img]'));
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var src = btn.getAttribute('data-img');
+        if (!src || img.getAttribute('src') === src) return;
+
+        buttons.forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+        });
+
+        // мягкая подмена: гасим, меняем, показываем
+        img.style.opacity = '0';
+        var next = new Image();
+        next.onload = function () {
+          img.src = src;
+          img.style.opacity = '1';
+        };
+        next.onerror = function () {
+          img.style.opacity = '1';
+        };
+        next.src = src;
+      });
+    });
+  }
+
+  /* ---------- 2. опції (колір, розмір) ---------- */
+  function initOptions(root) {
+    var groups = [].slice.call(root.querySelectorAll('.js-opt-group'));
+
+    groups.forEach(function (group) {
+      var key = group.getAttribute('data-opt');
+      var native = document.getElementById(group.getAttribute('data-target'));
+      var label = root.querySelector('.js-opt-value[data-for="' + key + '"]');
+      var buttons = [].slice.call(group.querySelectorAll('[data-value]'));
+
+      // кружки-кольори красимо з data-color (::after бере currentColor)
+      buttons.forEach(function (btn) {
+        var color = btn.getAttribute('data-color');
+        if (color) btn.style.color = color;
+      });
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var value = btn.getAttribute('data-value');
+          buttons.forEach(function (b) {
+            b.classList.toggle('is-active', b === btn);
+          });
+          if (label) label.textContent = value;
+          if (native) native.value = value; // OpenCart читає нативний select
+        });
+      });
+    });
+  }
+
+  /* ---------- 3–4. одиниця, рівні цін, степер, сума ---------- */
+  function initPricing(root) {
+    var qtyInput = root.querySelector('.js-qty');
+    var tiersBox = root.querySelector('.js-tiers');
+    if (!qtyInput || !tiersBox) return;
+
+    var unitGroup = root.querySelector('.js-unit-group');
+    var unitNative = unitGroup ? document.getElementById(unitGroup.getAttribute('data-target')) : null;
+    var unitLabel = root.querySelector('.js-opt-value[data-for="unit"]');
+    var unitButtons = unitGroup ? [].slice.call(unitGroup.querySelectorAll('[data-unit]')) : [];
+
+    var tiers = [].slice.call(tiersBox.querySelectorAll('[data-unit][data-min][data-price]'));
+    var outTotal = root.querySelector('.js-total');
+    var outUnitPrice = root.querySelector('.js-unit-price');
+    var outUnitName = root.querySelector('.js-unit-name');
+    var outPiecePrice = root.querySelector('.js-piece-price');
+
+    var UNIT_NAME = { pack: 'пак', box: 'ящик' };
+
+    var startBtn = unitButtons.filter(function (b) {
+      return b.classList.contains('is-active');
+    })[0] || unitButtons[0];
+    var state = {
+      unit: startBtn ? startBtn.getAttribute('data-unit') : 'pack',
+      pieces: 1
+    };
+
+    function activeUnitButton() {
+      return unitButtons.filter(function (b) {
+        return b.getAttribute('data-unit') === state.unit;
+      })[0];
+    }
+
+    function qty() {
+      var n = parseInt(qtyInput.value, 10);
+      if (isNaN(n) || n < 1) n = 1;
+      return n;
+    }
+
+    function render() {
+      var n = qty();
+      var btn = activeUnitButton();
+      state.pieces = btn ? parseInt(btn.getAttribute('data-pieces'), 10) || 1 : 1;
+
+      // показуємо тільки рівні поточної одиниці, активним робимо найбільший підходящий
+      var mine = [];
+      tiers.forEach(function (t) {
+        var own = t.getAttribute('data-unit') === state.unit;
+        t.classList.toggle('is-hidden', !own);
+        t.classList.remove('is-active');
+        if (own) mine.push(t);
+      });
+
+      mine.sort(function (a, b) {
+        return parseInt(a.getAttribute('data-min'), 10) - parseInt(b.getAttribute('data-min'), 10);
+      });
+
+      var current = mine[0];
+      mine.forEach(function (t) {
+        if (n >= parseInt(t.getAttribute('data-min'), 10)) current = t;
+      });
+      if (current) current.classList.add('is-active');
+
+      var price = current ? parseFloat(current.getAttribute('data-price')) || 0 : 0;
+
+      if (outUnitPrice) outUnitPrice.textContent = money(price);
+      if (outTotal) outTotal.textContent = money(price * n);
+      if (outUnitName) outUnitName.textContent = UNIT_NAME[state.unit] || state.unit;
+      if (outPiecePrice) outPiecePrice.textContent = money(price / state.pieces);
+    }
+
+    // одиниця підбору
+    unitButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        state.unit = btn.getAttribute('data-unit');
+        unitButtons.forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+        });
+        if (unitNative) unitNative.value = btn.getAttribute('data-value');
+        if (unitLabel) {
+          unitLabel.textContent = (UNIT_NAME[state.unit] || state.unit) + ' — ' + btn.getAttribute('data-pieces') + ' шт';
+        }
+        render();
+      });
+    });
+
+    // степер
+    [].slice.call(root.querySelectorAll('.js-step')).forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var delta = parseInt(btn.getAttribute('data-step'), 10) || 0;
+        var next = qty() + delta;
+        if (next < 1) next = 1;
+        qtyInput.value = next;
+        render();
+      });
+    });
+
+    qtyInput.addEventListener('input', render);
+    qtyInput.addEventListener('change', function () {
+      qtyInput.value = qty();
+      render();
+    });
+
+    // клік по рівню — підставляємо мінімальну кількість цього рівня
+    tiers.forEach(function (t) {
+      t.addEventListener('click', function () {
+        if (t.classList.contains('is-hidden')) return;
+        qtyInput.value = parseInt(t.getAttribute('data-min'), 10) || 1;
+        render();
+      });
+    });
+
+    render();
+  }
+
+  /* ---------- 5. таби ---------- */
+  function initTabs() {
+    var boxes = [].slice.call(document.querySelectorAll('.js-ptabs'));
+
+    boxes.forEach(function (box) {
+      var tabs = [].slice.call(box.querySelectorAll('[data-tab]'));
+      var panes = [].slice.call(box.querySelectorAll('[data-pane]'));
+      if (!tabs.length || !panes.length) return;
+
+      function activate(key) {
+        tabs.forEach(function (t) {
+          t.classList.toggle('is-active', t.getAttribute('data-tab') === key);
+        });
+        panes.forEach(function (p) {
+          p.classList.toggle('is-active', p.getAttribute('data-pane') === key);
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activate(tab.getAttribute('data-tab'));
+        });
+      });
+
+      // посилання «12 відгуків» відкриває відповідний таб
+      [].slice.call(document.querySelectorAll('a[href="#reviews"]')).forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          activate('reviews');
+          box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    });
+  }
+
+  function init() {
+    var root = document.querySelector('.js-product');
+    if (root) {
+      initGallery(root);
+      initOptions(root);
+      initPricing(root);
+    }
+    initTabs();
   }
 
   if (document.readyState === 'loading') {
