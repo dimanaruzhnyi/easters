@@ -640,6 +640,1324 @@ a:focus {
   outline: none; }
 
 /* ============================================================
+   ADVANTAGES — сторінка «Переваги продукції» (advantages-eco.html)
+   Стилістика прийнятої tulpani-eco.html.
+   Композиція повторює чинний сайт: фото по центру, підписи навколо.
+   Але там усі 10 підписів висіли на absolute поверх фону 1920×1020 —
+   через це сторінка й розсипалась. Тут це три flex-колонки
+   (4 підписи · фото · 6 підписів) з виносними лініями, тож нічого
+   не прив'язане до пікселів картинки.
+   Мобільний вигляд поки тимчасовий (картки) — переробляємо окремо.
+   Правила проекту: без <section>/<article>, тільки flex (не grid),
+   відступи на margin, ширини через width: calc().
+   Заголовки/абзаци — вкладено (0-2-0), інакше легасі `.page h2`/`.page p`
+   (0-1-1) переб'є. Негативні маргіни — тільки на внутрішніх рядах,
+   ніколи на самому %container.
+   ============================================================ */
+.adv-intro .adv-intro__inner, .frame .frame__inner, .tscale .tscale__inner, .acomp .acomp__inner, .acat .acat__inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px; }
+
+.frame .frame__title, .tscale .tscale__title, .acomp .acomp__title, .acat .acat__title {
+  font: 400 38px/1.2 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: .2px;
+  color: #141617;
+  margin: 0; }
+
+.adv-intro .adv-intro__eyebrow, .frame .frame__eyebrow, .tscale .tscale__eyebrow, .acomp .acomp__eyebrow {
+  display: block;
+  font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #85aa12; }
+
+/* ============ ІНТРО ============ */
+.adv-intro {
+  background: #fff;
+  padding: 56px 0 64px; }
+  .adv-intro .adv-intro__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
+  .adv-intro .adv-intro__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    max-width: 760px;
+    margin-right: 40px; }
+  .adv-intro .adv-intro__eyebrow {
+    margin-bottom: 16px; }
+  .adv-intro .adv-intro__title {
+    font: 400 46px/1.15 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.4px;
+    color: #141617;
+    margin: 0 0 20px; }
+  .adv-intro .adv-intro__lead {
+    font: 400 17px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 28px; }
+  .adv-intro .adv-intro__actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .adv-intro .adv-intro__link {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 24px;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #85aa12;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .adv-intro .adv-intro__link svg {
+      margin-left: 8px;
+      -webkit-transition: -webkit-transform .25s;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s; }
+    .adv-intro .adv-intro__link:hover {
+      color: #6f9309; }
+    .adv-intro .adv-intro__link:hover svg {
+      -webkit-transform: translateX(4px);
+      transform: translateX(4px); }
+  .adv-intro .adv-intro__facts {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 260px; }
+
+.adv-fact {
+  padding: 14px 0 14px 18px;
+  border-left: 2px solid #85aa12;
+  margin-bottom: 14px; }
+  .adv-fact:last-child {
+    margin-bottom: 0; }
+  .adv-fact .adv-fact__val {
+    display: block;
+    font: 400 26px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.4px;
+    color: #141617;
+    margin-bottom: 7px; }
+  .adv-fact .adv-fact__label {
+    display: block;
+    font: 400 13px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83; }
+
+@media (max-width: 1023px) {
+  .adv-intro {
+    padding: 36px 0 44px; }
+  .adv-intro .adv-intro__inner {
+    display: block; }
+  .adv-intro .adv-intro__title {
+    font-size: 34px; }
+  .adv-intro .adv-intro__body {
+    margin: 0 0 30px;
+    max-width: 100%; }
+  .adv-intro .adv-intro__facts {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%; }
+  .adv-fact {
+    width: calc(33.333% - 12px);
+    margin: 0 18px 0 0; }
+    .adv-fact:last-child {
+      margin-right: 0; } }
+
+@media (max-width: 767px) {
+  .adv-intro .adv-intro__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .adv-intro .adv-intro__title {
+    font-size: 27px; }
+  .adv-intro .adv-intro__link {
+    margin: 16px 0 0; }
+  .adv-fact {
+    width: 100%;
+    margin: 0 0 14px; }
+    .adv-fact:last-child {
+      margin-bottom: 0; } }
+
+/* ============ СХЕМА: ПЕРЕВАГИ НАВКОЛО ФОРМИ ============
+   Композиція як на чинному сайті: фото по центру, підписи двома
+   колонками навколо (зліва 4 з плюсиками, справа 6 технічних),
+   від кожної — виносна лінія з крапкою до фото.
+   Але замість absolute поверх картинки — три flex-колонки, тож
+   нічого не «сповзає»: підписи розводяться по висоті самі
+   (justify-content: space-between).
+   ======================================================== */
+.frame {
+  background: #fff;
+  padding: 78px 0 78px; }
+  .frame .frame__head {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    text-align: center; }
+  .frame .frame__eyebrow {
+    margin-bottom: 14px; }
+  .frame .frame__scheme {
+    position: relative; }
+  .frame .frame__stage {
+    position: relative;
+    width: 100%;
+    padding-top: 53.125%; }
+  .frame .frame__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    display: block; }
+
+.fnote {
+  position: absolute;
+  z-index: 2;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+  .fnote .fnote__text {
+    font: 400 15px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0; }
+  .fnote .fnote__ico {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    background: #85aa12;
+    color: #fff; }
+    .fnote .fnote__ico svg {
+      width: 16px;
+      height: 16px; }
+  .fnote .fnote__link {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 10px;
+    font: 700 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: #85aa12;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .fnote .fnote__link svg {
+      margin-left: 6px;
+      -webkit-transition: -webkit-transform .25s;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s; }
+    .fnote .fnote__link:hover {
+      color: #6f9309; }
+    .fnote .fnote__link:hover svg {
+      -webkit-transform: translateX(3px);
+      transform: translateX(3px); }
+
+.fnote--plus {
+  text-align: right; }
+
+.fnote--num {
+  text-align: left; }
+
+@media (max-width: 1299px) {
+  .fnote .fnote__text {
+    font-size: 14px; } }
+
+@media (max-width: 1180px) {
+  .fnote .fnote__text {
+    font-size: 13px;
+    line-height: 1.45; }
+  .fnote .fnote__ico {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 8px; } }
+
+@media (min-width: 1441px) {
+  .fnote .fnote__text {
+    font-size: 16px; } }
+
+/* ≤1099 — тимчасовий простий вигляд: картинка зверху, підписи картками.
+   Поріг саме 1100, а не 1024: на 1025px підписи сходяться майже впритул
+   (зазор 0.3%), тож схему лишаємо тільки там, де їй просторно.
+   Окремий мобільний вигляд робимо наступним кроком.
+   `!important` тут навмисно: координати підписів стоять інлайном у HTML
+   (щоб їх було зручно правити), а інлайн-стилі інакше не перебити. */
+@media (max-width: 1099px) {
+  .frame {
+    background: #f2f3f5;
+    padding: 54px 0 58px; }
+  .frame .frame__title {
+    font-size: 30px; }
+  .frame .frame__head {
+    margin-bottom: 26px; }
+  .frame .frame__stage {
+    padding-top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .frame .frame__img {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-width: 460px;
+    margin: 0 auto 26px; }
+  .fnote {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    -webkit-transform: none;
+    transform: none;
+    width: calc(50% - 8px) !important;
+    margin: 0 16px 16px 0;
+    padding: 18px 20px;
+    background: #fff;
+    border-radius: 12px;
+    text-align: left; }
+    .fnote:nth-of-type(2n) {
+      margin-right: 0; }
+  .fnote .fnote__text {
+    font-size: 15px;
+    line-height: 1.6; } }
+
+@media (max-width: 767px) {
+  .frame .frame__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .frame .frame__title {
+    font-size: 26px; }
+  .fnote {
+    width: 100% !important;
+    margin-right: 0; } }
+
+/* ============ ТЕМПЕРАТУРНА ШКАЛА ============ */
+.tscale {
+  background: #f2f3f5;
+  padding: 74px 0 78px; }
+  .tscale .tscale__head {
+    max-width: 720px;
+    margin-bottom: 44px; }
+  .tscale .tscale__eyebrow {
+    margin-bottom: 14px; }
+  .tscale .tscale__bar {
+    position: relative;
+    margin-bottom: 62px; }
+  .tscale .tscale__track {
+    width: 100%;
+    height: 10px;
+    border-radius: 100px;
+    background: -webkit-gradient(linear, left top, right top, from(#6fb7e0), color-stop(16%, #a8c9d8), color-stop(42%, #d9d2b6), color-stop(70%, #85aa12), to(#e08a2e));
+    background: linear-gradient(90deg, #6fb7e0 0%, #a8c9d8 16%, #d9d2b6 42%, #85aa12 70%, #e08a2e 100%); }
+  .tscale .tscale__marks {
+    position: relative;
+    height: 0; }
+  .tscale .tscale__mark {
+    position: absolute;
+    top: -20px;
+    display: block;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%); }
+    .tscale .tscale__mark::before {
+      content: '';
+      display: block;
+      width: 2px;
+      height: 18px;
+      margin: 0 auto 8px;
+      background: rgba(20, 22, 23, 0.28); }
+    .tscale .tscale__mark i {
+      display: block;
+      font: 700 13px/1 "AvenirNextCyr", Arial, sans-serif;
+      font-style: normal;
+      color: #141617;
+      white-space: nowrap; }
+    .tscale .tscale__mark:first-child {
+      -webkit-transform: none;
+      transform: none; }
+    .tscale .tscale__mark:first-child::before {
+      margin-left: 0; }
+    .tscale .tscale__mark:first-child i {
+      text-align: left; }
+  .tscale .tscale__mark--end {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%); }
+    .tscale .tscale__mark--end::before {
+      margin-right: 0; }
+    .tscale .tscale__mark--end i {
+      text-align: right; }
+  .tscale .tscale__cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px; }
+  .tscale .tscale__card {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(25% - 20px);
+    margin: 0 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 22px 22px 24px;
+    background: #fff;
+    border-radius: 12px; }
+  .tscale .tscale__card-val {
+    font: 400 26px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.4px;
+    color: #6f9309;
+    margin-bottom: 10px; }
+  .tscale .tscale__card-text {
+    font: 400 14px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83; }
+
+@media (max-width: 1023px) {
+  .tscale {
+    padding: 54px 0 34px; }
+  .tscale .tscale__title {
+    font-size: 30px; }
+  .tscale .tscale__card {
+    width: calc(50% - 20px);
+    margin-bottom: 20px; } }
+
+@media (max-width: 767px) {
+  .tscale .tscale__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .tscale .tscale__title {
+    font-size: 26px; }
+  .tscale .tscale__bar {
+    margin-bottom: 52px; }
+  .tscale .tscale__mark i {
+    font-size: 11px; }
+  .tscale .tscale__card {
+    width: calc(100% - 20px); } }
+
+/* ============ ПОРІВНЯННЯ ============ */
+.acomp {
+  background: #fff;
+  padding: 78px 0 82px; }
+  .acomp .acomp__head {
+    max-width: 720px;
+    margin-bottom: 34px; }
+  .acomp .acomp__eyebrow {
+    margin-bottom: 14px; }
+  .acomp .acomp__title {
+    margin-bottom: 14px; }
+  .acomp .acomp__lead {
+    font: 400 16px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0; }
+  .acomp .acomp__table {
+    border: 1px solid #e4e6e9;
+    border-radius: 12px;
+    overflow: hidden; }
+  .acomp .acomp__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    border-top: 1px solid #e4e6e9; }
+    .acomp .acomp__row:first-child {
+      border-top: 0; }
+  .acomp .acomp__row--head {
+    background: #f2f3f5; }
+    .acomp .acomp__row--head .acomp__cell {
+      font: 700 12px/1.3 "AvenirNextCyr", Arial, sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #7b7f83; }
+    .acomp .acomp__row--head .acomp__cell--best {
+      color: #6f9309; }
+  .acomp .acomp__cell {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0px;
+    flex: 1 1 0%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 16px 20px;
+    font: 400 14px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    border-left: 1px solid #e4e6e9; }
+    .acomp .acomp__cell:first-child {
+      border-left: 0; }
+  .acomp .acomp__cell--k {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 26%;
+    font-weight: 700;
+    color: #141617; }
+  .acomp .acomp__cell--best {
+    background: #eef6da;
+    color: #141617; }
+  .acomp .acomp__yes {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 700;
+    color: #6f9309; }
+    .acomp .acomp__yes::before {
+      content: '';
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      width: 16px;
+      height: 16px;
+      margin-right: 9px;
+      border-radius: 50%;
+      background: #85aa12 url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
+      background-size: 11px 11px; }
+
+@media (max-width: 1023px) {
+  .acomp {
+    padding: 54px 0 58px; }
+  .acomp .acomp__title {
+    font-size: 30px; }
+  .acomp .acomp__row--head {
+    display: none; }
+  .acomp .acomp__row {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 4px 0 14px; }
+  .acomp .acomp__cell {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 33.333%;
+    display: block;
+    border-left: 0;
+    padding: 10px 16px; }
+  .acomp .acomp__cell--k {
+    width: 100%;
+    padding: 16px 16px 6px;
+    font-size: 16px; }
+  .acomp .acomp__cell[data-th]::before {
+    content: attr(data-th);
+    display: block;
+    font: 400 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: #7b7f83;
+    margin-bottom: 8px; }
+  .acomp .acomp__cell--best {
+    border-radius: 8px; } }
+
+@media (max-width: 767px) {
+  .acomp .acomp__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .acomp .acomp__title {
+    font-size: 26px; }
+  .acomp .acomp__cell {
+    width: 100%;
+    padding: 8px 16px; }
+  .acomp .acomp__cell[data-th]::before {
+    margin-bottom: 4px; }
+  .acomp .acomp__cell--best {
+    width: calc(100% - 20px);
+    margin: 4px 10px;
+    padding: 12px 16px; } }
+
+/* ============ КАТЕГОРІЇ ============ */
+.acat {
+  background: #f2f3f5;
+  padding: 74px 0 78px; }
+  .acat .acat__head {
+    margin-bottom: 32px; }
+  .acat .acat__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px; }
+  .acat .acat__item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(20% - 20px);
+    margin: 0 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 20px 16px 24px;
+    background: #fff;
+    border-radius: 12px;
+    -webkit-transition: -webkit-box-shadow .3s, -webkit-transform .3s;
+    transition: -webkit-box-shadow .3s, -webkit-transform .3s;
+    transition: box-shadow .3s, transform .3s;
+    transition: box-shadow .3s, transform .3s, -webkit-box-shadow .3s, -webkit-transform .3s; }
+    .acat .acat__item:hover {
+      -webkit-box-shadow: 0 18px 40px rgba(20, 22, 23, 0.12);
+      box-shadow: 0 18px 40px rgba(20, 22, 23, 0.12);
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px); }
+  .acat .acat__media {
+    display: block;
+    width: 118px;
+    height: 118px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    overflow: hidden; }
+    .acat .acat__media img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      display: block;
+      will-change: transform;
+      -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  .acat .acat__item:hover .acat__media img {
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08); }
+  .acat .acat__name {
+    font: 700 13px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #141617;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+  .acat .acat__item:hover .acat__name {
+    color: #6f9309; }
+
+@media (max-width: 1023px) {
+  .acat {
+    padding: 54px 0 36px; }
+  .acat .acat__title {
+    font-size: 30px; }
+  .acat .acat__item {
+    width: calc(33.333% - 20px);
+    margin-bottom: 20px; } }
+
+@media (max-width: 767px) {
+  .acat .acat__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .acat .acat__title {
+    font-size: 26px; }
+  .acat .acat__item {
+    width: calc(50% - 20px);
+    padding: 16px 12px 20px; }
+  .acat .acat__media {
+    width: 92px;
+    height: 92px; }
+  .acat .acat__name {
+    font-size: 12px; } }
+
+/* ============================================================
+   CONTACTS — сторінка контактів (contacts-eco.html)
+   Стилістика прийнятої tulpani-eco.html: світло, повітря,
+   тонкі великі заголовки, зелений акцент.
+   Зі старої сторінки взято весь зміст: 3 телефони, пошта, адреса,
+   карта та «зворотній зв'язок» — але форма тепер прямо на сторінці.
+   Класи з префіксом .ct- навмисно: на головній вже є блок .contacts
+   (карта + плашка) з tulpani.scss, і його чіпати не можна.
+   Правила проекту: без <section>/<article>, тільки flex (не grid),
+   відступи на margin, ширини через width: calc().
+   Заголовки/абзаци — завжди вкладено (0-2-0), інакше легасі
+   `.page h2{font-weight:700}` / `.page p{margin:0}` (0-1-1) переб'є.
+   ============================================================ */
+.ct-head .ct-head__inner, .ct-cards .ct-cards__inner, .ct-form .ct-form__inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px; }
+
+.ct-form .ct-form__title {
+  font: 400 38px/1.2 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: .2px;
+  color: #141617;
+  margin: 0; }
+
+.ct-head .ct-head__eyebrow, .ct-form .ct-form__eyebrow, .ct-map .ct-map__eyebrow {
+  display: block;
+  font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #85aa12; }
+
+/* ============ ЗАГОЛОВОК ============ */
+.ct-head {
+  background: #fff;
+  padding: 52px 0 46px; }
+  .ct-head .ct-head__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .ct-head .ct-head__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    max-width: 720px;
+    margin-right: 40px; }
+  .ct-head .ct-head__eyebrow {
+    margin-bottom: 16px; }
+  .ct-head .ct-head__title {
+    font: 400 46px/1.15 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.4px;
+    color: #141617;
+    margin: 0 0 18px; }
+  .ct-head .ct-head__lead {
+    font: 400 17px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0; }
+  .ct-head .ct-head__actions {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .ct-head .ct-head__link {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 24px;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #85aa12;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .ct-head .ct-head__link svg {
+      margin-left: 8px;
+      -webkit-transition: -webkit-transform .25s;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s; }
+    .ct-head .ct-head__link:hover {
+      color: #6f9309; }
+    .ct-head .ct-head__link:hover svg {
+      -webkit-transform: translateX(4px);
+      transform: translateX(4px); }
+
+@media (max-width: 1023px) {
+  .ct-head {
+    padding: 34px 0 34px; }
+  .ct-head .ct-head__inner {
+    display: block; }
+  .ct-head .ct-head__title {
+    font-size: 34px; }
+  .ct-head .ct-head__body {
+    max-width: 100%;
+    margin: 0 0 26px; } }
+
+@media (max-width: 767px) {
+  .ct-head .ct-head__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .ct-head .ct-head__title {
+    font-size: 27px; }
+  .ct-head .ct-head__actions {
+    display: block; }
+  .ct-head .ct-head__link {
+    margin: 18px 0 0; } }
+
+/* ============ КАРТКИ КОНТАКТІВ ============ */
+.ct-cards {
+  background: #fff;
+  padding: 0 0 60px; }
+  .ct-cards .ct-cards__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+
+.ct-card {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(25% - 15px);
+  margin: 0 20px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  padding: 26px 26px 24px;
+  background: #f2f3f5;
+  border-radius: 14px;
+  -webkit-transition: background .3s, -webkit-transform .3s;
+  transition: background .3s, -webkit-transform .3s;
+  transition: background .3s, transform .3s;
+  transition: background .3s, transform .3s, -webkit-transform .3s; }
+  .ct-card:last-child {
+    margin-right: 0; }
+  .ct-card:hover {
+    background: #eef6da;
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px); }
+  .ct-card .ct-card__ico {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    background: #fff;
+    color: #85aa12; }
+    .ct-card .ct-card__ico svg {
+      width: 23px;
+      height: 23px; }
+  .ct-card .ct-card__label {
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #7b7f83;
+    margin-bottom: 14px; }
+  .ct-card .ct-card__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 14px; }
+  .ct-card .ct-card__val {
+    font: 700 16px/1.35 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin-bottom: 6px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .ct-card .ct-card__val:last-child {
+      margin-bottom: 0; }
+  .ct-card a.ct-card__val:hover {
+    color: #6f9309; }
+  .ct-card .ct-card__val--text {
+    font-weight: 400;
+    font-size: 15px; }
+  .ct-card .ct-card__note {
+    font: 400 12.5px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83; }
+  .ct-card .ct-card__note--link {
+    color: #85aa12;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(133, 170, 18, 0.4);
+    padding-bottom: 2px;
+    -webkit-transition: color .2s, border-color .2s;
+    transition: color .2s, border-color .2s; }
+    .ct-card .ct-card__note--link:hover {
+      color: #6f9309;
+      border-color: #6f9309; }
+
+@media (max-width: 1023px) {
+  .ct-cards {
+    padding-bottom: 34px; }
+  .ct-card {
+    width: calc(50% - 10px);
+    margin: 0 20px 20px 0; }
+    .ct-card:nth-child(2n) {
+      margin-right: 0; } }
+
+@media (max-width: 767px) {
+  .ct-cards .ct-cards__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .ct-card {
+    width: 100%;
+    margin-right: 0; } }
+
+/* ============ ФОРМА + БОКОВА КОЛОНКА ============ */
+.ct-form {
+  background: #f2f3f5;
+  padding: 74px 0 78px;
+  /* --- форма --- */
+  /* --- поля --- */
+  /* --- бокова колонка --- */ }
+  .ct-form .ct-form__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .ct-form .ct-form__box {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-right: 30px;
+    padding: 38px 38px 36px;
+    background: #fff;
+    border-radius: 14px; }
+  .ct-form .ct-form__eyebrow {
+    width: 100%;
+    margin-bottom: 14px; }
+  .ct-form .ct-form__title {
+    width: 100%;
+    margin-bottom: 12px; }
+  .ct-form .ct-form__lead {
+    width: 100%;
+    font: 400 15px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 26px; }
+  .ct-form .ct-form__foot {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 4px; }
+  .ct-form .ct-form__submit {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    height: 50px;
+    min-width: 170px; }
+  .ct-form .ct-form__hint {
+    font: 400 12.5px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin-left: 18px; }
+  .ct-form .ct-field {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 18px; }
+  .ct-form .ct-field--half {
+    width: calc(50% - 9px); }
+  .ct-form .ct-field__label {
+    font: 400 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7b7f83;
+    margin-bottom: 9px; }
+  .ct-form .ct-field__input,
+  .ct-form .ct-field__select,
+  .ct-form .ct-field__area {
+    width: 100%;
+    font: 400 15px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    background: #f2f3f5;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 12px 14px;
+    -webkit-transition: border-color .2s, background .2s;
+    transition: border-color .2s, background .2s; }
+    .ct-form .ct-field__input::-webkit-input-placeholder,
+    .ct-form .ct-field__select::-webkit-input-placeholder,
+    .ct-form .ct-field__area::-webkit-input-placeholder {
+      color: #a8adb2; }
+    .ct-form .ct-field__input:focus,
+    .ct-form .ct-field__select:focus,
+    .ct-form .ct-field__area:focus {
+      outline: none;
+      background: #fff;
+      border-color: #85aa12; }
+  .ct-form .ct-field__input,
+  .ct-form .ct-field__select {
+    height: 50px;
+    padding-top: 0;
+    padding-bottom: 0; }
+  .ct-form .ct-field__area {
+    resize: vertical;
+    min-height: 130px;
+    height: auto; }
+  .ct-form .ct-field__select {
+    padding-right: 34px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%237b7f83' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px 18px; }
+  .ct-form .ct-aside {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 360px; }
+
+.ct-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 26px 26px 28px;
+  margin-bottom: 20px; }
+  .ct-box:last-child {
+    margin-bottom: 0; }
+  .ct-box .ct-box__title {
+    font: 400 21px/1.3 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0 0 12px; }
+  .ct-box .ct-box__text {
+    font: 400 14px/1.65 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 18px; }
+  .ct-box .ct-box__link {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #85aa12;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .ct-box .ct-box__link svg {
+      margin-left: 7px;
+      -webkit-transition: -webkit-transform .25s;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s; }
+    .ct-box .ct-box__link:hover {
+      color: #6f9309; }
+    .ct-box .ct-box__link:hover svg {
+      -webkit-transform: translateX(3px);
+      transform: translateX(3px); }
+
+.ct-box--soft {
+  background: #eef6da; }
+
+.ct-msgs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.ct-msg {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 46px;
+  margin-right: 10px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font: 700 13px/1 "AvenirNextCyr", Arial, sans-serif;
+  color: #fff;
+  -webkit-transition: opacity .2s, -webkit-transform .2s;
+  transition: opacity .2s, -webkit-transform .2s;
+  transition: opacity .2s, transform .2s;
+  transition: opacity .2s, transform .2s, -webkit-transform .2s; }
+  .ct-msg:last-child {
+    margin-right: 0; }
+  .ct-msg:hover {
+    opacity: .88;
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px); }
+  .ct-msg .ct-msg__ico {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 9px; }
+    .ct-msg .ct-msg__ico svg {
+      width: 20px;
+      height: 20px; }
+
+.ct-msg--viber {
+  background: #7360f2; }
+
+.ct-msg--tg {
+  background: #2aabee; }
+
+.ct-dept {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 14px 0;
+  border-top: 1px solid #e4e6e9; }
+  .ct-dept:first-of-type {
+    border-top: 0;
+    padding-top: 0; }
+  .ct-dept:last-child {
+    padding-bottom: 0; }
+  .ct-dept .ct-dept__name {
+    font: 700 13px/1.3 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin-bottom: 8px; }
+  .ct-dept .ct-dept__val {
+    font: 400 14px/1.45 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .ct-dept .ct-dept__val:hover {
+      color: #6f9309; }
+
+@media (max-width: 1150px) {
+  .ct-form .ct-aside {
+    width: 320px; } }
+
+@media (max-width: 1023px) {
+  .ct-form {
+    padding: 50px 0 54px; }
+  .ct-form .ct-form__inner {
+    display: block; }
+  .ct-form .ct-form__title {
+    font-size: 30px; }
+  .ct-form .ct-form__box {
+    margin: 0 0 24px; }
+  .ct-form .ct-aside {
+    width: 100%; } }
+
+@media (max-width: 767px) {
+  .ct-form {
+    padding: 40px 0 44px; }
+  .ct-form .ct-form__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .ct-form .ct-form__title {
+    font-size: 26px; }
+  .ct-form .ct-form__box {
+    padding: 26px 20px 24px; }
+  .ct-form .ct-field--half {
+    width: 100%; }
+  .ct-form .ct-form__foot {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .ct-form .ct-form__submit {
+    width: 100%; }
+  .ct-form .ct-form__hint {
+    width: 100%;
+    margin: 14px 0 0; }
+  .ct-box {
+    padding: 22px 20px 24px; } }
+
+/* ============ КАРТА ============ */
+.ct-map {
+  position: relative;
+  background: #f2f3f5; }
+  .ct-map .ct-map__frame {
+    width: 100%;
+    height: 620px;
+    overflow: hidden; }
+  .ct-map .ct-map__iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    -webkit-filter: grayscale(35%);
+    filter: grayscale(35%); }
+  .ct-map .ct-map__over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    pointer-events: none; }
+  .ct-map .ct-map__card {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 430px;
+    padding: 34px 34px 36px;
+    background: #fff;
+    border-radius: 14px;
+    -webkit-box-shadow: 0 26px 60px rgba(20, 22, 23, 0.18);
+    box-shadow: 0 26px 60px rgba(20, 22, 23, 0.18);
+    pointer-events: auto; }
+  .ct-map .ct-map__eyebrow {
+    margin-bottom: 14px; }
+  .ct-map .ct-map__title {
+    font: 400 26px/1.3 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0 0 14px; }
+  .ct-map .ct-map__text {
+    font: 400 14px/1.65 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 20px; }
+  .ct-map .ct-map__rows {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 24px; }
+  .ct-map .ct-map__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 12px 0;
+    border-top: 1px solid #e4e6e9; }
+    .ct-map .ct-map__row:first-child {
+      border-top: 0;
+      padding-top: 0; }
+  .ct-map .ct-map__row-k {
+    font: 700 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7b7f83;
+    margin-bottom: 7px; }
+  .ct-map .ct-map__row-v {
+    font: 400 14px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+  .ct-map .ct-map__btn {
+    width: 100%; }
+
+@media (max-width: 1023px) {
+  .ct-map {
+    padding-bottom: 44px; }
+  .ct-map .ct-map__frame {
+    height: 380px; }
+  .ct-map .ct-map__over {
+    position: static;
+    height: auto;
+    display: block;
+    padding: 0 40px;
+    pointer-events: auto; }
+  .ct-map .ct-map__card {
+    width: auto;
+    max-width: 640px;
+    margin: -60px auto 0; } }
+
+@media (max-width: 767px) {
+  .ct-map .ct-map__frame {
+    height: 300px; }
+  .ct-map .ct-map__over {
+    padding: 0 20px; }
+  .ct-map .ct-map__card {
+    margin-top: -40px;
+    padding: 26px 22px 28px; }
+  .ct-map .ct-map__title {
+    font-size: 22px; } }
+
+/* ============================================================
    ECO-блоки (страница tulpani-eco.html)
    Взято из логики ecopack.com: спец-строка, каналы сбыта,
    экологичность, цифры-счётчики, новости, FAQ + CTA.
@@ -1374,6 +2692,476 @@ a:focus {
     padding-right: 20px; }
   .eco-faq .eco-faq__cta {
     padding: 28px 22px 30px; } }
+
+/* ============================================================
+   INFO — 9 сторінок «Переваги продукції» (info1-eco.html … info9-eco.html)
+   Контент і картинки перенесені зі старих /info1…/info9,
+   тексти російських сторінок перекладено українською.
+   Спільні частини винесені в інклюди: eco-header, eco-footer, info-nav.
+   Стилістика прийнятої tulpani-eco.html.
+   Адаптив: дві колонки (стаття + липке меню розділів) → одна колонка,
+   меню їде під статтю й розкладається у два стовпчики.
+   Правила проекту: без <section>/<article>, тільки flex (не grid),
+   відступи на margin, ширини через width: calc().
+   Заголовки/абзаци — вкладено (0-2-0), інакше легасі `.page h1..h3`
+   та `.page p` (0-1-1) переб'ють.
+   ============================================================ */
+.info-page .info-page__inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px; }
+
+/* ============ СІТКА СТОРІНКИ ============ */
+.info-page {
+  background: #f2f3f5;
+  padding: 46px 0 70px; }
+  .info-page .info-page__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+
+/* ============ СТАТТЯ ============ */
+.info-main {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-right: 34px;
+  padding: 40px 44px 44px;
+  background: #fff;
+  border-radius: 14px; }
+  .info-main .info-main__eyebrow {
+    display: block;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #85aa12;
+    margin-bottom: 16px; }
+  .info-main .info-main__title {
+    font: 400 38px/1.2 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.2px;
+    color: #141617;
+    margin: 0 0 14px; }
+  .info-main .info-main__sub {
+    display: block;
+    font: 400 17px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #6f9309;
+    margin: -6px 0 14px; }
+  .info-main .info-main__lead {
+    font: 400 17px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 30px; }
+
+/* --- головна ілюстрація --- */
+.info-hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f2f3f5;
+  border-radius: 12px;
+  overflow: hidden; }
+  .info-hero img {
+    max-width: 100%;
+    max-height: 420px;
+    width: auto;
+    height: auto;
+    display: block; }
+
+.info-hero--wide {
+  padding: 26px 20px; }
+  .info-hero--wide img {
+    width: 100%;
+    max-height: none; }
+
+/* --- ряд іконок (розділ 7) --- */
+.info-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0 -8px 30px; }
+
+.info-icon {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(25% - 16px);
+  margin: 0 8px 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 18px 12px 20px;
+  background: #f2f3f5;
+  border-radius: 12px;
+  -webkit-transition: background .3s;
+  transition: background .3s; }
+  .info-icon:hover {
+    background: #eef6da; }
+  .info-icon .info-icon__media {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 92px;
+    margin-bottom: 12px; }
+    .info-icon .info-icon__media img {
+      max-width: 100%;
+      max-height: 92px;
+      display: block; }
+  .info-icon .info-icon__cap {
+    font: 400 13px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+
+/* --- список тез --- */
+.info-list {
+  margin: 0 0 6px;
+  padding: 0; }
+  .info-list .info-list__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-top: 1px solid #e4e6e9; }
+    .info-list .info-list__item:first-child {
+      border-top: 0;
+      padding-top: 0; }
+  .info-list .info-list__ico {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    margin: 1px 16px 0 0;
+    border-radius: 50%;
+    background: #eef6da;
+    color: #6f9309; }
+    .info-list .info-list__ico svg {
+      width: 15px;
+      height: 15px; }
+  .info-list .info-list__text {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font: 400 16px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+
+/* --- додаткова ілюстрація з підписом --- */
+.info-extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 26px;
+  padding: 20px 22px;
+  background: #eef6da;
+  border-radius: 12px; }
+  .info-extra .info-extra__img {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 96px;
+    height: auto;
+    margin-right: 20px;
+    display: block; }
+  .info-extra .info-extra__cap {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font: 400 15px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+
+/* --- перехід між розділами --- */
+.info-pager {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 1px solid #e4e6e9; }
+  .info-pager .info-pager__stub {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0px;
+    flex: 1 1 0%; }
+  .info-pager .info-pager__link {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0px;
+    flex: 1 1 0%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 14px 18px;
+    border-radius: 10px;
+    -webkit-transition: background .25s;
+    transition: background .25s; }
+    .info-pager .info-pager__link:hover {
+      background: #f2f3f5; }
+  .info-pager .info-pager__link--prev {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    text-align: left; }
+  .info-pager .info-pager__link--next {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    text-align: right;
+    margin-left: 12px; }
+  .info-pager .info-pager__dir {
+    font: 700 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #85aa12;
+    margin-bottom: 8px; }
+  .info-pager .info-pager__name {
+    font: 400 15px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+
+/* ============ БОКОВА КОЛОНКА ============ */
+.info-side {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 330px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  /* --- CTA --- */ }
+  .info-side .info-side__box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 22px 18px;
+    margin-bottom: 18px; }
+  .info-side .info-side__title {
+    display: block;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #7b7f83;
+    margin-bottom: 16px; }
+  .info-side .info-side__list {
+    margin: 0;
+    padding: 0; }
+  .info-side .info-side__item {
+    margin-bottom: 2px; }
+  .info-side .info-side__link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding: 9px 10px;
+    border-radius: 8px;
+    -webkit-transition: background .25s, color .25s;
+    transition: background .25s, color .25s; }
+    .info-side .info-side__link:hover {
+      background: #f2f3f5; }
+  .info-side .info-side__num {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 22px;
+    font: 700 12px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    font-style: normal;
+    color: #7b7f83;
+    -webkit-transition: color .25s;
+    transition: color .25s; }
+  .info-side .info-side__text {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font: 400 14px/1.5 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+  .info-side .info-side__link.is-active {
+    background: #eef6da; }
+    .info-side .info-side__link.is-active .info-side__num {
+      color: #6f9309; }
+    .info-side .info-side__link.is-active .info-side__text {
+      color: #6f9309;
+      font-weight: 700; }
+  .info-side .info-side__cta {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 22px 26px; }
+  .info-side .info-side__cta-title {
+    font: 400 20px/1.3 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin-bottom: 10px; }
+  .info-side .info-side__cta-text {
+    font: 400 14px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 18px; }
+  .info-side .info-side__cta-phone {
+    font: 700 17px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin-top: 16px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .info-side .info-side__cta-phone:hover {
+      color: #6f9309; }
+
+/* ============ АДАПТИВ ============ */
+@media (max-width: 1199px) {
+  .info-side {
+    width: 290px; }
+  .info-main {
+    padding: 34px 34px 38px; } }
+
+@media (max-width: 1023px) {
+  .info-page {
+    padding: 30px 0 50px; }
+  .info-page .info-page__inner {
+    display: block; }
+  .info-main {
+    margin: 0 0 20px;
+    padding: 30px 28px 34px; }
+  .info-main .info-main__title {
+    font-size: 30px; }
+  .info-main .info-main__lead {
+    font-size: 16px; }
+  .info-side {
+    position: static;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .info-side .info-side__box {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin: 0 18px 0 0; }
+  .info-side .info-side__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .info-side .info-side__item {
+    width: calc(50% - 6px);
+    margin-right: 12px; }
+    .info-side .info-side__item:nth-child(2n) {
+      margin-right: 0; }
+  .info-side .info-side__cta {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 300px; }
+  .info-icon {
+    width: calc(50% - 16px); } }
+
+@media (max-width: 767px) {
+  .info-page .info-page__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .info-main {
+    padding: 24px 20px 28px;
+    border-radius: 12px; }
+  .info-main .info-main__title {
+    font-size: 25px; }
+  .info-main .info-main__lead {
+    font-size: 15px;
+    margin-bottom: 24px; }
+  .info-hero {
+    padding: 14px;
+    margin-bottom: 24px; }
+  .info-hero img {
+    max-height: 260px; }
+  .info-list .info-list__text {
+    font-size: 15px; }
+  .info-extra {
+    display: block;
+    text-align: center; }
+  .info-extra .info-extra__img {
+    margin: 0 auto 14px; }
+  .info-pager {
+    display: block; }
+  .info-pager .info-pager__link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 12px 14px;
+    background: #f2f3f5;
+    margin-bottom: 10px; }
+  .info-pager .info-pager__link--next {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    text-align: left;
+    margin-left: 0; }
+  .info-pager .info-pager__stub {
+    display: none; }
+  .info-side {
+    display: block; }
+  .info-side .info-side__box {
+    margin: 0 0 16px; }
+  .info-side .info-side__item {
+    width: 100%;
+    margin-right: 0; }
+  .info-side .info-side__cta {
+    width: 100%; } }
 
 .catalog__drop {
   display: none;
@@ -3920,6 +5708,1472 @@ a:focus {
   .nova-request .nova-request__hint {
     width: 100%;
     margin: 14px 0 0; } }
+
+/* ============================================================
+   PRODUCT — картка товару (product-eco.html)
+   Стилістика прийнятої версії tulpani-eco.html: світло, повітря,
+   тонкі великі заголовки, зелений акцент.
+   Ключова специфіка бізнесу (з чинного easters.com.ua):
+   вибір одиниці підбору (пак/ящик) + оптові рівні цін.
+   Правила проекту: без <section>/<article>, тільки flex (не grid),
+   відступи на margin, ширини через width: calc().
+   Файл самодостатній: свої змінні, нічого не тягне з tulpani.scss.
+   Заголовки/абзаци — завжди вкладено (0-2-0), інакше легасі
+   `.page h2{font-weight:700}` / `.page p{margin:0}` (0-1-1) переб'є.
+   ============================================================ */
+.pcrumbs .pcrumbs__inner, .product .product__inner, .ptabs .ptabs__inner, .prange .prange__inner, .pwhy .pwhy__inner, .pfaq .pfaq__inner, .palso .palso__inner, .phelp .phelp__inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px; }
+
+.prange .prange__title, .pfaq .pfaq__title, .palso .palso__title {
+  font: 400 38px/1.2 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: .2px;
+  color: #141617;
+  margin: 0; }
+
+.pinfo .pinfo__eyebrow, .prange .prange__eyebrow, .pfaq .pfaq__eyebrow {
+  display: block;
+  font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #85aa12; }
+
+/* ============ ХЛІБНІ КРИХТИ ============ */
+.pcrumbs {
+  background: #fff;
+  border-bottom: 1px solid #e4e6e9; }
+  .pcrumbs .pcrumbs__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font: 400 13px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83; }
+    .pcrumbs .pcrumbs__inner a {
+      color: #7b7f83;
+      -webkit-transition: color .2s;
+      transition: color .2s; }
+      .pcrumbs .pcrumbs__inner a:hover {
+        color: #85aa12; }
+  .pcrumbs .pcrumbs__sep {
+    margin: 0 9px;
+    color: #c7cbcf; }
+  .pcrumbs .pcrumbs__current {
+    color: #141617; }
+
+/* ============ КАРТКА: СІТКА ============ */
+.product {
+  background: #fff;
+  padding: 44px 0 70px; }
+  .product .product__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+
+/* ---------------- галерея ---------------- */
+.pgallery {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(50% - 30px);
+  margin-right: 30px; }
+  .pgallery .pgallery__stage {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 520px;
+    background: #f2f3f5;
+    border-radius: 14px;
+    overflow: hidden; }
+  .pgallery .pgallery__img {
+    max-width: 84%;
+    max-height: 84%;
+    width: auto;
+    height: auto;
+    -o-object-fit: contain;
+    object-fit: contain;
+    display: block;
+    -webkit-transition: opacity 0.25s ease, -webkit-transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.25s ease, -webkit-transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, -webkit-transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform; }
+  .pgallery .pgallery__stage:hover .pgallery__img {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06); }
+  .pgallery .pgallery__thumbs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 14px -6px 0; }
+
+.pthumb {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 88px;
+  height: 88px;
+  margin: 0 6px 12px;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: #f2f3f5;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: border-color .25s, background .25s;
+  transition: border-color .25s, background .25s; }
+  .pthumb img {
+    max-width: 100%;
+    max-height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    display: block; }
+  .pthumb:hover {
+    border-color: #cdd6b3; }
+  .pthumb.is-active {
+    border-color: #85aa12;
+    background: #eef6da; }
+
+.pbadge {
+  position: absolute;
+  left: 18px;
+  z-index: 2;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 700 11px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  padding: 9px 14px; }
+
+.pbadge--hit {
+  top: 18px;
+  background: #85aa12;
+  color: #fff; }
+
+.pbadge--eco {
+  top: 56px;
+  background: #eef6da;
+  color: #6f9309; }
+
+/* ---------------- права колонка ---------------- */
+.pinfo {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto; }
+  .pinfo .pinfo__eyebrow {
+    margin-bottom: 14px; }
+  .pinfo .pinfo__title {
+    font: 400 36px/1.2 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: -.2px;
+    color: #141617;
+    margin: 0 0 16px; }
+  .pinfo .pinfo__meta {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 12px; }
+  .pinfo .pinfo__rating {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 20px; }
+  .pinfo .pinfo__reviews {
+    font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin-left: 10px; }
+    .pinfo .pinfo__reviews a {
+      color: #7b7f83;
+      text-decoration: underline;
+      -webkit-transition: color .2s;
+      transition: color .2s; }
+    .pinfo .pinfo__reviews a:hover {
+      color: #85aa12; }
+  .pinfo .pinfo__lead {
+    font: 400 15px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 28px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #e4e6e9; }
+
+.pmeta {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font: 400 13px/1 "AvenirNextCyr", Arial, sans-serif;
+  color: #141617;
+  margin: 0 22px 8px 0; }
+  .pmeta i {
+    font-style: normal;
+    color: #7b7f83;
+    margin-right: 6px; }
+
+.pmeta--stock {
+  color: #6f9309;
+  font-weight: 700; }
+  .pmeta--stock svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 7px; }
+
+.pstars {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  color: #f0a92e; }
+  .pstars svg {
+    width: 17px;
+    height: 17px;
+    margin-right: 2px; }
+
+.pstars--sm svg {
+  width: 14px;
+  height: 14px; }
+
+/* ---------------- опції ---------------- */
+.pnative {
+  display: none; }
+
+.popt {
+  margin-bottom: 22px; }
+  .popt .popt__head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    margin-bottom: 12px; }
+  .popt .popt__label {
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #7b7f83; }
+  .popt .popt__value {
+    font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin-left: 10px; }
+  .popt .popt__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+
+.pswatch {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: relative;
+  width: 38px;
+  height: 38px;
+  margin: 0 10px 8px 0;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #e4e6e9;
+  cursor: pointer;
+  -webkit-transition: border-color .25s, -webkit-box-shadow .25s, -webkit-transform .25s;
+  transition: border-color .25s, -webkit-box-shadow .25s, -webkit-transform .25s;
+  transition: box-shadow .25s, border-color .25s, transform .25s;
+  transition: box-shadow .25s, border-color .25s, transform .25s, -webkit-box-shadow .25s, -webkit-transform .25s; }
+  .pswatch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 50%;
+    background: currentColor; }
+  .pswatch:hover {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px); }
+  .pswatch.is-active {
+    border-color: #85aa12;
+    -webkit-box-shadow: 0 0 0 3px rgba(133, 170, 18, 0.22);
+    box-shadow: 0 0 0 3px rgba(133, 170, 18, 0.22); }
+
+.pchip {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 92px;
+  height: 42px;
+  margin: 0 10px 8px 0;
+  padding: 0 16px;
+  background: #fff;
+  border: 1px solid #e4e6e9;
+  border-radius: 8px;
+  font: 400 14px/1 "AvenirNextCyr", Arial, sans-serif;
+  color: #141617;
+  cursor: pointer;
+  -webkit-transition: border-color .25s, background .25s, color .25s;
+  transition: border-color .25s, background .25s, color .25s; }
+  .pchip:hover {
+    border-color: #b9c78d; }
+  .pchip.is-active {
+    border-color: #85aa12;
+    background: #eef6da;
+    color: #6f9309;
+    font-weight: 700; }
+
+.punit {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  min-width: 132px;
+  margin: 0 10px 8px 0;
+  padding: 11px 18px;
+  background: #fff;
+  border: 1px solid #e4e6e9;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  -webkit-transition: border-color .25s, background .25s;
+  transition: border-color .25s, background .25s; }
+  .punit .punit__name {
+    font: 700 15px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin-bottom: 5px; }
+  .punit .punit__sub {
+    font: 400 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83; }
+  .punit:hover {
+    border-color: #b9c78d; }
+  .punit.is-active {
+    border-color: #85aa12;
+    background: #eef6da; }
+  .punit.is-active .punit__name {
+    color: #6f9309; }
+
+/* ---------------- оптові рівні ---------------- */
+.ptiers {
+  margin: 26px 0 24px;
+  padding: 20px 22px 14px;
+  background: #f2f3f5;
+  border-radius: 12px; }
+  .ptiers .ptiers__head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 14px; }
+  .ptiers .ptiers__title {
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #141617; }
+  .ptiers .ptiers__hint {
+    font: 400 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83; }
+  .ptiers .ptiers__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0 -5px; }
+
+.ptier {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(33.333% - 10px);
+  margin: 0 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  -webkit-transition: border-color .25s, -webkit-box-shadow .25s;
+  transition: border-color .25s, -webkit-box-shadow .25s;
+  transition: border-color .25s, box-shadow .25s;
+  transition: border-color .25s, box-shadow .25s, -webkit-box-shadow .25s; }
+  .ptier .ptier__qty {
+    font: 400 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin-bottom: 8px; }
+  .ptier .ptier__price {
+    font: 700 17px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+    .ptier .ptier__price i {
+      font: 400 12px/1 "AvenirNextCyr", Arial, sans-serif;
+      font-style: normal;
+      color: #7b7f83;
+      margin-left: 3px; }
+  .ptier.is-active {
+    border-color: #85aa12;
+    -webkit-box-shadow: 0 6px 18px rgba(133, 170, 18, 0.16);
+    box-shadow: 0 6px 18px rgba(133, 170, 18, 0.16); }
+  .ptier.is-active .ptier__price {
+    color: #6f9309; }
+  .ptier.is-hidden {
+    display: none; }
+
+/* ---------------- ціна + кошик ---------------- */
+.pbuy .pbuy__price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 18px; }
+
+.pbuy .pbuy__now {
+  font: 400 40px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: -1px;
+  color: #141617;
+  margin-bottom: 8px; }
+
+.pbuy .pbuy__per {
+  font: 400 13px/1.4 "AvenirNextCyr", Arial, sans-serif;
+  color: #7b7f83; }
+
+.pbuy .pbuy__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-bottom: 14px; }
+
+.pbuy .pbuy__add {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 220px;
+  height: 54px;
+  margin-right: 12px;
+  font-size: 13px; }
+  .pbuy .pbuy__add svg {
+    width: 19px;
+    height: 19px;
+    margin-right: 10px; }
+
+.pbuy .pbuy__fav {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  background: #fff;
+  border: 1px solid #e4e6e9;
+  border-radius: 8px;
+  color: #7b7f83;
+  cursor: pointer;
+  -webkit-transition: color .25s, border-color .25s, background .25s;
+  transition: color .25s, border-color .25s, background .25s; }
+  .pbuy .pbuy__fav svg {
+    width: 22px;
+    height: 22px; }
+  .pbuy .pbuy__fav:hover {
+    color: #85aa12;
+    border-color: #85aa12;
+    background: #eef6da; }
+
+.pbuy .pbuy__quick {
+  background: none;
+  padding: 0;
+  font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: #7b7f83;
+  border-bottom: 1px dashed #c3c7cb;
+  cursor: pointer;
+  -webkit-transition: color .2s, border-color .2s;
+  transition: color .2s, border-color .2s; }
+  .pbuy .pbuy__quick:hover {
+    color: #85aa12;
+    border-color: #85aa12; }
+
+.pstepper {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 54px;
+  margin-right: 12px;
+  background: #fff;
+  border: 1px solid #e4e6e9;
+  border-radius: 8px;
+  overflow: hidden; }
+  .pstepper .pstepper__btn {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 42px;
+    height: 100%;
+    background: none;
+    font: 400 20px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    cursor: pointer;
+    -webkit-transition: background .2s, color .2s;
+    transition: background .2s, color .2s; }
+    .pstepper .pstepper__btn:hover {
+      background: #eef6da;
+      color: #6f9309; }
+  .pstepper .pstepper__input {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 54px;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    text-align: center;
+    font: 700 16px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    -moz-appearance: textfield; }
+    .pstepper .pstepper__input::-webkit-outer-spin-button, .pstepper .pstepper__input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0; }
+    .pstepper .pstepper__input:focus {
+      outline: none; }
+
+/* ---------------- мікро-трасти ---------------- */
+.ptrust {
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid #e4e6e9; }
+  .ptrust .ptrust__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 12px; }
+    .ptrust .ptrust__item svg {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      margin-right: 12px;
+      color: #85aa12; }
+    .ptrust .ptrust__item span {
+      font: 400 14px/1.5 "AvenirNextCyr", Arial, sans-serif;
+      color: #7b7f83; }
+
+@media (max-width: 1023px) {
+  .product {
+    padding: 30px 0 50px; }
+  .product .product__inner {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .pgallery {
+    width: 100%;
+    margin: 0 0 30px; }
+  .pgallery .pgallery__stage {
+    height: 420px; }
+  .pinfo .pinfo__title {
+    font-size: 30px; }
+  .ptier {
+    width: calc(50% - 10px); } }
+
+@media (max-width: 767px) {
+  .product .product__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .pcrumbs .pcrumbs__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .pgallery .pgallery__stage {
+    height: 320px; }
+  .pthumb {
+    width: 66px;
+    height: 66px; }
+  .pinfo .pinfo__title {
+    font-size: 25px; }
+  .ptier {
+    width: calc(100% - 10px); }
+  .pbuy .pbuy__now {
+    font-size: 32px; }
+  .pbuy .pbuy__row {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .pbuy .pbuy__add {
+    width: calc(100% - 66px);
+    min-width: 0;
+    margin-right: 12px; }
+  .pstepper {
+    width: 100%;
+    margin: 0 0 12px; }
+  .pstepper .pstepper__input {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: auto; } }
+
+/* ============ ТАБИ ============ */
+.ptabs {
+  background: #f2f3f5;
+  padding: 60px 0 66px; }
+  .ptabs .ptabs__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e4e6e9;
+    margin-bottom: 34px; }
+  .ptabs .ptab {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    background: none;
+    padding: 0 0 16px;
+    margin-right: 34px;
+    font: 400 17px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    -webkit-transition: color .25s, border-color .25s;
+    transition: color .25s, border-color .25s; }
+    .ptabs .ptab i {
+      font-style: normal;
+      font-size: 12px;
+      color: #7b7f83;
+      background: #fff;
+      border-radius: 100px;
+      padding: 3px 8px;
+      margin-left: 6px; }
+    .ptabs .ptab:hover {
+      color: #141617; }
+    .ptabs .ptab.is-active {
+      color: #141617;
+      font-weight: 700;
+      border-bottom-color: #85aa12; }
+  .ptabs .ppane {
+    display: none; }
+  .ptabs .ppane.is-active {
+    display: block; }
+  .ptabs .ppane__text {
+    max-width: 940px; }
+    .ptabs .ppane__text p {
+      font: 400 16px/1.75 "AvenirNextCyr", Arial, sans-serif;
+      color: #7b7f83;
+      margin: 0 0 16px; }
+  .ptabs .ppane__list {
+    margin: 0;
+    padding: 0; }
+    .ptabs .ppane__list li {
+      position: relative;
+      font: 400 15px/1.7 "AvenirNextCyr", Arial, sans-serif;
+      color: #7b7f83;
+      padding-left: 26px;
+      margin-bottom: 8px; }
+      .ptabs .ppane__list li::before {
+        content: '';
+        position: absolute;
+        left: 4px;
+        top: 10px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #85aa12; }
+
+/* характеристики */
+.pspecs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0 -14px; }
+  .pspecs .pspec {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(50% - 28px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e4e6e9; }
+  .pspecs .pspec__k {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    font: 400 14px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    padding-right: 16px; }
+  .pspecs .pspec__v {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    text-align: right;
+    font: 400 14px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+
+/* доставка */
+.pdelivery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0 -20px; }
+  .pdelivery .pdelivery__col {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(50% - 40px);
+    margin: 0 20px; }
+  .pdelivery .pdelivery__title {
+    font: 400 22px/1.3 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0 0 14px; }
+
+/* відгуки */
+.previews {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  max-width: 900px; }
+  .previews .preview {
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 26px 24px;
+    margin-bottom: 14px; }
+  .previews .preview__top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 12px; }
+  .previews .preview__name {
+    font: 700 15px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+  .previews .preview__text {
+    font: 400 15px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0 0 10px; }
+  .previews .preview__date {
+    font: 400 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #a8adb2; }
+  .previews .previews__add {
+    margin-top: 8px;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #85aa12;
+    border-bottom: 2px solid #85aa12;
+    padding-bottom: 5px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .previews .previews__add:hover {
+      color: #6f9309; }
+
+@media (max-width: 1023px) {
+  .ptabs {
+    padding: 44px 0 50px; }
+  .ptabs .ptab {
+    margin-right: 22px;
+    font-size: 15px; }
+  .pspecs .pspec {
+    width: calc(100% - 28px); }
+  .pdelivery .pdelivery__col {
+    width: calc(100% - 40px);
+    margin-bottom: 26px; } }
+
+@media (max-width: 767px) {
+  .ptabs .ptabs__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .ptabs .ptabs__nav {
+    margin-bottom: 24px; }
+  .ptabs .ptab {
+    margin-right: 18px;
+    font-size: 14px;
+    padding-bottom: 12px; }
+  .previews .preview {
+    padding: 18px 18px 20px; }
+  .previews .preview__top {
+    display: block; }
+  .previews .pstars {
+    margin-top: 8px; } }
+
+/* ============ УСІ РОЗМІРИ ЛІНІЙКИ ============ */
+.prange {
+  background: #fff;
+  padding: 78px 0 82px; }
+  .prange .prange__head {
+    max-width: 700px;
+    margin-bottom: 34px; }
+  .prange .prange__eyebrow {
+    margin-bottom: 14px; }
+  .prange .prange__title {
+    margin-bottom: 14px; }
+  .prange .prange__lead {
+    font: 400 16px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0; }
+  .prange .prange__table {
+    border: 1px solid #e4e6e9;
+    border-radius: 12px;
+    overflow: hidden; }
+  .prange .prange__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top: 1px solid #e4e6e9;
+    padding: 16px 22px;
+    -webkit-transition: background .25s;
+    transition: background .25s; }
+    .prange .prange__row:first-child {
+      border-top: 0; }
+    .prange .prange__row:hover {
+      background: #f2f3f5; }
+  .prange .prange__row--head {
+    background: #f2f3f5;
+    font-weight: 700; }
+    .prange .prange__row--head:hover {
+      background: #f2f3f5; }
+  .prange .prange__row--head .prange__cell {
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7b7f83; }
+  .prange .prange__row.is-current {
+    background: #eef6da; }
+    .prange .prange__row.is-current:hover {
+      background: #eef6da; }
+  .prange .prange__cell {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 12%;
+    font: 400 14px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    padding-right: 12px; }
+  .prange .prange__cell--name {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 28%;
+    font-weight: 700; }
+    .prange .prange__cell--name i {
+      display: inline-block;
+      font: 700 10px/1 "AvenirNextCyr", Arial, sans-serif;
+      font-style: normal;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: #fff;
+      background: #85aa12;
+      border-radius: 100px;
+      padding: 4px 8px;
+      margin-left: 8px;
+      vertical-align: middle; }
+  .prange .prange__cell--price {
+    font-weight: 700; }
+  .prange .prange__cell--act {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 110px;
+    padding-right: 0;
+    text-align: right; }
+  .prange .prange__btn {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 36px;
+    padding: 0 18px;
+    border-radius: 100px;
+    background: #eef6da;
+    color: #6f9309;
+    font: 700 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    -webkit-transition: background .25s, color .25s;
+    transition: background .25s, color .25s; }
+    .prange .prange__btn:hover {
+      background: #85aa12;
+      color: #fff; }
+
+@media (max-width: 1023px) {
+  .prange {
+    padding: 54px 0 58px; }
+  .prange .prange__title {
+    font-size: 30px; }
+  .prange .prange__row--head {
+    display: none; }
+  .prange .prange__row {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding: 18px 18px 14px; }
+  .prange .prange__cell {
+    width: 50%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin-bottom: 10px; }
+  .prange .prange__cell--name {
+    width: 100%; }
+  .prange .prange__cell[data-th]::before {
+    content: attr(data-th);
+    display: block;
+    font: 400 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: #7b7f83;
+    margin-bottom: 6px; }
+  .prange .prange__cell--act {
+    width: 100%;
+    text-align: left; } }
+
+@media (max-width: 767px) {
+  .prange .prange__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .prange .prange__title {
+    font-size: 26px; } }
+
+/* ============ ЧОМУ САМЕ ЦЯ ФОРМА ============ */
+.pwhy {
+  background: #f2f3f5;
+  padding: 70px 0 74px; }
+  .pwhy .pwhy__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .pwhy .pwhy__item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: calc(25% - 18px);
+    margin: 0 24px 0 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 12px;
+    padding: 26px 24px 28px; }
+    .pwhy .pwhy__item:last-child {
+      margin-right: 0; }
+  .pwhy .pwhy__ico {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    background: #eef6da;
+    color: #85aa12; }
+    .pwhy .pwhy__ico svg {
+      width: 25px;
+      height: 25px; }
+  .pwhy .pwhy__title {
+    font: 400 19px/1.3 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0 0 8px; }
+  .pwhy .pwhy__text {
+    font: 400 14px/1.6 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0; }
+
+@media (max-width: 1023px) {
+  .pwhy {
+    padding: 50px 0 34px; }
+  .pwhy .pwhy__item {
+    width: calc(50% - 12px);
+    margin: 0 24px 24px 0; }
+    .pwhy .pwhy__item:nth-child(2n) {
+      margin-right: 0; } }
+
+@media (max-width: 767px) {
+  .pwhy .pwhy__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .pwhy .pwhy__item {
+    width: 100%;
+    margin-right: 0; } }
+
+/* ============ FAQ ПО ТОВАРУ ============ */
+.pfaq {
+  background: #fff;
+  padding: 78px 0 82px; }
+  .pfaq .pfaq__head {
+    margin-bottom: 26px; }
+  .pfaq .pfaq__eyebrow {
+    margin-bottom: 14px; }
+  .pfaq .pfaq__list {
+    max-width: 940px; }
+  .pfaq .pfaq__item {
+    border-bottom: 1px solid #e4e6e9; }
+  .pfaq .pfaq__q {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 22px 0;
+    font: 400 18px/1.4 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .pfaq .pfaq__q:hover {
+      color: #85aa12; }
+  .pfaq .pfaq__q-text {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-right: 20px; }
+  .pfaq .pfaq__sign {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: block; }
+    .pfaq .pfaq__sign::before, .pfaq .pfaq__sign::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 16px;
+      height: 2px;
+      margin-top: -1px;
+      background: #85aa12;
+      -webkit-transition: opacity .3s, -webkit-transform .3s;
+      transition: opacity .3s, -webkit-transform .3s;
+      transition: transform .3s, opacity .3s;
+      transition: transform .3s, opacity .3s, -webkit-transform .3s; }
+    .pfaq .pfaq__sign::after {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg); }
+  .pfaq .pfaq__item.is-open .pfaq__sign::after {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    opacity: 0; }
+  .pfaq .pfaq__item.is-open .pfaq__q {
+    color: #85aa12; }
+  .pfaq .pfaq__a {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  .pfaq .pfaq__a-in {
+    padding: 0 60px 24px 0; }
+    .pfaq .pfaq__a-in p {
+      font: 400 15px/1.7 "AvenirNextCyr", Arial, sans-serif;
+      color: #7b7f83;
+      margin: 0; }
+
+@media (max-width: 1023px) {
+  .pfaq {
+    padding: 54px 0 58px; }
+  .pfaq .pfaq__title {
+    font-size: 30px; } }
+
+@media (max-width: 767px) {
+  .pfaq .pfaq__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .pfaq .pfaq__title {
+    font-size: 26px; }
+  .pfaq .pfaq__q {
+    font-size: 16px; }
+  .pfaq .pfaq__a-in {
+    padding-right: 16px; } }
+
+/* ============ СХОЖІ ТОВАРИ ============ */
+.palso {
+  background: #f2f3f5;
+  padding: 78px 0 82px; }
+  .palso .palso__head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 32px; }
+  .palso .palso__all {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 20px;
+    font: 700 12px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: #85aa12;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .palso .palso__all svg {
+      margin-left: 8px;
+      -webkit-transition: -webkit-transform .25s;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s; }
+    .palso .palso__all:hover {
+      color: #6f9309; }
+    .palso .palso__all:hover svg {
+      -webkit-transform: translateX(4px);
+      transform: translateX(4px); }
+  .palso .palso__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-left: -10px;
+    margin-right: -10px; }
+
+.pmini {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: calc(25% - 20px);
+  margin: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  -webkit-transition: -webkit-box-shadow .3s, -webkit-transform .3s;
+  transition: -webkit-box-shadow .3s, -webkit-transform .3s;
+  transition: box-shadow .3s, transform .3s;
+  transition: box-shadow .3s, transform .3s, -webkit-box-shadow .3s, -webkit-transform .3s; }
+  .pmini:hover {
+    -webkit-box-shadow: 0 18px 40px rgba(20, 22, 23, 0.12);
+    box-shadow: 0 18px 40px rgba(20, 22, 23, 0.12);
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px); }
+  .pmini .pmini__media {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 200px;
+    padding: 18px;
+    background: #f2f3f5;
+    overflow: hidden; }
+    .pmini .pmini__media img {
+      max-width: 78%;
+      max-height: 100%;
+      -o-object-fit: contain;
+      object-fit: contain;
+      display: block;
+      will-change: transform;
+      -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+  .pmini:hover .pmini__media img {
+    -webkit-transform: scale(1.07);
+    transform: scale(1.07); }
+  .pmini .pmini__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 18px 22px 24px; }
+  .pmini .pmini__cat {
+    font: 700 11px/1 "AvenirNextCyr", Arial, sans-serif;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #85aa12;
+    margin-bottom: 10px; }
+  .pmini .pmini__name {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    font: 400 17px/1.35 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0 0 12px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+  .pmini:hover .pmini__name {
+    color: #6f9309; }
+  .pmini .pmini__price {
+    font: 700 16px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617; }
+    .pmini .pmini__price i {
+      font: 400 12px/1 "AvenirNextCyr", Arial, sans-serif;
+      font-style: normal;
+      color: #7b7f83; }
+
+@media (max-width: 1023px) {
+  .palso {
+    padding: 54px 0 34px; }
+  .palso .palso__title {
+    font-size: 30px; }
+  .pmini {
+    width: calc(50% - 20px);
+    margin-bottom: 20px; } }
+
+@media (max-width: 767px) {
+  .palso .palso__inner {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .palso .palso__title {
+    font-size: 26px; }
+  .palso .palso__head {
+    display: block; }
+  .palso .palso__all {
+    margin: 14px 0 0; }
+  .pmini {
+    width: calc(100% - 20px); } }
+
+/* ============ КОНСУЛЬТАЦІЯ ============ */
+.phelp {
+  background: #fff;
+  padding: 0 0 84px; }
+  .phelp .phelp__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .phelp .phelp__body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    max-width: 640px;
+    padding: 44px 0; }
+  .phelp .phelp__title {
+    font: 400 32px/1.25 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin: 0 0 12px; }
+  .phelp .phelp__text {
+    font: 400 16px/1.7 "AvenirNextCyr", Arial, sans-serif;
+    color: #7b7f83;
+    margin: 0; }
+  .phelp .phelp__actions {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-left: 40px; }
+  .phelp .phelp__phone {
+    font: 700 20px/1 "AvenirNextCyr", Arial, sans-serif;
+    color: #141617;
+    margin-top: 16px;
+    -webkit-transition: color .2s;
+    transition: color .2s; }
+    .phelp .phelp__phone:hover {
+      color: #85aa12; }
+
+.phelp .phelp__inner {
+  background: #eef6da;
+  border-radius: 14px;
+  padding-left: 44px;
+  padding-right: 44px;
+  max-width: 1360px; }
+
+@media (max-width: 1023px) {
+  .phelp {
+    padding-bottom: 60px; }
+  .phelp .phelp__inner {
+    display: block;
+    padding: 34px 28px 36px; }
+  .phelp .phelp__title {
+    font-size: 26px; }
+  .phelp .phelp__body {
+    padding: 0 0 22px; }
+  .phelp .phelp__actions {
+    margin-left: 0; } }
+
+@media (max-width: 767px) {
+  .phelp .phelp__inner {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: auto; }
+  .phelp .phelp__title {
+    font-size: 23px; } }
 
 /*
 == malihu jquery custom scrollbar plugin ==
