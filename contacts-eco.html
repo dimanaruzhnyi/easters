@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page">
+
+
+    <header class="header">
+      <div class="header__inner">
+        <a class="header__logo" href="/">
+          <img class="header__logo-img" src="data/logo-tulip.png" alt="Тюльпани">
+        </a>
+
+        <nav class="header__nav">
+          <ul class="header__menu">
+            <li><a href="/perevagy">Переваги</a></li>
+            <li><a href="/produkciya">Продукція</a></li>
+            <li><a href="/galereya">Галерея</a></li>
+            <li><a href="/pro-nas">Про нас</a></li>
+            <li><a href="/kontakty">Контакти</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__tools">
+          <div class="header__account">
+            <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-5.5 7-5.5s7 1.9 7 5.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span class="header__account-links"><a href="/login">вхід</a> <i>|</i> <a href="/register">реєстрація</a></span>
+          </div>
+
+          <div class="header__lang">
+            <a href="/ru">RU</a>
+            <i class="header__lang-sep">|</i>
+            <a class="is-active" href="/ua">UA</a>
+          </div>
+
+          <button class="header__search" type="button" aria-label="Пошук">
+            <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+
+          <a class="header__cart" href="/cart" aria-label="Кошик">
+            <svg class="header__cart-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l-1.2 10.2a1 1 0 0 1-1 .8H8.2a1 1 0 0 1-1-.8L6 8z" fill="currentColor"/><path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+            <span class="header__cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ ХЛІБНІ КРИХТИ ============ -->
+    <div class="pcrumbs">
+      <div class="pcrumbs__inner">
+        <a href="/">Головна</a>
+        <span class="pcrumbs__sep" aria-hidden="true">/</span>
+        <span class="pcrumbs__current">Контакти</span>
+      </div>
+    </div>
+
+    <!-- ============ ЗАГОЛОВОК ============ -->
+    <div class="ct-head">
+      <div class="ct-head__inner">
+        <div class="ct-head__body" data-reveal>
+          <span class="ct-head__eyebrow">Контакти</span>
+          <h1 class="ct-head__title">Зв’яжіться з нами</h1>
+          <p class="ct-head__lead">Підберемо форму під вашу випічку, порахуємо ціну під обсяг і терміни відвантаження. Пишіть у зручний спосіб — відповідаємо в робочі години протягом дня.</p>
+        </div>
+
+        <div class="ct-head__actions" data-reveal>
+          <a class="btn btn--green" href="tel:+380960000350">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.8 10.8a15 15 0 0 0 6.4 6.4l2-2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.5.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.57 3.5a1 1 0 0 1-.25 1l-2 2z" fill="currentColor"/></svg>
+            Зателефонувати
+          </a>
+          <a class="ct-head__link" href="#form">Написати нам
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z" fill="currentColor"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ КАРТКИ КОНТАКТІВ ============ -->
+    <div class="ct-cards">
+      <div class="ct-cards__inner" data-reveal-stagger>
+
+        <div class="ct-card">
+          <span class="ct-card__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6.8 10.8a15 15 0 0 0 6.4 6.4l2-2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.5.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.57 3.5a1 1 0 0 1-.25 1l-2 2z" fill="currentColor"/></svg>
+          </span>
+          <span class="ct-card__label">Телефони</span>
+          <div class="ct-card__body">
+            <a class="ct-card__val" href="tel:+380960000350">+380 (96) 0000 350</a>
+            <a class="ct-card__val" href="tel:+380660000350">+380 (66) 0000 350</a>
+            <a class="ct-card__val" href="tel:+380730000350">+380 (73) 0000 350</a>
+          </div>
+          <span class="ct-card__note">Дзвінки за тарифами вашого оператора</span>
+        </div>
+
+        <div class="ct-card">
+          <span class="ct-card__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M4 7.5l8 5 8-5" stroke="currentColor" stroke-width="1.7"/></svg>
+          </span>
+          <span class="ct-card__label">Пошта</span>
+          <div class="ct-card__body">
+            <a class="ct-card__val" href="mailto:easters.form@gmail.com">easters.form@gmail.com</a>
+          </div>
+          <span class="ct-card__note">Замовлення, прорахунки, документи</span>
+        </div>
+
+        <div class="ct-card">
+          <span class="ct-card__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+          </span>
+          <span class="ct-card__label">Адреса</span>
+          <div class="ct-card__body">
+            <span class="ct-card__val ct-card__val--text">Україна, Харківська обл., Валківський р-н,<br>м. Валки, вул. Харківська, 8</span>
+          </div>
+          <a class="ct-card__note ct-card__note--link" href="#map">Подивитися на карті</a>
+        </div>
+
+        <div class="ct-card">
+          <span class="ct-card__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <span class="ct-card__label">Графік роботи</span>
+          <div class="ct-card__body">
+            <span class="ct-card__val ct-card__val--text">Пн–Пт: 9:00 — 18:00</span>
+            <span class="ct-card__val ct-card__val--text">Сб: 9:00 — 14:00</span>
+            <span class="ct-card__val ct-card__val--text">Нд: вихідний</span>
+          </div>
+          <span class="ct-card__note">Заявки з сайту приймаємо цілодобово</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============ ФОРМА + КОНТАКТИ ВІДДІЛІВ ============ -->
+    <div class="ct-form" id="form">
+      <div class="ct-form__inner">
+
+        <form class="ct-form__box" action="index.php?route=information/contact" method="post" data-reveal>
+          <span class="ct-form__eyebrow">Зворотній зв’язок</span>
+          <h2 class="ct-form__title">Напишіть нам</h2>
+          <p class="ct-form__lead">Заповніть форму — менеджер зв’яжеться з вами в робочі години. Якщо потрібен прорахунок, вкажіть позицію та обсяг.</p>
+
+          <div class="ct-field">
+            <label class="ct-field__label" for="ct-type">Тема звернення *</label>
+            <select class="ct-field__select" id="ct-type" name="request_type" required>
+              <option value="">Оберіть тему</option>
+              <option value="price">Прорахунок ціни</option>
+              <option value="product">Питання про продукцію</option>
+              <option value="custom">Індивідуальний друк</option>
+              <option value="distribution">Дистрибуція та співпраця</option>
+              <option value="docs">Документи та реквізити</option>
+              <option value="other">Інше</option>
+            </select>
+          </div>
+
+          <div class="ct-field ct-field--half">
+            <label class="ct-field__label" for="ct-name">Ім’я *</label>
+            <input class="ct-field__input" id="ct-name" type="text" name="name" required>
+          </div>
+
+          <div class="ct-field ct-field--half">
+            <label class="ct-field__label" for="ct-company">Компанія</label>
+            <input class="ct-field__input" id="ct-company" type="text" name="company">
+          </div>
+
+          <div class="ct-field ct-field--half">
+            <label class="ct-field__label" for="ct-email">E-mail *</label>
+            <input class="ct-field__input" id="ct-email" type="email" name="email" required>
+          </div>
+
+          <div class="ct-field ct-field--half">
+            <label class="ct-field__label" for="ct-phone">Телефон</label>
+            <input class="ct-field__input" id="ct-phone" type="tel" name="telephone" placeholder="+380">
+          </div>
+
+          <div class="ct-field">
+            <label class="ct-field__label" for="ct-msg">Повідомлення *</label>
+            <textarea class="ct-field__area" id="ct-msg" name="enquiry" rows="5" required></textarea>
+          </div>
+
+          <div class="ct-form__foot">
+            <button class="btn btn--green ct-form__submit" type="submit">Надіслати</button>
+            <span class="ct-form__hint">Натискаючи кнопку, ви погоджуєтесь на обробку даних. * — обов’язкові поля.</span>
+          </div>
+        </form>
+
+        <div class="ct-aside" data-reveal>
+
+          <div class="ct-box">
+            <h3 class="ct-box__title">Пишіть у месенджери</h3>
+            <p class="ct-box__text">Найшвидший спосіб — надішліть фото виробу або назву позиції, і ми одразу підкажемо розмір.</p>
+            <div class="ct-msgs">
+              <a class="ct-msg ct-msg--viber" href="viber://chat?number=%2B380960000350">
+                <span class="ct-msg__ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c4.8 0 8 2.9 8 7.4 0 4.6-3.2 7.5-8 7.5-.7 0-1.4-.05-2-.15L6 20v-3.2C4.2 15.4 4 12.9 4 9.4 4 4.9 7.2 2 12 2zm-1.7 4.2a.9.9 0 0 0-.9.4l-.5.8c-.3.5-.2 1.1.1 1.6a9 9 0 0 0 3.6 3.6c.5.3 1.1.3 1.5 0l.8-.5a.9.9 0 0 0 .3-1.2l-.6-1a.9.9 0 0 0-1.1-.4l-.7.3-1.8-1.8.3-.7a.9.9 0 0 0-.4-1.1z"/></svg>
+                </span>
+                Viber
+              </a>
+              <a class="ct-msg ct-msg--tg" href="https://t.me/easters">
+                <span class="ct-msg__ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 4.5L2.9 11.2c-.9.3-.9 1.5.05 1.8l4.4 1.4 1.7 5.1c.25.7 1.1.9 1.6.35l2.4-2.5 4.4 3.2c.6.45 1.5.1 1.65-.65L22.6 5.6c.15-.8-.6-1.4-1.35-1.1zM8.9 13.9l8.3-5.1-6.6 6.1-.25 3z"/></svg>
+                </span>
+                Telegram
+              </a>
+            </div>
+          </div>
+
+          <div class="ct-box">
+            <h3 class="ct-box__title">Куди писати</h3>
+            <div class="ct-dept">
+              <span class="ct-dept__name">Опт і дистрибуція</span>
+              <a class="ct-dept__val" href="mailto:easters.form@gmail.com">easters.form@gmail.com</a>
+              <a class="ct-dept__val" href="tel:+380960000350">+380 (96) 0000 350</a>
+            </div>
+            <div class="ct-dept">
+              <span class="ct-dept__name">Роздріб і замовлення з сайту</span>
+              <a class="ct-dept__val" href="mailto:easters.form@gmail.com">easters.form@gmail.com</a>
+              <a class="ct-dept__val" href="tel:+380660000350">+380 (66) 0000 350</a>
+            </div>
+            <div class="ct-dept">
+              <span class="ct-dept__name">Індивідуальний друк</span>
+              <a class="ct-dept__val" href="mailto:easters.form@gmail.com">easters.form@gmail.com</a>
+              <a class="ct-dept__val" href="tel:+380730000350">+380 (73) 0000 350</a>
+            </div>
+          </div>
+
+          <div class="ct-box ct-box--soft">
+            <h3 class="ct-box__title">Для юридичних осіб</h3>
+            <p class="ct-box__text">Працюємо з ФОП і ТОВ, з ПДВ і без. Договір, рахунок і повний пакет документів надсилаємо у відповідь на запит.</p>
+            <a class="ct-box__link" href="#form">Запросити реквізити
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z" fill="currentColor"></path></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ КАРТА ============ -->
+    <div class="ct-map" id="map">
+      <div class="ct-map__frame">
+        <iframe class="ct-map__iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2578.9314901033067!2d35.61437531519907!3d49.83805043358336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDUwJzE3LjAiTiAzNcKwMzYnNTkuNiJF!5e0!3m2!1sru!2s!4v1455544674604" title="Карта: м. Валки, вул. Харківська, 8" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="ct-map__over">
+      <div class="ct-map__card" data-reveal>
+        <span class="ct-map__eyebrow">Склад і виробництво</span>
+        <h2 class="ct-map__title">м. Валки, вул. Харківська, 8</h2>
+        <p class="ct-map__text">Харківська область, Валківський район. Самовивіз — у робочі години за попереднім погодженням: так ми встигнемо зібрати замовлення до вашого приїзду.</p>
+
+        <div class="ct-map__rows">
+          <div class="ct-map__row">
+            <span class="ct-map__row-k">Самовивіз</span>
+            <span class="ct-map__row-v">Пн–Пт 9:00–18:00, Сб 9:00–14:00</span>
+          </div>
+          <div class="ct-map__row">
+            <span class="ct-map__row-k">Відправка</span>
+            <span class="ct-map__row-v">Нова Пошта, Delivery — по всій Україні</span>
+          </div>
+          <div class="ct-map__row">
+            <span class="ct-map__row-k">Складські позиції</span>
+            <span class="ct-map__row-v">Відвантаження за 1–2 робочі дні</span>
+          </div>
+        </div>
+
+        <a class="btn btn--green ct-map__btn" href="https://www.google.com/maps?q=49.83805,35.61438" target="_blank" rel="noopener">Прокласти маршрут</a>
+      </div>
+      </div>
+    </div>
+
+    <!-- ============ ЧАСТІ ПИТАННЯ ============ -->
+    <div class="pfaq">
+      <div class="pfaq__inner">
+        <div class="pfaq__head" data-reveal>
+          <span class="pfaq__eyebrow">Перед зверненням</span>
+          <h2 class="pfaq__title">Питання, які виникають найчастіше</h2>
+        </div>
+
+        <div class="pfaq__list js-faq" data-reveal>
+          <div class="pfaq__item" data-faq-item>
+            <button class="pfaq__q" type="button" aria-expanded="false" data-faq-btn>
+              <span class="pfaq__q-text">Як швидко ви відповідаєте?</span>
+              <i class="pfaq__sign" aria-hidden="true"></i>
+            </button>
+            <div class="pfaq__a" data-faq-panel>
+              <div class="pfaq__a-in">
+                <p>У робочі години — протягом дня. Заявки, залишені ввечері чи у вихідні, беремо в роботу наступного робочого дня зранку.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pfaq__item" data-faq-item>
+            <button class="pfaq__q" type="button" aria-expanded="false" data-faq-btn>
+              <span class="pfaq__q-text">Що вказати, щоб отримати прорахунок швидше?</span>
+              <i class="pfaq__sign" aria-hidden="true"></i>
+            </button>
+            <div class="pfaq__a" data-faq-panel>
+              <div class="pfaq__a-in">
+                <p>Назву або артикул позиції, розмір, колір і потрібний обсяг (у паках або ящиках). Якщо позиція ще не обрана — опишіть, що печете, і ми підберемо самі.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pfaq__item" data-faq-item>
+            <button class="pfaq__q" type="button" aria-expanded="false" data-faq-btn>
+              <span class="pfaq__q-text">Чи можна приїхати на склад без домовленості?</span>
+              <i class="pfaq__sign" aria-hidden="true"></i>
+            </button>
+            <div class="pfaq__a" data-faq-panel>
+              <div class="pfaq__a-in">
+                <p>Краще попередити дзвінком: так ми зберемо замовлення заздалегідь і ви не чекатимете. У сезон перед Великоднем це особливо актуально.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pfaq__item" data-faq-item>
+            <button class="pfaq__q" type="button" aria-expanded="false" data-faq-btn>
+              <span class="pfaq__q-text">Ви надсилаєте зразки?</span>
+              <i class="pfaq__sign" aria-hidden="true"></i>
+            </button>
+            <div class="pfaq__a" data-faq-panel>
+              <div class="pfaq__a-in">
+                <p>Так, для оптових клієнтів надсилаємо зразки форм, щоб ви перевірили розмір і поведінку в печі. Напишіть у формі, які позиції цікавлять.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <img class="site-footer__logo" src="data/logo-tulip.png" alt="Тюльпани">
+          </div>
+          <nav class="site-footer__nav" aria-label="Продукція">
+            <ul>
+              <li><a href="https://easters.com.ua/pashalnye-tovary/">Великодні товари</a></li>
+              <li><a href="https://easters.com.ua/pidlozhki/">Підложка для торту</a></li>
+              <li><a href="https://easters.com.ua/bumazhnye-formy-dlya-pasok/">Паперові форми для паски</a></li>
+              <li><a href="https://easters.com.ua/maffiny/">Форма для маффінів, капкейків</a></li>
+              <li><a href="https://easters.com.ua/mikrogofra/">Паперова форма Мікрогофра</a></li>
+              <li><a href="https://easters.com.ua/tyulpany/">Паперова форма Тюльпани</a></li>
+              <li><a href="https://easters.com.ua/tartaletki/">Тарталетки паперові</a></li>
+              <li><a href="https://easters.com.ua/plumpi/">Форма для випікання Плумпі</a></li>
+              <li><a href="/contact-us">Зворотній зв’язок</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="site-footer__bottom">
+          <div class="site-footer__copy">© 2026 EASTERS. All rights reserved. <span>Powered by Morkva</span></div>
+          <div class="site-footer__social">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.4c0-.8.2-1.3 1.4-1.3H16V5.6c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5v1.9H8.2V14h2.4v7z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//easters.com.ua&amp;title=Easters%20Forms" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8A1.5 1.5 0 1 0 6.5 5a1.5 1.5 0 0 0 0 3zM5 9.5h3V19H5zm5 0h2.8v1.3h.05c.4-.75 1.4-1.5 2.8-1.5 3 0 3.55 1.95 3.55 4.5V19h-3v-4.2c0-1 0-2.3-1.4-2.3s-1.65 1.1-1.65 2.25V19H10z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Google">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.9v2.9h4.05c-.2 1.1-1.35 3.15-4.05 3.15A4.55 4.55 0 1 1 12 7.35c1.3 0 2.2.55 2.7 1.05l1.9-1.85A7.05 7.05 0 1 0 12 19.05c4.05 0 6.75-2.85 6.75-6.85 0-.45-.05-.8-.12-1.15z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
