@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="header">
+  <div class="header__inner">
+    <a class="header__logo" href="/">
+      <img class="header__logo-img" src="data/logo-tulip.png" alt="Тюльпани">
+    </a>
+
+    <nav class="header__nav">
+      <ul class="header__menu">
+        <li><a href="/perevagy">Переваги</a></li>
+        <li><a href="/produkciya">Продукція</a></li>
+        <li><a href="/galereya">Галерея</a></li>
+        <li><a href="/pro-nas">Про нас</a></li>
+        <li><a href="/kontakty">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__tools">
+      <div class="header__account">
+        <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-5.5 7-5.5s7 1.9 7 5.5" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span class="header__account-links"><a href="/login">вхід</a> <i>|</i> <a href="/register">реєстрація</a></span>
+      </div>
+
+      <div class="header__lang">
+        <a href="/ru">RU</a>
+        <i class="header__lang-sep">|</i>
+        <a class="is-active" href="/ua">UA</a>
+      </div>
+
+      <button class="header__search" type="button" aria-label="Пошук">
+        <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+
+      <a class="header__cart" href="/cart" aria-label="Кошик">
+        <svg class="header__cart-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l-1.2 10.2a1 1 0 0 1-1 .8H8.2a1 1 0 0 1-1-.8L6 8z" fill="currentColor"/><path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+        <span class="header__cart-count">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+
+    <div class="pcrumbs">
+      <div class="pcrumbs__inner">
+        <a href="/">Головна</a>
+        <span class="pcrumbs__sep" aria-hidden="true">/</span>
+        <span class="pcrumbs__current">Галерея</span>
+      </div>
+    </div>
+
+    <div class="gal">
+      <div class="gal__inner">
+
+        <div class="gal__head" data-reveal>
+          <div class="gal__head-body">
+            <span class="gal__eyebrow">Галерея</span>
+            <h1 class="gal__title">Наша продукція зблизька</h1>
+            <p class="gal__lead">Як виглядають форми з випічкою і без неї, як ми пакуємо товар і які кольори є в наявності. Натисніть на фото, щоб роздивитися його ближче.</p>
+          </div>
+          <div class="gal__stats">
+            <div class="gal__stat"><span class="gal__stat-val">54</span><span class="gal__stat-label">фото</span></div>
+            <div class="gal__stat"><span class="gal__stat-val">7</span><span class="gal__stat-label">кольорів форм</span></div>
+          </div>
+        </div>
+
+        <div class="gal__filters js-gal-filters" role="toolbar" aria-label="Фільтр фото">
+          <button class="gal-chip is-active" type="button" data-cat="all" aria-pressed="true">Усі <i>54</i></button>
+          <button class="gal-chip" type="button" data-cat="full" aria-pressed="false">З випічкою <i>8</i></button>
+          <button class="gal-chip" type="button" data-cat="empty" aria-pressed="false">Форми <i>14</i></button>
+          <button class="gal-chip" type="button" data-cat="pack" aria-pressed="false">Упаковка <i>20</i></button>
+          <button class="gal-chip" type="button" data-cat="easter" aria-pressed="false">Великдень <i>12</i></button>
+        </div>
+
+        <div class="gal__grid js-gal" data-step="16">
+          <div class="gal__list">
+            <a class="gal-item" href="data/gallery/tartlet/2/Tart_brown_full_01.jpg" data-cat="full" data-caption="Коричнева форма з випічкою">
+              <img class="gal-item__img" src="data/gallery/tartlet/2/Tart_brown_full_01.jpg" alt="Коричнева форма з випічкою" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Коричнева форма з випічкою</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/2/Tart_color_full_01.jpg" data-cat="full" data-caption="Різнокольорові форми з випічкою">
+              <img class="gal-item__img" src="data/gallery/tartlet/2/Tart_color_full_01.jpg" alt="Різнокольорові форми з випічкою" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Різнокольорові форми з випічкою</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/2/Tart_green_full_01.jpg" data-cat="full" data-caption="Зелена форма з випічкою">
+              <img class="gal-item__img" src="data/gallery/tartlet/2/Tart_green_full_01.jpg" alt="Зелена форма з випічкою" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Зелена форма з випічкою</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/2/Tart_red_full_01.jpg" data-cat="full" data-caption="Червона форма з випічкою">
+              <img class="gal-item__img" src="data/gallery/tartlet/2/Tart_red_full_01.jpg" alt="Червона форма з випічкою" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Червона форма з випічкою</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/2/Tart_red_full_02.jpg" data-cat="full" data-caption="Червона форма з випічкою">
+              <img class="gal-item__img" src="data/gallery/tartlet/2/Tart_red_full_02.jpg" alt="Червона форма з випічкою" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Червона форма з випічкою</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/2/Tart_white_full_01.jpg" data-cat="full" data-caption="Біла форма з випічкою">
+              <img class="gal-item__img" src="data/gallery/tartlet/2/Tart_white_full_01.jpg" alt="Біла форма з випічкою" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Біла форма з випічкою</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/2/Tart_white_full_02.jpg" data-cat="full" data-caption="Біла форма з випічкою">
+              <img class="gal-item__img" src="data/gallery/tartlet/2/Tart_white_full_02.jpg" alt="Біла форма з випічкою" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Біла форма з випічкою</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/2/Tart_yellow_full_01.jpg" data-cat="full" data-caption="Жовта форма з випічкою">
+              <img class="gal-item__img" src="data/gallery/tartlet/2/Tart_yellow_full_01.jpg" alt="Жовта форма з випічкою" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Жовта форма з випічкою</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_BOX_01.jpg" data-cat="pack" data-caption="Коробка з асорті форм">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_BOX_01.jpg" alt="Коробка з асорті форм" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Коробка з асорті форм</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_BOX_02.jpg" data-cat="pack" data-caption="Коробка з асорті форм">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_BOX_02.jpg" alt="Коробка з асорті форм" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Коробка з асорті форм</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_BOX_03.jpg" data-cat="pack" data-caption="Коробка з асорті форм">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_BOX_03.jpg" alt="Коробка з асорті форм" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Коробка з асорті форм</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_BOX_04.jpg" data-cat="pack" data-caption="Коробка з асорті форм">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_BOX_04.jpg" alt="Коробка з асорті форм" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Коробка з асорті форм</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_BOX_05.jpg" data-cat="pack" data-caption="Коробка з асорті форм">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_BOX_05.jpg" alt="Коробка з асорті форм" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Коробка з асорті форм</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_brown_01.jpg" data-cat="empty" data-caption="Коричнева паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_brown_01.jpg" alt="Коричнева паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Коричнева паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_brown_02.jpg" data-cat="empty" data-caption="Коричнева паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_brown_02.jpg" alt="Коричнева паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Коричнева паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_green_01.jpg" data-cat="empty" data-caption="Зелена паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_green_01.jpg" alt="Зелена паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Зелена паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_green_02.jpg" data-cat="empty" data-caption="Зелена паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_green_02.jpg" alt="Зелена паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Зелена паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_orange_01.jpg" data-cat="empty" data-caption="Помаранчева паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_orange_01.jpg" alt="Помаранчева паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Помаранчева паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_orange_02.jpg" data-cat="empty" data-caption="Помаранчева паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_orange_02.jpg" alt="Помаранчева паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Помаранчева паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_pink_01.jpg" data-cat="empty" data-caption="Розова паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_pink_01.jpg" alt="Розова паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Розова паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_pink_02.jpg" data-cat="empty" data-caption="Розова паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_pink_02.jpg" alt="Розова паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Розова паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_red_01.jpg" data-cat="empty" data-caption="Червона паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_red_01.jpg" alt="Червона паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Червона паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_red_02.jpg" data-cat="empty" data-caption="Червона паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_red_02.jpg" alt="Червона паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Червона паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_white_01.jpg" data-cat="empty" data-caption="Біла паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_white_01.jpg" alt="Біла паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Біла паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_white_02.jpg" data-cat="empty" data-caption="Біла паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_white_02.jpg" alt="Біла паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Біла паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_yellow_01.jpg" data-cat="empty" data-caption="Жовта паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_yellow_01.jpg" alt="Жовта паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Жовта паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/3/Tart_yellow_02.jpg" data-cat="empty" data-caption="Жовта паперова форма">
+              <img class="gal-item__img" src="data/gallery/tartlet/3/Tart_yellow_02.jpg" alt="Жовта паперова форма" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Жовта паперова форма</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_brown_pack_01.jpg" data-cat="pack" data-caption="Упаковка: коричневі форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_brown_pack_01.jpg" alt="Упаковка: коричневі форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: коричневі форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_brown_pack_02.jpg" data-cat="pack" data-caption="Упаковка: коричневі форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_brown_pack_02.jpg" alt="Упаковка: коричневі форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: коричневі форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_green_pack_01.jpg" data-cat="pack" data-caption="Упаковка: зелені форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_green_pack_01.jpg" alt="Упаковка: зелені форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: зелені форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_green_pack_02.jpg" data-cat="pack" data-caption="Упаковка: зелені форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_green_pack_02.jpg" alt="Упаковка: зелені форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: зелені форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_mix_pack_01.jpg" data-cat="pack" data-caption="Упаковка: різнокольорові форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_mix_pack_01.jpg" alt="Упаковка: різнокольорові форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: різнокольорові форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_mix_pack_02.jpg" data-cat="pack" data-caption="Упаковка: різнокольорові форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_mix_pack_02.jpg" alt="Упаковка: різнокольорові форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: різнокольорові форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_mix_pack_03.jpg" data-cat="pack" data-caption="Упаковка: різнокольорові форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_mix_pack_03.jpg" alt="Упаковка: різнокольорові форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: різнокольорові форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_orange_pack_01.jpg" data-cat="pack" data-caption="Упаковка: помаранчеві форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_orange_pack_01.jpg" alt="Упаковка: помаранчеві форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: помаранчеві форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_orange_pack_02.jpg" data-cat="pack" data-caption="Упаковка: помаранчеві форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_orange_pack_02.jpg" alt="Упаковка: помаранчеві форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: помаранчеві форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_pink_pack_01.jpg" data-cat="pack" data-caption="Упаковка: розові форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_pink_pack_01.jpg" alt="Упаковка: розові форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: розові форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_pink_pack_02.jpg" data-cat="pack" data-caption="Упаковка: розові форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_pink_pack_02.jpg" alt="Упаковка: розові форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: розові форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_red_pack_01.jpg" data-cat="pack" data-caption="Упаковка: червоні форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_red_pack_01.jpg" alt="Упаковка: червоні форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: червоні форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_red_pack_02.jpg" data-cat="pack" data-caption="Упаковка: червоні форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_red_pack_02.jpg" alt="Упаковка: червоні форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: червоні форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_white_pack_01.jpg" data-cat="pack" data-caption="Упаковка: білі форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_white_pack_01.jpg" alt="Упаковка: білі форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: білі форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/tartlet/1/Tart_white_pack_02.jpg" data-cat="pack" data-caption="Упаковка: білі форми">
+              <img class="gal-item__img" src="data/gallery/tartlet/1/Tart_white_pack_02.jpg" alt="Упаковка: білі форми" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Упаковка: білі форми</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/12.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/12.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/5.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/5.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/1.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/1.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/2.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/2.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/3.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/3.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/4.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/4.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/6.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/6.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/7.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/7.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/8.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/8.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/9.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/9.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/10.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/10.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+            <a class="gal-item" href="data/gallery/easter/2/11.jpg" data-cat="easter" data-caption="Великодня колекція">
+              <img class="gal-item__img" src="data/gallery/easter/2/11.jpg" alt="Великодня колекція" loading="lazy">
+              <span class="gal-item__shade" aria-hidden="true"></span>
+              <span class="gal-item__cap">Великодня колекція</span>
+              <span class="gal-item__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2M11 8.5v5M8.5 11h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            </a>
+          </div>
+
+          <div class="gal__more">
+            <button class="gal__more-btn js-gal-more" type="button">Показати ще</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="gal-lb js-gal-lb" role="dialog" aria-modal="true" aria-label="Перегляд фото" hidden>
+      <div class="gal-lb__backdrop" data-lb-close></div>
+      <button class="gal-lb__close" type="button" data-lb-close aria-label="Закрити">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="gal-lb__nav gal-lb__nav--prev" type="button" data-lb-prev aria-label="Попереднє фото">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="gal-lb__nav gal-lb__nav--next" type="button" data-lb-next aria-label="Наступне фото">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="gal-lb__stage">
+        <img class="gal-lb__img" src="" alt="">
+      </div>
+      <div class="gal-lb__bar">
+        <span class="gal-lb__cap"></span>
+        <span class="gal-lb__count"></span>
+      </div>
+    </div>
+
+    <div class="phelp">
+      <div class="phelp__inner" data-reveal>
+        <div class="phelp__body">
+          <h2 class="phelp__title">Потрібні зразки кольорів?</h2>
+          <p class="phelp__text">Надішлемо оптовим клієнтам зразки форм, щоб ви побачили колір і фактуру наживо та перевірили їх у своїй печі.</p>
+        </div>
+        <div class="phelp__actions">
+          <a class="btn btn--green" href="contacts-eco.html">Замовити зразки</a>
+          <a class="phelp__phone" href="tel:+380960000350">+380 (96) 0000 350</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <img class="site-footer__logo" src="data/logo-tulip.png" alt="Тюльпани">
+      </div>
+      <nav class="site-footer__nav" aria-label="Продукція">
+        <ul>
+          <li><a href="https://easters.com.ua/pashalnye-tovary/">Великодні товари</a></li>
+          <li><a href="https://easters.com.ua/pidlozhki/">Підложка для торту</a></li>
+          <li><a href="https://easters.com.ua/bumazhnye-formy-dlya-pasok/">Паперові форми для паски</a></li>
+          <li><a href="https://easters.com.ua/maffiny/">Форма для маффінів, капкейків</a></li>
+          <li><a href="https://easters.com.ua/mikrogofra/">Паперова форма Мікрогофра</a></li>
+          <li><a href="https://easters.com.ua/tyulpany/">Паперова форма Тюльпани</a></li>
+          <li><a href="https://easters.com.ua/tartaletki/">Тарталетки паперові</a></li>
+          <li><a href="https://easters.com.ua/plumpi/">Форма для випікання Плумпі</a></li>
+          <li><a href="/contact-us">Зворотній зв’язок</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="site-footer__copy">© 2026 EASTERS. All rights reserved. <span>Powered by Morkva</span></div>
+      <div class="site-footer__social">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.4c0-.8.2-1.3 1.4-1.3H16V5.6c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5v1.9H8.2V14h2.4v7z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//easters.com.ua&amp;title=Easters%20Forms" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8A1.5 1.5 0 1 0 6.5 5a1.5 1.5 0 0 0 0 3zM5 9.5h3V19H5zm5 0h2.8v1.3h.05c.4-.75 1.4-1.5 2.8-1.5 3 0 3.55 1.95 3.55 4.5V19h-3v-4.2c0-1 0-2.3-1.4-2.3s-1.65 1.1-1.65 2.25V19H10z"/></svg>
+        </a>
+        <a href="https://plus.google.com/share?url=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Google">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.9v2.9h4.05c-.2 1.1-1.35 3.15-4.05 3.15A4.55 4.55 0 1 1 12 7.35c1.3 0 2.2.55 2.7 1.05l1.9-1.85A7.05 7.05 0 1 0 12 19.05c4.05 0 6.75-2.85 6.75-6.85 0-.45-.05-.8-.12-1.15z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </div>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

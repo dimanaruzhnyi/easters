@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="header">
+  <div class="header__inner">
+    <a class="header__logo" href="/">
+      <img class="header__logo-img" src="data/logo-tulip.png" alt="Тюльпани">
+    </a>
+
+    <nav class="header__nav">
+      <ul class="header__menu">
+        <li><a href="/perevagy">Переваги</a></li>
+        <li><a href="/produkciya">Продукція</a></li>
+        <li><a href="/galereya">Галерея</a></li>
+        <li><a href="/pro-nas">Про нас</a></li>
+        <li><a href="/kontakty">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__tools">
+      <div class="header__account">
+        <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-5.5 7-5.5s7 1.9 7 5.5" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span class="header__account-links"><a href="/login">вхід</a> <i>|</i> <a href="/register">реєстрація</a></span>
+      </div>
+
+      <div class="header__lang">
+        <a href="/ru">RU</a>
+        <i class="header__lang-sep">|</i>
+        <a class="is-active" href="/ua">UA</a>
+      </div>
+
+      <button class="header__search" type="button" aria-label="Пошук">
+        <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+
+      <a class="header__cart" href="/cart" aria-label="Кошик">
+        <svg class="header__cart-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l-1.2 10.2a1 1 0 0 1-1 .8H8.2a1 1 0 0 1-1-.8L6 8z" fill="currentColor"/><path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+        <span class="header__cart-count">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+
+    <div class="pcrumbs">
+      <div class="pcrumbs__inner">
+        <a href="/">Головна</a>
+        <span class="pcrumbs__sep" aria-hidden="true">/</span>
+        <span class="pcrumbs__current">Про компанію</span>
+      </div>
+    </div>
+
+    <!-- ============ ЗАГОЛОВОК ============ -->
+    <div class="ab-hero">
+      <div class="ab-hero__inner">
+        <div class="ab-hero__body" data-reveal>
+          <span class="ab-eyebrow">Про компанію</span>
+          <h1 class="ab-hero__title">Easters — українське виробництво паперових форм для випічки</h1>
+          <p class="ab-hero__lead">Випускаючи продукцію вже протягом тривалого часу, наша компанія завоювала серця споживачів незмінно високою якістю форм для випічки. Наші дизайнери постійно розширюють різноманітність візерунків, тож кінцевий споживач завжди має з чого обрати.</p>
+          <div class="ab-hero__actions">
+            <a class="btn btn--green" href="/produkciya">Переглянути продукцію</a>
+            <a class="ab-link" href="contacts-eco.html">Зв’язатися з нами
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 18L12.6 16.55L16.15 13H4V11H16.15L12.6 7.45L14 6L20 12L14 18Z" fill="currentColor"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="ab-facts" data-reveal-stagger>
+          <div class="ab-fact">
+            <span class="ab-fact__val">UA</span>
+            <span class="ab-fact__label">вся продукція виготовляється в Україні</span>
+          </div>
+          <div class="ab-fact">
+            <span class="ab-fact__val">IT · FI</span>
+            <span class="ab-fact__label">пергамент виробництва Італії та Фінляндії</span>
+          </div>
+          <div class="ab-fact">
+            <span class="ab-fact__val">до 8</span>
+            <span class="ab-fact__label">кольорів у глибокому та офсетному друку</span>
+          </div>
+          <div class="ab-fact">
+            <span class="ab-fact__val">75–150</span>
+            <span class="ab-fact__label">г/м² — щільність паперу форм</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ІСТОРІЯ / МАТЕРІАЛ ============ -->
+    <div class="ab-story">
+      <div class="ab-story__inner">
+        <div class="ab-story__media" data-reveal>
+          <img src="data/about2-old.jpg" alt="Візерунок на паперовій формі для паски">
+          <span class="ab-story__badge">Власний дизайн візерунків</span>
+        </div>
+
+        <div class="ab-story__body" data-reveal>
+          <span class="ab-eyebrow">Чому папір</span>
+          <h2 class="ab-h2">Якість європейських аналогів — за українською ціною</h2>
+          <p class="ab-p">Вся продукція виготовляється в Україні з екологічно чистого волого-, жиро- та термостійкого високоякісного перфорованого пергаменту виробництва Італії та Фінляндії. Це дає суттєву перевагу в ціні порівняно із зарубіжними аналогами — і при цьому зовсім не поступається їм у якості.</p>
+          <p class="ab-p">Паперові форми спрощують технологічний процес і знижують собівартість готового виробу. Їх використовують для пасок і куличів, пирогів і тортів, кексів, рулетів, піци; у них зберігають, розморожують і випікають напівфабрикати. Форми з випеченими тістечками та маффінами ви бачите в ресторанах, кав’ярнях, на АЗС і в мережах швидкого харчування.</p>
+          <div class="ab-note">
+            <span class="ab-note__title">Секрет універсальності — у матеріалі</span>
+            <p class="ab-note__text">Жировідштовхувальний вологостійкий папір високої щільності (75–150 г/м²) має чудову жароміцність і зберігає початковий вигляд навіть за найвищої температури в печі.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ПЕРЕВАГИ ПАПЕРОВИХ ФОРМ ============ -->
+    <div class="ab-plus">
+      <div class="ab-plus__inner">
+        <div class="ab-head" data-reveal>
+          <span class="ab-eyebrow">Переваги</span>
+          <h2 class="ab-h2">Паперові форми для випічки мають цілий ряд переваг</h2>
+        </div>
+
+        <ul class="ab-checks" data-reveal-stagger>
+          <li class="ab-check"><span class="ab-check__ico" aria-hidden="true"></span><span class="ab-check__text">Форма для випічки водночас є упаковкою продукту.</span></li>
+          <li class="ab-check"><span class="ab-check__ico" aria-hidden="true"></span><span class="ab-check__text">Форми не потрібно змащувати жиром і чистити після випікання — це економить гроші та час на підготовку.</span></li>
+          <li class="ab-check"><span class="ab-check__ico" aria-hidden="true"></span><span class="ab-check__text">Виключається забруднення продукту під час випічки та транспортування готового виробу.</span></li>
+          <li class="ab-check"><span class="ab-check__ico" aria-hidden="true"></span><span class="ab-check__text">Стінки та дно виконані з екологічно чистого волого-, жиро- та термостійкого перфорованого пергаменту.</span></li>
+          <li class="ab-check"><span class="ab-check__ico" aria-hidden="true"></span><span class="ab-check__text">Завдяки подвійному антипригарному дну продукція ніколи не пригорає.</span></li>
+          <li class="ab-check"><span class="ab-check__ico" aria-hidden="true"></span><span class="ab-check__text">Виріб не пошкоджується: замість «витрушувати» продукт оболонку можна просто розірвати по шву.</span></li>
+          <li class="ab-check"><span class="ab-check__ico" aria-hidden="true"></span><span class="ab-check__text">Знижується ризик забруднення виробу канцерогенами — як буває з металевими формами та змащуванням.</span></li>
+          <li class="ab-check"><span class="ab-check__ico" aria-hidden="true"></span><span class="ab-check__text">Скорочується час випічки та охолодження готового виробу.</span></li>
+          <li class="ab-check"><span class="ab-check__ico" aria-hidden="true"></span><span class="ab-check__text">Високотехнологічне нанесення малюнка виключає «відбиток» фарб на готовій продукції.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============ ПАПІР ПРОТИ МЕТАЛУ ============ -->
+    <div class="ab-vs">
+      <div class="ab-vs__inner">
+        <div class="ab-head ab-head--center" data-reveal>
+          <span class="ab-eyebrow">Порівняння</span>
+          <h2 class="ab-h2">Переваги паперових форм у порівнянні з металевими</h2>
+        </div>
+
+        <div class="ab-vs__list" data-reveal-stagger>
+          <div class="ab-card">
+            <span class="ab-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20c0-9 7-16 16-16 0 9-7 16-16 16z" fill="currentColor"/><path d="M8 16c2.5-4 6-6.5 9-7.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <p class="ab-card__text">Папір — біологічний матеріал, що не шкодить здоров’ю людини та довкіллю.</p>
+          </div>
+          <div class="ab-card">
+            <span class="ab-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><rect x="6" y="8" width="9" height="8" rx="1" fill="currentColor"/><circle cx="18" cy="10" r="1" fill="currentColor"/><circle cx="18" cy="14" r="1" fill="currentColor"/></svg></span>
+            <p class="ab-card__text">Паперові форми можна використовувати в мікрохвильовій печі.</p>
+          </div>
+          <div class="ab-card">
+            <span class="ab-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z" fill="currentColor"/></svg></span>
+            <p class="ab-card__text">Продукція в паперових формах готується швидше — це знижує енерговитрати.</p>
+          </div>
+          <div class="ab-card">
+            <span class="ab-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <p class="ab-card__text">Папір збільшує термін зберігання продуктів харчування.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ СПІВПРАЦЯ ============ -->
+    <div class="ab-partner">
+      <div class="ab-partner__inner">
+        <div class="ab-partner__body" data-reveal>
+          <span class="ab-eyebrow ab-eyebrow--light">Співпраця</span>
+          <h2 class="ab-h2 ab-h2--light">Основні переваги роботи з нами</h2>
+
+          <ol class="ab-nums">
+            <li class="ab-num"><span class="ab-num__i">01</span><span class="ab-num__t">Форми, що не мають аналогів серед українських виробників.</span></li>
+            <li class="ab-num"><span class="ab-num__i">02</span><span class="ab-num__t">Якість, що не поступається найвідомішим європейським виробникам.</span></li>
+            <li class="ab-num"><span class="ab-num__i">03</span><span class="ab-num__t">Постійна наявність товару на складі.</span></li>
+            <li class="ab-num"><span class="ab-num__i">04</span><span class="ab-num__t">Ціни, що дозволяють конкурувати на ринку на найвищому рівні.</span></li>
+            <li class="ab-num"><span class="ab-num__i">05</span><span class="ab-num__t">Гнучка система знижок для дрібно- та великооптових покупців.</span></li>
+            <li class="ab-num"><span class="ab-num__i">06</span><span class="ab-num__t">Постійним партнерам — можливість відстрочки платежу.</span></li>
+            <li class="ab-num ab-num--wide"><span class="ab-num__i">07</span><span class="ab-num__t">Випуск партії «під замовлення»: оригінальний малюнок без аналогів, форми зі штрих-кодом або без, пакування форм в акційні набори та інше — за попередньою домовленістю.</span></li>
+          </ol>
+        </div>
+
+        <div class="ab-partner__media" data-reveal>
+          <img src="data/about1-old.jpg" alt="Партнерство з Easters">
+          <a class="btn btn--green ab-partner__btn" href="contacts-eco.html">Стати партнером</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ВИРОБНИЦТВО ============ -->
+    <div class="ab-prod">
+      <div class="ab-prod__inner">
+        <div class="ab-prod__body" data-reveal>
+          <span class="ab-eyebrow">Виробництво</span>
+          <h2 class="ab-h2">Велике виробниче підприємство повного циклу</h2>
+          <p class="ab-p">Компанія Easters випускає високоякісну упаковку для випічки, здатну задовольнити вимоги найвибагливіших замовників. У нас можна замовити форми в потрібній кількості з будь-яким дизайном упаковки.</p>
+          <p class="ab-p">Ми виробляємо форми для випічки пасок і куличів, маффінів, італійських пирогів, тістечок і тарталеток. Уся продукція виготовляється з дотриманням санітарних норм.</p>
+        </div>
+
+        <div class="ab-tech" data-reveal>
+          <span class="ab-tech__title">Технології, які ми використовуємо</span>
+          <ul class="ab-tech__list">
+            <li class="ab-tech__item"><b>01</b>Глибокий та офсетний друк до восьми кольорів</li>
+            <li class="ab-tech__item"><b>02</b>Флексографічний друк до трьох кольорів</li>
+            <li class="ab-tech__item"><b>03</b>Випуск продукції з ламінуванням</li>
+            <li class="ab-tech__item"><b>04</b>Гофрування</li>
+            <li class="ab-tech__item"><b>05</b>Лакування</li>
+            <li class="ab-tech__item"><b>06</b>Обмотка та обрізка</li>
+            <li class="ab-tech__item"><b>07</b>Висічка</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ КОРОТКО ПРО ФОРМИ ============ -->
+    <div class="ab-short">
+      <div class="ab-short__inner">
+        <div class="ab-head" data-reveal>
+          <span class="ab-eyebrow">Коротко</span>
+          <h2 class="ab-h2">Паперові форми — ідеальний винахід для кухні</h2>
+          <p class="ab-p ab-p--lead">Не важливо, які саме форми ви оберете — для маффінів, капкейків, кексів, пасок чи цукерок — плюси в них однакові.</p>
+        </div>
+
+        <div class="ab-short__grid">
+          <ul class="ab-short__plus" data-reveal-stagger>
+            <li class="ab-pill ab-pill--plus">їх не треба мити</li>
+            <li class="ab-pill ab-pill--plus">витримують будь-яку температуру — і випічку, і заморозку</li>
+            <li class="ab-pill ab-pill--plus">можна використовувати в мікрохвильовій печі</li>
+            <li class="ab-pill ab-pill--plus">тісто пропікається швидко, рівномірно й не пригорає</li>
+            <li class="ab-pill ab-pill--plus">не потрібно змащувати маслом і посипати паніруванням</li>
+            <li class="ab-pill ab-pill--plus">у них можна випекти практично все</li>
+            <li class="ab-pill ab-pill--plus">самі по собі — гарна, сучасна й нетоксична упаковка</li>
+          </ul>
+
+          <div class="ab-short__side" data-reveal>
+            <div class="ab-minus">
+              <span class="ab-minus__title">Мінус лише один</span>
+              <p class="ab-minus__text">Паперові формочки для випічки — одноразові.</p>
+            </div>
+
+            <div class="ab-types">
+              <span class="ab-types__title">Три основні види форм</span>
+              <a class="ab-type" href="/maffiny">
+                <span class="ab-type__n">1</span>
+                <span class="ab-type__t">Для кексів, капкейків і маффінів</span>
+              </a>
+              <a class="ab-type" href="advantages-eco.html">
+                <span class="ab-type__n">2</span>
+                <span class="ab-type__t">Для випічки пасок і куличів</span>
+              </a>
+              <a class="ab-type" href="/produkciya">
+                <span class="ab-type__n">3</span>
+                <span class="ab-type__t">Для пакування домашніх цукерок</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phelp">
+      <div class="phelp__inner" data-reveal>
+        <div class="phelp__body">
+          <h2 class="phelp__title">Хочете працювати з нами?</h2>
+          <p class="phelp__text">Розкажіть про свої обсяги — підготуємо умови для дрібного чи великого опту, зразки форм і графік відвантажень.</p>
+        </div>
+        <div class="phelp__actions">
+          <a class="btn btn--green" href="contacts-eco.html">Обговорити співпрацю</a>
+          <a class="phelp__phone" href="tel:+380960000350">+380 (96) 0000 350</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <img class="site-footer__logo" src="data/logo-tulip.png" alt="Тюльпани">
+      </div>
+      <nav class="site-footer__nav" aria-label="Продукція">
+        <ul>
+          <li><a href="https://easters.com.ua/pashalnye-tovary/">Великодні товари</a></li>
+          <li><a href="https://easters.com.ua/pidlozhki/">Підложка для торту</a></li>
+          <li><a href="https://easters.com.ua/bumazhnye-formy-dlya-pasok/">Паперові форми для паски</a></li>
+          <li><a href="https://easters.com.ua/maffiny/">Форма для маффінів, капкейків</a></li>
+          <li><a href="https://easters.com.ua/mikrogofra/">Паперова форма Мікрогофра</a></li>
+          <li><a href="https://easters.com.ua/tyulpany/">Паперова форма Тюльпани</a></li>
+          <li><a href="https://easters.com.ua/tartaletki/">Тарталетки паперові</a></li>
+          <li><a href="https://easters.com.ua/plumpi/">Форма для випікання Плумпі</a></li>
+          <li><a href="/contact-us">Зворотній зв’язок</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="site-footer__copy">© 2026 EASTERS. All rights reserved. <span>Powered by Morkva</span></div>
+      <div class="site-footer__social">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.4c0-.8.2-1.3 1.4-1.3H16V5.6c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5v1.9H8.2V14h2.4v7z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//easters.com.ua&amp;title=Easters%20Forms" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8A1.5 1.5 0 1 0 6.5 5a1.5 1.5 0 0 0 0 3zM5 9.5h3V19H5zm5 0h2.8v1.3h.05c.4-.75 1.4-1.5 2.8-1.5 3 0 3.55 1.95 3.55 4.5V19h-3v-4.2c0-1 0-2.3-1.4-2.3s-1.65 1.1-1.65 2.25V19H10z"/></svg>
+        </a>
+        <a href="https://plus.google.com/share?url=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Google">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.9v2.9h4.05c-.2 1.1-1.35 3.15-4.05 3.15A4.55 4.55 0 1 1 12 7.35c1.3 0 2.2.55 2.7 1.05l1.9-1.85A7.05 7.05 0 1 0 12 19.05c4.05 0 6.75-2.85 6.75-6.85 0-.45-.05-.8-.12-1.15z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </div>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

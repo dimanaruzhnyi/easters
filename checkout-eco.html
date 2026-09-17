@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="header">
+  <div class="header__inner">
+    <a class="header__logo" href="/">
+      <img class="header__logo-img" src="data/logo-tulip.png" alt="Тюльпани">
+    </a>
+
+    <nav class="header__nav">
+      <ul class="header__menu">
+        <li><a href="/perevagy">Переваги</a></li>
+        <li><a href="/produkciya">Продукція</a></li>
+        <li><a href="/galereya">Галерея</a></li>
+        <li><a href="/pro-nas">Про нас</a></li>
+        <li><a href="/kontakty">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__tools">
+      <div class="header__account">
+        <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-5.5 7-5.5s7 1.9 7 5.5" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span class="header__account-links"><a href="/login">вхід</a> <i>|</i> <a href="/register">реєстрація</a></span>
+      </div>
+
+      <div class="header__lang">
+        <a href="/ru">RU</a>
+        <i class="header__lang-sep">|</i>
+        <a class="is-active" href="/ua">UA</a>
+      </div>
+
+      <button class="header__search" type="button" aria-label="Пошук">
+        <svg class="header__ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+
+      <a class="header__cart" href="/cart" aria-label="Кошик">
+        <svg class="header__cart-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l-1.2 10.2a1 1 0 0 1-1 .8H8.2a1 1 0 0 1-1-.8L6 8z" fill="currentColor"/><path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+        <span class="header__cart-count">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+
+    <div class="pcrumbs">
+      <div class="pcrumbs__inner">
+        <a href="/">Головна</a>
+        <span class="pcrumbs__sep" aria-hidden="true">/</span>
+        <a href="cart-eco.html">Кошик</a>
+        <span class="pcrumbs__sep" aria-hidden="true">/</span>
+        <span class="pcrumbs__current">Оформлення замовлення</span>
+      </div>
+    </div>
+
+    <!--
+      Стандартний checkout OpenCart має 6 кроків-акордеонів
+      (опції → платник → доставка → спосіб доставки → оплата → підтвердження).
+      Тут ті самі дані зібрані на одній сторінці; імена полів — як у шаблоні OC:
+      firstname, lastname, email, telephone, company, address_1, city, zone_id,
+      shipping_method, payment_method, comment, agree.
+    -->
+    <div class="sh">
+      <div class="sh__inner">
+
+        <div class="sh-head">
+          <div class="sh-head__body">
+            <h1 class="sh-head__title">Оформлення замовлення</h1>
+            <a class="sh-head__sub sh-head__sub--link" href="cart-eco.html">← Повернутися до кошика</a>
+          </div>
+          <ol class="sh-steps" aria-label="Етапи замовлення">
+            <li class="sh-steps__item is-done"><span>1</span>Кошик</li>
+            <li class="sh-steps__item is-current"><span>2</span>Оформлення</li>
+            <li class="sh-steps__item"><span>3</span>Підтвердження</li>
+          </ol>
+        </div>
+
+        <form class="sh-layout js-checkout" action="index.php?route=checkout/confirm" method="post" novalidate>
+
+          <div class="sh-main">
+
+            <!-- ===== 1. Контакти ===== -->
+            <div class="sh-block">
+              <div class="sh-block__head">
+                <span class="sh-block__num">1</span>
+                <h2 class="sh-block__title">Контактні дані</h2>
+              </div>
+
+              <div class="sh-tabs js-co-tabs" role="tablist">
+                <button class="sh-tabs__btn is-active" type="button" role="tab" aria-selected="true" data-tab="guest">Новий покупець</button>
+                <button class="sh-tabs__btn" type="button" role="tab" aria-selected="false" data-tab="login">Я вже купував</button>
+              </div>
+
+              <div class="sh-pane is-active" data-pane="guest">
+                <div class="sh-radios sh-radios--inline">
+                  <label class="sh-radio">
+                    <input type="radio" name="customer_type" value="person" checked>
+                    <span class="sh-radio__box"></span>
+                    <span class="sh-radio__t">Фізична особа</span>
+                  </label>
+                  <label class="sh-radio">
+                    <input type="radio" name="customer_type" value="legal">
+                    <span class="sh-radio__box"></span>
+                    <span class="sh-radio__t">ФОП або компанія</span>
+                  </label>
+                </div>
+
+                <div class="sh-fields">
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-firstname">Ім’я *</label>
+                    <input class="sh-input" id="co-firstname" type="text" name="firstname" autocomplete="given-name" required>
+                    <span class="sh-err">Вкажіть ім’я</span>
+                  </div>
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-lastname">Прізвище *</label>
+                    <input class="sh-input" id="co-lastname" type="text" name="lastname" autocomplete="family-name" required>
+                    <span class="sh-err">Вкажіть прізвище</span>
+                  </div>
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-phone">Телефон *</label>
+                    <input class="sh-input" id="co-phone" type="tel" name="telephone" autocomplete="tel" placeholder="+380" pattern="^\+?[0-9\s()\-]{10,}$" required>
+                    <span class="sh-err">Вкажіть телефон у форматі +380…</span>
+                  </div>
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-email">E-mail *</label>
+                    <input class="sh-input" id="co-email" type="email" name="email" autocomplete="email" required>
+                    <span class="sh-err">Вкажіть коректний e-mail</span>
+                  </div>
+
+                  <div class="sh-field sh-field--half js-legal" hidden>
+                    <label class="sh-label" for="co-company">Назва компанії / ФОП *</label>
+                    <input class="sh-input" id="co-company" type="text" name="company" autocomplete="organization" data-req>
+                    <span class="sh-err">Вкажіть назву</span>
+                  </div>
+                  <div class="sh-field sh-field--half js-legal" hidden>
+                    <label class="sh-label" for="co-edrpou">ЄДРПОУ / ІПН *</label>
+                    <input class="sh-input" id="co-edrpou" type="text" name="custom_field[edrpou]" inputmode="numeric" pattern="^[0-9]{8,10}$" data-req>
+                    <span class="sh-err">8 або 10 цифр</span>
+                  </div>
+                </div>
+
+                <label class="sh-check">
+                  <input type="checkbox" name="register" value="1">
+                  <span class="sh-check__box"></span>
+                  <span class="sh-check__t">Створити обліковий запис — щоб бачити історію замовлень і отримати накопичувальну знижку</span>
+                </label>
+              </div>
+
+              <div class="sh-pane" data-pane="login">
+                <div class="sh-fields">
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-login-email">E-mail</label>
+                    <input class="sh-input" id="co-login-email" type="email" name="login_email" autocomplete="email">
+                  </div>
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-login-pass">Пароль</label>
+                    <input class="sh-input" id="co-login-pass" type="password" name="login_password" autocomplete="current-password">
+                  </div>
+                </div>
+                <div class="sh-inline sh-inline--between">
+                  <button class="sh-btn" type="button">Увійти</button>
+                  <a class="sh-link" href="/forgotten">Забули пароль?</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== 2. Доставка ===== -->
+            <div class="sh-block">
+              <div class="sh-block__head">
+                <span class="sh-block__num">2</span>
+                <h2 class="sh-block__title">Доставка</h2>
+              </div>
+
+              <div class="sh-options js-ship">
+                <label class="sh-opt">
+                  <input type="radio" name="shipping_method" value="novaposhta.warehouse" data-cost="0" data-cost-label="за тарифами перевізника" data-np checked>
+                  <span class="sh-opt__box">
+                    <span class="sh-opt__radio"></span>
+                    <span class="sh-opt__body">
+                      <span class="sh-opt__name">Нова Пошта — у відділення</span>
+                      <span class="sh-opt__desc">1–3 дні, оплата доставки при отриманні</span>
+                    </span>
+                    <span class="sh-opt__price">за тарифом</span>
+                  </span>
+                </label>
+                <label class="sh-opt">
+                  <input type="radio" name="shipping_method" value="novaposhta.courier" data-cost="0" data-cost-label="за тарифами перевізника" data-np>
+                  <span class="sh-opt__box">
+                    <span class="sh-opt__radio"></span>
+                    <span class="sh-opt__body">
+                      <span class="sh-opt__name">Нова Пошта — кур’єром</span>
+                      <span class="sh-opt__desc">Доставка за адресою, 1–3 дні</span>
+                    </span>
+                    <span class="sh-opt__price">за тарифом</span>
+                  </span>
+                </label>
+                <label class="sh-opt">
+                  <input type="radio" name="shipping_method" value="pickup.pickup" data-cost="0" data-cost-label="безкоштовно">
+                  <span class="sh-opt__box">
+                    <span class="sh-opt__radio"></span>
+                    <span class="sh-opt__body">
+                      <span class="sh-opt__name">Самовивіз зі складу</span>
+                      <span class="sh-opt__desc">м. Валки, вул. Харківська, 8</span>
+                    </span>
+                    <span class="sh-opt__price sh-opt__price--free">0 ₴</span>
+                  </span>
+                </label>
+                <label class="sh-opt">
+                  <input type="radio" name="shipping_method" value="own.truck" data-cost="1500" data-cost-label="">
+                  <span class="sh-opt__box">
+                    <span class="sh-opt__radio"></span>
+                    <span class="sh-opt__body">
+                      <span class="sh-opt__name">Нашим транспортом</span>
+                      <span class="sh-opt__desc">Для великих партій, дата узгоджується з менеджером</span>
+                    </span>
+                    <span class="sh-opt__price">1 500 ₴</span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="sh-ship-panel is-active" data-ship-panel="novaposhta.warehouse">
+                <div class="sh-fields">
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-np-city">Місто *</label>
+                    <input class="sh-input" id="co-np-city" type="text" name="city" list="co-cities" autocomplete="address-level2" data-req>
+                    <span class="sh-err">Вкажіть місто</span>
+                  </div>
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-np-wh">Відділення *</label>
+                    <select class="sh-input sh-select" id="co-np-wh" name="np_warehouse" data-req>
+                      <option value="">Оберіть відділення</option>
+                      <option>Відділення №1</option>
+                      <option>Відділення №2</option>
+                      <option>Відділення №5</option>
+                      <option>Поштомат №1024</option>
+                    </select>
+                    <span class="sh-err">Оберіть відділення</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sh-ship-panel" data-ship-panel="novaposhta.courier">
+                <div class="sh-fields">
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-cr-city">Місто *</label>
+                    <input class="sh-input" id="co-cr-city" type="text" name="city_courier" list="co-cities" data-req>
+                    <span class="sh-err">Вкажіть місто</span>
+                  </div>
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-cr-addr">Вулиця, будинок, квартира *</label>
+                    <input class="sh-input" id="co-cr-addr" type="text" name="address_1" autocomplete="street-address" data-req>
+                    <span class="sh-err">Вкажіть адресу</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sh-ship-panel" data-ship-panel="pickup.pickup">
+                <div class="sh-info">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+                  <div>
+                    <b>м. Валки, вул. Харківська, 8</b>
+                    <span>Пн–Пт 9:00–18:00, Сб 9:00–14:00. Менеджер зателефонує, коли замовлення буде зібране.</span>
+                    <a class="sh-link" href="https://www.google.com/maps?q=49.83805,35.61438" target="_blank" rel="noopener">Відкрити на карті</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sh-ship-panel" data-ship-panel="own.truck">
+                <div class="sh-fields">
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-tr-zone">Область *</label>
+                    <select class="sh-input sh-select" id="co-tr-zone" name="zone_id" data-req>
+                      <option value="">Оберіть область</option>
+                      <option>Харківська</option>
+                      <option>Полтавська</option>
+                      <option>Дніпропетровська</option>
+                      <option>Київська</option>
+                    </select>
+                    <span class="sh-err">Оберіть область</span>
+                  </div>
+                  <div class="sh-field sh-field--half">
+                    <label class="sh-label" for="co-tr-addr">Адреса складу / магазину *</label>
+                    <input class="sh-input" id="co-tr-addr" type="text" name="address_truck" data-req>
+                    <span class="sh-err">Вкажіть адресу</span>
+                  </div>
+                </div>
+              </div>
+
+              <datalist id="co-cities">
+                <option value="Київ"><option value="Харків"><option value="Львів"><option value="Одеса"><option value="Дніпро"><option value="Полтава"><option value="Валки">
+              </datalist>
+            </div>
+
+            <!-- ===== 3. Оплата ===== -->
+            <div class="sh-block">
+              <div class="sh-block__head">
+                <span class="sh-block__num">3</span>
+                <h2 class="sh-block__title">Оплата</h2>
+              </div>
+
+              <div class="sh-options js-pay">
+                <label class="sh-opt">
+                  <input type="radio" name="payment_method" value="bank_transfer" checked>
+                  <span class="sh-opt__box">
+                    <span class="sh-opt__radio"></span>
+                    <span class="sh-opt__body">
+                      <span class="sh-opt__name">Безготівковий розрахунок</span>
+                      <span class="sh-opt__desc">Рахунок на e-mail, для ФОП і ТОВ — з ПДВ і без</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="sh-opt">
+                  <input type="radio" name="payment_method" value="card">
+                  <span class="sh-opt__box">
+                    <span class="sh-opt__radio"></span>
+                    <span class="sh-opt__body">
+                      <span class="sh-opt__name">Оплата карткою онлайн</span>
+                      <span class="sh-opt__desc">Visa, Mastercard, Apple Pay, Google Pay</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="sh-opt js-cod">
+                  <input type="radio" name="payment_method" value="cod">
+                  <span class="sh-opt__box">
+                    <span class="sh-opt__radio"></span>
+                    <span class="sh-opt__body">
+                      <span class="sh-opt__name">Післяплата</span>
+                      <span class="sh-opt__desc js-cod-desc">Оплата при отриманні у Новій Пошті</span>
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- ===== 4. Коментар + згода ===== -->
+            <div class="sh-block">
+              <div class="sh-block__head">
+                <span class="sh-block__num">4</span>
+                <h2 class="sh-block__title">Коментар до замовлення</h2>
+              </div>
+              <div class="sh-field">
+                <label class="sh-label" for="co-comment">Побажання щодо доставки, упаковки чи документів</label>
+                <textarea class="sh-input sh-area" id="co-comment" name="comment" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== Замовлення ===== -->
+          <div class="sh-side">
+            <div class="sh-total sh-total--order">
+              <div class="sh-total__top">
+                <h2 class="sh-total__title">Ваше замовлення</h2>
+                <a class="sh-link" href="cart-eco.html">Змінити</a>
+              </div>
+
+              <ul class="sh-mini">
+                <li class="sh-mini__item">
+                  <span class="sh-mini__img"><img src="data/prod-yellow.png" alt=""><i>3</i></span>
+                  <span class="sh-mini__body">
+                    <span class="sh-mini__name">Форма для мафіна біла d50×h40</span>
+                    <span class="sh-mini__opt">Білий · ящик (1200 шт)</span>
+                  </span>
+                  <span class="sh-mini__sum">2 940,00 ₴</span>
+                </li>
+                <li class="sh-mini__item">
+                  <span class="sh-mini__img"><img src="data/prod-green.png" alt=""><i>10</i></span>
+                  <span class="sh-mini__body">
+                    <span class="sh-mini__name">Тюльпан паперовий d50×h80</span>
+                    <span class="sh-mini__opt">Зелений · пак (50 шт)</span>
+                  </span>
+                  <span class="sh-mini__sum">590,00 ₴</span>
+                </li>
+                <li class="sh-mini__item">
+                  <span class="sh-mini__img"><img src="data/prod-brown.png" alt=""><i>4</i></span>
+                  <span class="sh-mini__body">
+                    <span class="sh-mini__name">Форма для паски d110×h85</span>
+                    <span class="sh-mini__opt">Крафт · пак (25 шт)</span>
+                  </span>
+                  <span class="sh-mini__sum">384,00 ₴</span>
+                </li>
+              </ul>
+
+              <div class="sh-total__row">
+                <span>Сума</span>
+                <span><b class="js-co-sub" data-value="3914">3 914,00</b> ₴</span>
+              </div>
+              <div class="sh-total__row">
+                <span>Доставка</span>
+                <span class="js-co-ship">за тарифами перевізника</span>
+              </div>
+              <div class="sh-total__row sh-total__row--grand">
+                <span>До сплати</span>
+                <span><b class="js-co-grand">3 914,00</b> ₴</span>
+              </div>
+
+              <label class="sh-check sh-check--agree">
+                <input class="js-agree" type="checkbox" name="agree" value="1">
+                <span class="sh-check__box"></span>
+                <span class="sh-check__t">Я погоджуюсь з <a href="/terms" target="_blank">умовами продажу</a> та обробкою персональних даних</span>
+              </label>
+
+              <button class="btn btn--green sh-total__btn js-co-submit" type="submit" disabled>Підтвердити замовлення</button>
+              <span class="sh-total__note">Менеджер зв’яжеться з вами для підтвердження</span>
+            </div>
+          </div>
+        </form>
+
+        <!-- успішне оформлення (OpenCart: checkout/success) -->
+        <div class="sh-success js-co-success" hidden>
+          <span class="sh-success__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h2 class="sh-success__title">Дякуємо! Замовлення прийнято</h2>
+          <p class="sh-success__text">Номер замовлення <b class="js-co-num">№0000</b>. Ми надіслали підтвердження на ваш e-mail, а менеджер зателефонує протягом робочого дня.</p>
+          <div class="sh-success__actions">
+            <a class="btn btn--green" href="/produkciya">Продовжити покупки</a>
+            <a class="sh-link" href="contacts-eco.html">Зв’язатися з нами</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <img class="site-footer__logo" src="data/logo-tulip.png" alt="Тюльпани">
+      </div>
+      <nav class="site-footer__nav" aria-label="Продукція">
+        <ul>
+          <li><a href="https://easters.com.ua/pashalnye-tovary/">Великодні товари</a></li>
+          <li><a href="https://easters.com.ua/pidlozhki/">Підложка для торту</a></li>
+          <li><a href="https://easters.com.ua/bumazhnye-formy-dlya-pasok/">Паперові форми для паски</a></li>
+          <li><a href="https://easters.com.ua/maffiny/">Форма для маффінів, капкейків</a></li>
+          <li><a href="https://easters.com.ua/mikrogofra/">Паперова форма Мікрогофра</a></li>
+          <li><a href="https://easters.com.ua/tyulpany/">Паперова форма Тюльпани</a></li>
+          <li><a href="https://easters.com.ua/tartaletki/">Тарталетки паперові</a></li>
+          <li><a href="https://easters.com.ua/plumpi/">Форма для випікання Плумпі</a></li>
+          <li><a href="/contact-us">Зворотній зв’язок</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="site-footer__copy">© 2026 EASTERS. All rights reserved. <span>Powered by Morkva</span></div>
+      <div class="site-footer__social">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.4-2.8h-2.7V9.4c0-.8.2-1.3 1.4-1.3H16V5.6c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5v1.9H8.2V14h2.4v7z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A//easters.com.ua&amp;title=Easters%20Forms" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8A1.5 1.5 0 1 0 6.5 5a1.5 1.5 0 0 0 0 3zM5 9.5h3V19H5zm5 0h2.8v1.3h.05c.4-.75 1.4-1.5 2.8-1.5 3 0 3.55 1.95 3.55 4.5V19h-3v-4.2c0-1 0-2.3-1.4-2.3s-1.65 1.1-1.65 2.25V19H10z"/></svg>
+        </a>
+        <a href="https://plus.google.com/share?url=http%3A//easters.com.ua" target="_blank" rel="noopener" aria-label="Google">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.9v2.9h4.05c-.2 1.1-1.35 3.15-4.05 3.15A4.55 4.55 0 1 1 12 7.35c1.3 0 2.2.55 2.7 1.05l1.9-1.85A7.05 7.05 0 1 0 12 19.05c4.05 0 6.75-2.85 6.75-6.85 0-.45-.05-.8-.12-1.15z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </div>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
