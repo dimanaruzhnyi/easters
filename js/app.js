@@ -34976,6 +34976,8 @@ __webpack_require__(154);
 __webpack_require__(155);
 __webpack_require__(156);
 __webpack_require__(157);
+__webpack_require__(158);
+__webpack_require__(159);
 document.addEventListener("DOMContentLoaded", function () {
 
   var root = document.querySelector('.areas-map');
@@ -34983,40 +34985,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var wrap = root.querySelector('.areas-map__wrap');
   var map = root.querySelector('.areas-map__map');
-  var mapBack = root.querySelector('.areas-map__map-back'); // drag/zoom только тут
+  var mapBack = root.querySelector('.areas-map__map-back');
   var btnPlus = root.querySelector('.areas-map__button_plus');
   var btnMinus = root.querySelector('.areas-map__button_minus');
   var btnDef = root.querySelector('.areas-map__button_default');
 
-  // -------- settings --------
   var CONFIG = {
     maxScale: 5,
     step: 0.2,
-    guard: 0.45, // моб: 0.45, десктоп: 1 (меняется при смене режима)
+    guard: 0.45,
     tapEps: 6,
-    panMs: 320, // длительность плавного доскролла
-    pad: 8 // отступ от краёв вьюпорта для тултіпа
+    panMs: 320,
+    pad: 8
   };
 
   // -------- state --------
   var base = { w: 0, h: 0 };
   var state = { scale: 1, min: 1, max: CONFIG.maxScale, step: CONFIG.step, left: 0, top: 0 };
   var activeLoc = null;
-  var isMobileMode = null; // true — мобилка
-  var panAnim = null; // текущая анимация панорамирования (если идёт)
+  var isMobileMode = null;
+  var panAnim = null;
 
-  // минимальные стили (pointer-events задаёшь в своём CSS)
   var style = document.createElement('style');
   style.textContent = '\n    .areas-map__map-back { width:100%; height:100%; object-fit:contain; display:block; touch-action:none; }\n    .areas-map__wrap { overflow:hidden; user-select:none; -webkit-user-drag:none; }\n  ';
   document.head.appendChild(style);
 
-  // -------- helpers --------
   function computeBase() {
     var w = wrap.clientWidth;
     var h = wrap.clientHeight;
     if (!h) {
       var cs = getComputedStyle(wrap);
-      var pt = parseFloat(cs.paddingTop) || 0; // высота через padding-top %
+      var pt = parseFloat(cs.paddingTop) || 0;
       h = pt;
     }
     return { w: Math.max(1, w), h: Math.max(1, h) };
@@ -35119,13 +35118,11 @@ document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(step);
   }
 
-  // мягко подтягиваем карту, чтобы тултіп влез в вьюпорт по всем сторонам
   function ensureTooltipInViewSmooth(tipEl) {
     var pad = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : CONFIG.pad;
 
     if (!tipEl) return;
 
-    // 1) считаем желаемый сдвиг
     var tipRect = tipEl.getBoundingClientRect();
     var wrapRect = wrap.getBoundingClientRect();
 
@@ -35147,7 +35144,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!dx && !dy) return;
 
-    // 2) вычисляем финальную цель с учётом clamp
     var oldL = state.left,
         oldT = state.top;
     state.left = oldL + dx;
@@ -35157,7 +35153,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var targetTop = state.top;
     state.left = oldL;state.top = oldT;
 
-    // 3) плавно едем к цели
     animatePanTo(targetLeft, targetTop);
   }
 
@@ -35188,7 +35183,6 @@ document.addEventListener("DOMContentLoaded", function () {
     CONFIG.guard = isMobileMode ? 0.45 : 1;
   }
 
-  // задержанный ресет после смены брейкпоинта
   function deferredModeReset() {
     cancelPanAnim();
     requestAnimationFrame(function () {
@@ -35199,7 +35193,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // -------- init --------
   function init() {
     isMobileMode = typeof IsMobile === 'function' ? !!IsMobile() : window.innerWidth <= 768;
 
@@ -35208,7 +35201,6 @@ document.addEventListener("DOMContentLoaded", function () {
     base = computeBase();
     resetDefaultAndClose();
 
-    // кнопки
     btnPlus && btnPlus.addEventListener('click', function () {
       cancelPanAnim();zoomTo(state.scale + state.step);
     });
@@ -35217,10 +35209,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     btnDef && btnDef.addEventListener('click', resetDefaultAndClose);
 
-    // --------- drag & pinch — ТОЛЬКО на .areas-map__map-back ---------
-    var pointers = new Map(); // id -> {x,y}
-    var dragStart = null; // { id,x,y,left,top }
-    var pinchBase = null; // { dist, scale }
+    var pointers = new Map();
+    var dragStart = null;
+    var pinchBase = null;
 
     var dist = function dist(a, b) {
       return Math.hypot(a.x - b.x, a.y - b.y);
@@ -35298,7 +35289,6 @@ document.addEventListener("DOMContentLoaded", function () {
       zoomTo(state.scale * f, { x: e.clientX, y: e.clientY });
     }, { passive: false });
 
-    // --------- клики: маркеры / подсказка / пустое место ---------
     root.addEventListener('click', function (e) {
       var closeBtn = e.target.closest('.location-desc__close');
       if (closeBtn) {
@@ -35319,7 +35309,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (e.target === mapBack || !e.target.closest('.areas-map__location')) closeAll();
     });
 
-    // --------- resize / orientation: смена режима и дефолт ---------
     var rAF = void 0;
     function onViewportChange() {
       cancelAnimationFrame(rAF);
@@ -35333,7 +35322,6 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
         }
 
-        // тот же режим — сохраняем центр
         var oldBaseW = base.w,
             oldBaseH = base.h,
             oldScale = state.scale,
@@ -35492,6 +35480,18 @@ document.addEventListener("DOMContentLoaded", function () {
       (0, _jquery2.default)('.letter-area').removeClass('active');
     }
   });
+
+  // $(document).on('click', '.letter-check input[type="text"]', function() {
+  //   if (this.checked) {
+  //     $('.letter-area').addClass('active');
+  //     $('.letter-area__holder').toggleClass('show');
+  //
+  //   } else {
+  //     $('.letter-area').removeClass('active');
+  //     $('.letter-area__holder').removeClass('show');
+  //   }
+  // });
+
   // $(document).on('click', ".add-nv-address-1", function (e) {
   //   $('.popup-address-1').addClass('show');
   // });
@@ -35549,89 +35549,118 @@ __webpack_require__(2);
 
 exports.default = function () {
 
-  $('.prod-last-slider').each(function () {
-    if ($(this).children().length > 4 && $(window).width() > 1250) {
-      $(this).slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        infinite: false,
-        prevArrow: '<button type="button" class="slick-prev first-arrow">\n                    <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M10.795 1.007a1.112 1.112 0 011.587 0 1.12 1.12 0 010 1.571l-8.047 8.047h26.554A1.106 1.106 0 0132 11.737c0 .619-.492 1.127-1.111 1.127H4.335l8.047 8.032c.429.444.429 1.159 0 1.587a1.112 1.112 0 01-1.587 0L.843 12.531a1.093 1.093 0 010-1.571l9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>\n                    </button>',
-        nextArrow: '<button type="button" class="slick-next first-arrow">\n                      <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M21.205 1.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 11.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>\n                    </button>',
-        responsive: [{
-          breakpoint: 1430,
-          settings: {
-            slidesToShow: 3
-          }
-        }, {
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 1
-          }
-        }]
-      });
-    } else if ($(window).width() < 1400) {
-      $(this).slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: false,
-        prevArrow: '<button type="button" class="slick-prev first-arrow">\n                    <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M10.795 1.007a1.112 1.112 0 011.587 0 1.12 1.12 0 010 1.571l-8.047 8.047h26.554A1.106 1.106 0 0132 11.737c0 .619-.492 1.127-1.111 1.127H4.335l8.047 8.032c.429.444.429 1.159 0 1.587a1.112 1.112 0 01-1.587 0L.843 12.531a1.093 1.093 0 010-1.571l9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>\n                    </button>',
-        nextArrow: '<button type="button" class="slick-next first-arrow">\n                      <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M21.205 1.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 11.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>\n                    </button>',
-        responsive: [{
-          breakpoint: 1023,
-          settings: {
-            slidesToShow: 2
-          }
-        }, {
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 1
-          }
-        }]
-      });
-    }
-  });
+  // $('.prod-last-slider').each(function() {
+  //   if ($(this).children().length > 4 && $(window).width() > 1250) {
+  //     $(this).slick({
+  //       slidesToShow: 4,
+  //       slidesToScroll: 1,
+  //       infinite: false,
+  //       prevArrow: `<button type="button" class="slick-prev first-arrow">
+  //                   <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M10.795 1.007a1.112 1.112 0 011.587 0 1.12 1.12 0 010 1.571l-8.047 8.047h26.554A1.106 1.106 0 0132 11.737c0 .619-.492 1.127-1.111 1.127H4.335l8.047 8.032c.429.444.429 1.159 0 1.587a1.112 1.112 0 01-1.587 0L.843 12.531a1.093 1.093 0 010-1.571l9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>
+  //                   </button>`,
+  //       nextArrow: `<button type="button" class="slick-next first-arrow">
+  //                     <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M21.205 1.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 11.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>
+  //                   </button>`,
+  //       responsive: [
+  //         {
+  //           breakpoint: 1430,
+  //           settings: {
+  //             slidesToShow: 3
+  //           }
+  //         },
+  //         {
+  //           breakpoint: 767,
+  //           settings: {
+  //             slidesToShow: 1
+  //           }
+  //         }
+  //       ]
+  //     });
+  //   } else if ($(window).width() < 1400) {
+  //     $(this).slick({
+  //       slidesToShow: 3,
+  //       slidesToScroll: 1,
+  //       infinite: false,
+  //       prevArrow: `<button type="button" class="slick-prev first-arrow">
+  //                   <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M10.795 1.007a1.112 1.112 0 011.587 0 1.12 1.12 0 010 1.571l-8.047 8.047h26.554A1.106 1.106 0 0132 11.737c0 .619-.492 1.127-1.111 1.127H4.335l8.047 8.032c.429.444.429 1.159 0 1.587a1.112 1.112 0 01-1.587 0L.843 12.531a1.093 1.093 0 010-1.571l9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>
+  //                   </button>`,
+  //       nextArrow: `<button type="button" class="slick-next first-arrow">
+  //                     <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M21.205 1.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 11.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>
+  //                   </button>`,
+  //       responsive: [
+  //         {
+  //           breakpoint: 1023,
+  //           settings: {
+  //             slidesToShow: 2
+  //           }
+  //         },
+  //         {
+  //           breakpoint: 767,
+  //           settings: {
+  //             slidesToShow: 1
+  //           }
+  //         }
+  //       ]
+  //     });
+  //   }
+  // });
+  //
+  // $('.prod-slider').each(function() {
+  //   if ($(this).children().length > 4 && $(window).width() > 1250) {
+  //     $(this).slick({
+  //       slidesToShow: 4,
+  //       slidesToScroll: 1,
+  //       infinite: false,
+  //       prevArrow: `<button type="button" class="slick-prev first-arrow">
+  //                   <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M10.795 1.007a1.112 1.112 0 011.587 0 1.12 1.12 0 010 1.571l-8.047 8.047h26.554A1.106 1.106 0 0132 11.737c0 .619-.492 1.127-1.111 1.127H4.335l8.047 8.032c.429.444.429 1.159 0 1.587a1.112 1.112 0 01-1.587 0L.843 12.531a1.093 1.093 0 010-1.571l9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>
+  //                   </button>`,
+  //       nextArrow: `<button type="button" class="slick-next first-arrow">
+  //                     <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M21.205 1.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 11.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>
+  //                   </button>`,
+  //       responsive: [
+  //         {
+  //           breakpoint: 1430,
+  //           settings: {
+  //             slidesToShow: 3
+  //           }
+  //         },
+  //         {
+  //           breakpoint: 767,
+  //           settings: {
+  //             slidesToShow: 1
+  //           }
+  //         }
+  //       ]
+  //     });
+  //   } else if ($(window).width() < 1400) {
+  //     $(this).slick({
+  //       slidesToShow: 3,
+  //       slidesToScroll: 1,
+  //       infinite: false,
+  //       prevArrow: `<button type="button" class="slick-prev first-arrow">
+  //                   <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M10.795 1.007a1.112 1.112 0 011.587 0 1.12 1.12 0 010 1.571l-8.047 8.047h26.554A1.106 1.106 0 0132 11.737c0 .619-.492 1.127-1.111 1.127H4.335l8.047 8.032c.429.444.429 1.159 0 1.587a1.112 1.112 0 01-1.587 0L.843 12.531a1.093 1.093 0 010-1.571l9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>
+  //                   </button>`,
+  //       nextArrow: `<button type="button" class="slick-next first-arrow">
+  //                     <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M21.205 1.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 11.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>
+  //                   </button>`,
+  //       responsive: [
+  //         {
+  //           breakpoint: 1023,
+  //           settings: {
+  //             slidesToShow: 2
+  //           }
+  //         },
+  //         {
+  //           breakpoint: 767,
+  //           settings: {
+  //             slidesToShow: 1
+  //           }
+  //         }
+  //       ]
+  //     });
+  //   }
+  // });
 
-  $('.prod-slider').each(function () {
-    if ($(this).children().length > 4 && $(window).width() > 1250) {
-      $(this).slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        infinite: false,
-        prevArrow: '<button type="button" class="slick-prev first-arrow">\n                    <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M10.795 1.007a1.112 1.112 0 011.587 0 1.12 1.12 0 010 1.571l-8.047 8.047h26.554A1.106 1.106 0 0132 11.737c0 .619-.492 1.127-1.111 1.127H4.335l8.047 8.032c.429.444.429 1.159 0 1.587a1.112 1.112 0 01-1.587 0L.843 12.531a1.093 1.093 0 010-1.571l9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>\n                    </button>',
-        nextArrow: '<button type="button" class="slick-next first-arrow">\n                      <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M21.205 1.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 11.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>\n                    </button>',
-        responsive: [{
-          breakpoint: 1430,
-          settings: {
-            slidesToShow: 3
-          }
-        }, {
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 1
-          }
-        }]
-      });
-    } else if ($(window).width() < 1400) {
-      $(this).slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: false,
-        prevArrow: '<button type="button" class="slick-prev first-arrow">\n                    <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M10.795 1.007a1.112 1.112 0 011.587 0 1.12 1.12 0 010 1.571l-8.047 8.047h26.554A1.106 1.106 0 0132 11.737c0 .619-.492 1.127-1.111 1.127H4.335l8.047 8.032c.429.444.429 1.159 0 1.587a1.112 1.112 0 01-1.587 0L.843 12.531a1.093 1.093 0 010-1.571l9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>\n                    </button>',
-        nextArrow: '<button type="button" class="slick-next first-arrow">\n                      <svg width="32" height="23" xmlns="http://www.w3.org/2000/svg"><path d="M21.205 1.007a1.112 1.112 0 00-1.587 0 1.12 1.12 0 000 1.571l8.047 8.047H1.111A1.106 1.106 0 000 11.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 001.587 0l9.952-9.952a1.093 1.093 0 000-1.571l-9.952-9.953z" fill="#1E201D" fill-rule="nonzero" opacity=".3"/></svg>\n                    </button>',
-        responsive: [{
-          breakpoint: 1023,
-          settings: {
-            slidesToShow: 2
-          }
-        }, {
-          breakpoint: 767,
-          settings: {
-            slidesToShow: 1
-          }
-        }]
-      });
-    }
-  });
 };
 
 /***/ }),
@@ -37550,7 +37579,6 @@ jQuery(function () {
 	initOpenClose();
 });
 
-// open-close init
 function initOpenClose() {
 	jQuery(".last-steps__notes li").openClose({
 		hideOnClickOutside: true,
@@ -37562,9 +37590,6 @@ function initOpenClose() {
 	});
 }
 
-/*
- * jQuery Open/Close plugin
- */
 ;(function ($) {
 	function OpenClose(options) {
 		this.options = $.extend({
@@ -37751,9 +37776,6 @@ __webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Самоинициализирующийся модуль (не зависит от DOMContentLoaded-обработчика
-// в index.js, который делает ранний return при отсутствии .areas-map).
-
 function initHeroSlider() {
   var $slider = (0, _jquery2.default)('.hero-slider');
   if (!$slider.length || $slider.hasClass('slick-initialized')) return;
@@ -37851,9 +37873,6 @@ var _select = __webpack_require__(152);
 var _select2 = _interopRequireDefault(_select);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// Кастомный селект из сборщика на .js-pack-select.
-// Самоинит (не зависит от раннего return в главном DOMContentLoaded-обработчике).
 
 function initCustomSelect() {
   if (!document.querySelector('.js-pack-select')) return;
@@ -38597,17 +38616,6 @@ if (document.readyState === 'loading') {
 "use strict";
 
 
-/**
- * product.js — картка товару (product-eco.html):
- *  1) галерея: мініатюри перемикають велике фото;
- *  2) опції (колір/розмір) — кастомні кнопки, які синхронять нативні
- *     <select name="option[...]"> для OpenCart;
- *  3) одиниця підбору (пак/ящик) — перемикає набір оптових рівнів;
- *  4) степер кількості + автоматичний вибір оптового рівня і перерахунок суми;
- *  5) таби опису.
- * Самоініціалізація: головний DOMContentLoaded в index.js робить ранній
- * return на сторінках без .areas-map. Без розмітки .js-product — no-op.
- */
 (function () {
   'use strict';
 
@@ -38681,7 +38689,6 @@ if (document.readyState === 'loading') {
     });
   }
 
-  /* ---------- 3–4. одиниця, рівні цін, степер, сума ---------- */
   function initPricing(root) {
     var qtyInput = root.querySelector('.js-qty');
     var tiersBox = root.querySelector('.js-tiers');
@@ -38725,7 +38732,6 @@ if (document.readyState === 'loading') {
       var btn = activeUnitButton();
       state.pieces = btn ? parseInt(btn.getAttribute('data-pieces'), 10) || 1 : 1;
 
-      // показуємо тільки рівні поточної одиниці, активним робимо найбільший підходящий
       var mine = [];
       tiers.forEach(function (t) {
         var own = t.getAttribute('data-unit') === state.unit;
@@ -38784,7 +38790,6 @@ if (document.readyState === 'loading') {
       render();
     });
 
-    // клік по рівню — підставляємо мінімальну кількість цього рівня
     tiers.forEach(function (t) {
       t.addEventListener('click', function () {
         if (t.classList.contains('is-hidden')) return;
@@ -38796,7 +38801,6 @@ if (document.readyState === 'loading') {
     render();
   }
 
-  /* ---------- 5. таби ---------- */
   function initTabs() {
     var boxes = [].slice.call(document.querySelectorAll('.js-ptabs'));
 
@@ -38820,7 +38824,6 @@ if (document.readyState === 'loading') {
         });
       });
 
-      // посилання «12 відгуків» відкриває відповідний таб
       [].slice.call(document.querySelectorAll('a[href="#reviews"]')).forEach(function (link) {
         link.addEventListener('click', function (e) {
           e.preventDefault();
@@ -38839,6 +38842,490 @@ if (document.readyState === 'loading') {
       initPricing(root);
     }
     initTabs();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * gallery.js — галерея (gallery-eco.html):
+ *  1) фільтр за категоріями (чипи);
+ *  2) «Показати ще» — видно по N фото (data-step), лічильник залишку;
+ *  3) лайтбокс: гортання в межах поточного фільтра, клавіші ← → Esc,
+ *     свайп на телефоні, лічильник «3 / 14», фокус повертається на плитку.
+ * Без JS плитки — звичайні посилання на фото, тож галерея все одно працює.
+ * Самоініціалізація: головний DOMContentLoaded в index.js робить ранній
+ * return на сторінках без .areas-map. Без розмітки .js-gal — no-op.
+ */
+(function () {
+  'use strict';
+
+  function init() {
+    var grid = document.querySelector('.js-gal');
+    if (!grid) return;
+
+    var items = [].slice.call(grid.querySelectorAll('.gal-item'));
+    var chips = [].slice.call(document.querySelectorAll('.js-gal-filters [data-cat]'));
+    var moreBtn = grid.querySelector('.js-gal-more');
+    var step = parseInt(grid.getAttribute('data-step'), 10) || 16;
+
+    var state = { cat: 'all', limit: step };
+
+    function matching() {
+      return items.filter(function (it) {
+        return state.cat === 'all' || it.getAttribute('data-cat') === state.cat;
+      });
+    }
+
+    function render() {
+      var list = matching();
+      items.forEach(function (it) {
+        it.hidden = true;it.classList.remove('is-shown');
+      });
+      list.forEach(function (it, i) {
+        if (i < state.limit) {
+          it.hidden = false;
+          // невелика затримка, щоб плитки з'являлись хвилею
+          it.style.animationDelay = Math.max(0, i - (state.limit - step)) * 35 + 'ms';
+          it.classList.add('is-shown');
+        }
+      });
+
+      var rest = list.length - state.limit;
+      if (moreBtn) {
+        moreBtn.parentNode.hidden = rest <= 0;
+        moreBtn.textContent = 'Показати ще' + (rest > 0 ? ' (' + rest + ')' : '');
+      }
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        state.cat = chip.getAttribute('data-cat');
+        state.limit = step;
+        chips.forEach(function (c) {
+          var on = c === chip;
+          c.classList.toggle('is-active', on);
+          c.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        render();
+      });
+    });
+
+    if (moreBtn) {
+      moreBtn.addEventListener('click', function () {
+        state.limit += step;
+        render();
+      });
+    }
+
+    /* ---------------- лайтбокс ---------------- */
+    var lb = document.querySelector('.js-gal-lb');
+    if (lb) {
+      var lbImg = lb.querySelector('.gal-lb__img');
+      var lbCap = lb.querySelector('.gal-lb__cap');
+      var lbCount = lb.querySelector('.gal-lb__count');
+      var lbClose = lb.querySelector('.gal-lb__close');
+      var current = [];
+      var index = 0;
+      var opener = null;
+
+      var show = function show(i) {
+        if (!current.length) return;
+        index = (i + current.length) % current.length;
+        var it = current[index];
+        lbImg.src = it.getAttribute('href');
+        lbImg.alt = it.getAttribute('data-caption') || '';
+        lbCap.textContent = it.getAttribute('data-caption') || '';
+        lbCount.textContent = index + 1 + ' / ' + current.length;
+
+        // підвантажуємо сусідні, щоб гортання було миттєвим
+        [index - 1, index + 1].forEach(function (n) {
+          var nb = current[(n + current.length) % current.length];
+          if (nb) {
+            var pre = new Image();pre.src = nb.getAttribute('href');
+          }
+        });
+      };
+
+      var open = function open(it) {
+        current = matching();
+        opener = it;
+        lb.hidden = false;
+        document.documentElement.classList.add('gal-lock');
+        show(current.indexOf(it));
+        if (lbClose) lbClose.focus();
+      };
+
+      var close = function close() {
+        lb.hidden = true;
+        document.documentElement.classList.remove('gal-lock');
+        lbImg.src = '';
+        if (opener) opener.focus();
+      };
+
+      items.forEach(function (it) {
+        it.addEventListener('click', function (e) {
+          // ctrl/cmd-клік — лишаємо браузеру (відкрити фото в новій вкладці)
+          if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+          e.preventDefault();
+          open(it);
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        var t = e.target;
+        if (t.closest('[data-lb-close]')) close();else if (t.closest('[data-lb-prev]')) show(index - 1);else if (t.closest('[data-lb-next]')) show(index + 1);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (lb.hidden) return;
+        if (e.key === 'Escape') close();else if (e.key === 'ArrowLeft') show(index - 1);else if (e.key === 'ArrowRight') show(index + 1);
+      });
+
+      // свайп
+      var startX = null;
+      lb.addEventListener('touchstart', function (e) {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+      lb.addEventListener('touchend', function (e) {
+        if (startX === null) return;
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+        startX = null;
+      });
+    }
+
+    render();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+/***/ }),
+/* 159 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * shop.js — кошик (cart-eco.html) та оформлення (checkout-eco.html).
+ *
+ * Кошик: степер/поле кількості → оптовий рівень ціни (data-tiers="мін:ціна,…"),
+ *        сума рядка, підказка «ще N — і ціна нижча», підсумок, видалення рядка,
+ *        порожній стан. На живому OpenCart це замінить відповідь checkout/cart/edit,
+ *        тут — лише демо-перерахунок у браузері.
+ * Оформлення: вкладки «новий / вже купував», тип покупця (показ полів юрособи),
+ *        спосіб доставки → потрібна панель + вартість у підсумку, післяплата
+ *        лише з Новою Поштою, згода вмикає кнопку, перевірка полів.
+ * Самоініціалізація: головний DOMContentLoaded в index.js робить ранній
+ * return на сторінках без .areas-map.
+ */
+(function () {
+  'use strict';
+
+  function money(v) {
+    var s = (Math.round(v * 100) / 100).toFixed(2).split('.');
+    return s[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ',' + s[1];
+  }
+
+  // 1 товар, 2 товари, 5 товарів (11–14 — «товарів»)
+  function plural(n) {
+    var m10 = n % 10,
+        m100 = n % 100;
+    if (m10 === 1 && m100 !== 11) return n + ' товар';
+    if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return n + ' товари';
+    return n + ' товарів';
+  }
+
+  /* ======================= КОШИК ======================= */
+  function initCart() {
+    var root = document.querySelector('.js-cart');
+    if (!root) return;
+
+    var subEl = root.querySelector('.js-subtotal');
+    var grandEl = root.querySelector('.js-grand');
+    var countEl = document.querySelector('.js-cart-count');
+    var headerCount = document.querySelector('.header__cart-count');
+
+    function tiersOf(row) {
+      return (row.getAttribute('data-tiers') || '').split(',').map(function (p) {
+        var a = p.split(':');
+        return { min: parseInt(a[0], 10), price: parseFloat(a[1]) };
+      }).filter(function (t) {
+        return !isNaN(t.min) && !isNaN(t.price);
+      }).sort(function (a, b) {
+        return a.min - b.min;
+      });
+    }
+
+    function qtyOf(row) {
+      var input = row.querySelector('.js-row-qty');
+      var n = parseInt(input.value, 10);
+      if (isNaN(n) || n < 1) n = 1;
+      return n;
+    }
+
+    function updateRow(row) {
+      var tiers = tiersOf(row);
+      var unit = row.getAttribute('data-unit') || 'шт';
+      var q = qtyOf(row);
+      var cur = tiers[0],
+          next = null;
+      tiers.forEach(function (t) {
+        if (q >= t.min) cur = t;
+      });
+      tiers.forEach(function (t) {
+        if (!next && t.min > q) next = t;
+      });
+
+      // ціна за одиницю стоїть і в колонці, і під назвою (на вужчих екранах)
+      [].slice.call(row.querySelectorAll('.js-row-price')).forEach(function (el) {
+        el.textContent = money(cur.price);
+      });
+      row.querySelector('.js-row-sum').textContent = money(cur.price * q);
+
+      var hint = row.querySelector('.js-row-tier');
+      if (hint) {
+        if (next) {
+          hint.textContent = 'Ще ' + (next.min - q) + ' ' + unit + '. — і ціна ' + money(next.price) + ' ₴/' + unit;
+          hint.className = 'sh-row__tier js-row-tier is-next';
+        } else if (cur.min > 1) {
+          hint.textContent = 'Діє оптова ціна від ' + cur.min + ' ' + unit + '.';
+          hint.className = 'sh-row__tier js-row-tier is-on';
+        } else {
+          hint.textContent = '';
+          hint.className = 'sh-row__tier js-row-tier';
+        }
+      }
+      return cur.price * q;
+    }
+
+    function updateAll() {
+      var rows = [].slice.call(root.querySelectorAll('.js-cart-row'));
+      var total = 0;
+      rows.forEach(function (r) {
+        total += updateRow(r);
+      });
+      if (subEl) subEl.textContent = money(total);
+      if (grandEl) grandEl.textContent = money(total);
+      if (countEl) countEl.textContent = plural(rows.length);
+      if (headerCount) headerCount.textContent = rows.length;
+
+      var empty = rows.length === 0;
+      var form = root.querySelector('.sh-cart');
+      var next = root.querySelector('.js-cart-next');
+      var side = root.querySelector('.sh-side');
+      var emptyBox = root.querySelector('.js-cart-empty');
+      if (form) form.hidden = empty;
+      if (next) next.hidden = empty;
+      if (side) side.hidden = empty;
+      if (emptyBox) emptyBox.hidden = !empty;
+      root.classList.toggle('is-empty', empty);
+    }
+
+    root.addEventListener('click', function (e) {
+      var step = e.target.closest('.js-row-step');
+      if (step) {
+        var row = step.closest('.js-cart-row');
+        var input = row.querySelector('.js-row-qty');
+        input.value = Math.max(1, qtyOf(row) + (parseInt(step.getAttribute('data-step'), 10) || 0));
+        updateAll();
+        return;
+      }
+      var del = e.target.closest('.js-row-del');
+      if (del) {
+        var r = del.closest('.js-cart-row');
+        r.classList.add('is-removing');
+        // даємо відіграти анімацію зникнення; на OpenCart тут cart.remove(id)
+        setTimeout(function () {
+          if (r.parentNode) r.parentNode.removeChild(r);
+          updateAll();
+        }, 260);
+      }
+    });
+
+    root.addEventListener('input', function (e) {
+      if (e.target.classList.contains('js-row-qty')) updateAll();
+    });
+    root.addEventListener('change', function (e) {
+      if (e.target.classList.contains('js-row-qty')) {
+        var row = e.target.closest('.js-cart-row');
+        e.target.value = qtyOf(row);
+        updateAll();
+      }
+    });
+
+    updateAll();
+  }
+
+  /* ======================= ОФОРМЛЕННЯ ======================= */
+  function initCheckout() {
+    var form = document.querySelector('.js-checkout');
+    if (!form) return;
+
+    /* --- вкладки «новий / вже купував» --- */
+    var tabBtns = [].slice.call(form.querySelectorAll('.js-co-tabs [data-tab]'));
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var key = btn.getAttribute('data-tab');
+        tabBtns.forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        [].slice.call(form.querySelectorAll('.sh-pane')).forEach(function (p) {
+          p.classList.toggle('is-active', p.getAttribute('data-pane') === key);
+        });
+      });
+    });
+
+    /* --- тип покупця --- */
+    function syncCustomer() {
+      var legal = (form.querySelector('[name="customer_type"]:checked') || {}).value === 'legal';
+      [].slice.call(form.querySelectorAll('.js-legal')).forEach(function (f) {
+        f.hidden = !legal;
+      });
+    }
+    [].slice.call(form.querySelectorAll('[name="customer_type"]')).forEach(function (r) {
+      r.addEventListener('change', syncCustomer);
+    });
+
+    /* --- доставка + оплата + підсумок --- */
+    var subEl = form.querySelector('.js-co-sub');
+    var shipEl = form.querySelector('.js-co-ship');
+    var grandEl = form.querySelector('.js-co-grand');
+    var codOpt = form.querySelector('.js-cod');
+    var codInput = codOpt ? codOpt.querySelector('input') : null;
+    var codDesc = form.querySelector('.js-cod-desc');
+    var codDescText = codDesc ? codDesc.textContent : '';
+
+    function syncShipping() {
+      var sel = form.querySelector('[name="shipping_method"]:checked');
+      if (!sel) return;
+      var key = sel.value;
+      [].slice.call(form.querySelectorAll('[data-ship-panel]')).forEach(function (p) {
+        p.classList.toggle('is-active', p.getAttribute('data-ship-panel') === key);
+      });
+
+      var cost = parseFloat(sel.getAttribute('data-cost')) || 0;
+      var label = sel.getAttribute('data-cost-label');
+      var sub = parseFloat(subEl.getAttribute('data-value')) || 0;
+      shipEl.textContent = label ? label : money(cost) + ' ₴';
+      grandEl.textContent = money(sub + cost);
+
+      // післяплата можлива лише через Нову Пошту
+      var np = sel.hasAttribute('data-np');
+      if (codInput) {
+        codInput.disabled = !np;
+        codOpt.classList.toggle('is-disabled', !np);
+        if (codDesc) codDesc.textContent = np ? codDescText : 'Доступна лише з доставкою Новою Поштою';
+        if (!np && codInput.checked) {
+          codInput.checked = false;
+          var first = form.querySelector('[name="payment_method"]:not(:disabled)');
+          if (first) first.checked = true;
+        }
+      }
+    }
+    [].slice.call(form.querySelectorAll('[name="shipping_method"]')).forEach(function (r) {
+      r.addEventListener('change', syncShipping);
+    });
+
+    /* --- згода --- */
+    var agree = form.querySelector('.js-agree');
+    var submit = form.querySelector('.js-co-submit');
+    function syncAgree() {
+      submit.disabled = !agree.checked;
+    }
+    agree.addEventListener('change', syncAgree);
+
+    /* --- перевірка --- */
+    // поле обов'язкове, якщо має required або data-req і воно зараз видиме
+    function isShown(el) {
+      var node = el;
+      while (node && node !== form) {
+        if (node.hidden) return false;
+        if (node.classList && (node.classList.contains('sh-pane') || node.classList.contains('sh-ship-panel')) && !node.classList.contains('is-active')) return false;
+        node = node.parentNode;
+      }
+      return true;
+    }
+
+    function fieldValid(el) {
+      if (!isShown(el)) return true;
+      var needed = el.required || el.hasAttribute('data-req');
+      var v = (el.value || '').trim();
+      if (needed && !v) return false;
+      if (v && el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return false;
+      var pat = el.getAttribute('pattern');
+      if (v && pat && !new RegExp(pat).test(v)) return false;
+      return true;
+    }
+
+    function mark(el) {
+      var ok = fieldValid(el);
+      var box = el.closest('.sh-field');
+      if (box) box.classList.toggle('is-error', !ok);
+      return ok;
+    }
+
+    form.addEventListener('blur', function (e) {
+      if (e.target.matches && e.target.matches('.sh-input')) mark(e.target);
+    }, true);
+    form.addEventListener('input', function (e) {
+      var box = e.target.closest && e.target.closest('.sh-field.is-error');
+      if (box) mark(e.target);
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var fields = [].slice.call(form.querySelectorAll('.sh-input'));
+      var firstBad = null;
+      fields.forEach(function (f) {
+        if (!mark(f) && !firstBad) firstBad = f;
+      });
+      if (firstBad) {
+        firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstBad.focus({ preventScroll: true });
+        return;
+      }
+
+      // демо: на OpenCart тут відправка на checkout/confirm → checkout/success
+      var success = document.querySelector('.js-co-success');
+      var num = document.querySelector('.js-co-num');
+      if (num) num.textContent = '№' + (10000 + Math.floor(Math.random() * 89999));
+      form.hidden = true;
+      success.hidden = false;
+      [].slice.call(document.querySelectorAll('.sh-steps__item')).forEach(function (s, i) {
+        s.classList.toggle('is-done', i < 2);
+        s.classList.toggle('is-current', i === 2);
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    syncCustomer();
+    syncShipping();
+    syncAgree();
+  }
+
+  function init() {
+    initCart();
+    initCheckout();
   }
 
   if (document.readyState === 'loading') {
